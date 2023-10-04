@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主題課程:網頁設計回饋表單</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ecf0f3;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        main {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 600px;
+            margin: 3em auto;
+            padding: 2em;
+            background-color: #ecf0f3;
+            box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        main>* {
+            z-index: 2;
+            position: relative;
+            color: #6b6f70;
+        }
+
+        .circle {
+            border-radius: 50%;
+            background-color: #ecf0f3;
+            box-shadow: inset 8px 8px 12px #d1d9e6, inset -8px -8px 12px #f9f9f9;
+            bottom: -60%;
+            position: absolute;
+            right: 3em;
+            top: -170px;
+            width: 300px;
+            height: 300px;
+            z-index: 1;
+        }
+
+        .c2 {
+            width: 500px;
+            height: 500px;
+            top: calc(100% - 200px);
+            right: -2em;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: 700;
+            margin: .5em 0;
+            color: #181818;
+        }
+
+        p {
+            color: #808689;
+            line-height: 1.6;
+            margin-top: 1rem;
+            ;
+        }
+
+        input[type="text"],
+        input[type="email"],input[type="number"] {
+            width: 350px;
+            height: 40px;
+            margin: 4px 0;
+            padding-left: 25px;
+            font-size: 13px;
+            letter-spacing: 0.15px;
+            border: none;
+            outline: transparent;
+            background-color: #ecf0f3;
+            transition: 0.25s ease;
+            border-radius: 8px;
+            box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
+        }
+
+        input:hover {
+            background-color: hsl(206, 23%, 93%);
+            box-shadow: inset 2px 2px 4px hsl(217, 30%, 85%), inset -2px -2px 4px hsl(0, 0%, 97%);
+        }
+
+        label {
+            display: block;
+            margin-top: 2em;
+        }
+
+        svg {
+            margin: 0 .3em;
+        }
+
+        .dis {
+            background-color: #c0e9ff;
+            color: #3f3f3f;
+            margin: 2em .1em;
+            padding: 1em 4em 1em 1em;
+            border-radius: 1em;
+        }
+
+        button {
+            padding: 1em 3em;
+            border-radius: 25px;
+            margin: 2em;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1.15px;
+            background-color: #4B70E2;
+            color: #f9f9f9;
+            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
+            border: none;
+            outline: none;
+            display: block;
+        }
+
+        button:hover {
+            background-color: #3f5be2;
+        }
+
+        button:active {
+            background-color: #2e4ad2;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="sending">
+        <div class="circle"></div>
+        <div class="circle c2"></div>
+        <h1>中電會10月主題課程: 網頁設計回饋表單</h1>
+        <p>請填寫以下表單，以便我們為您提供更好的課程體驗！
+        </p>
+        <div class="dis">記得在期限內繳交課堂作業喔w</div>
+
+        <label for="name">姓名</label>
+        <input class="form__input" type="text" placeholder="如: 張三" id="name">
+        <label for="classNo">您覺得本次課程的難易度為 (1~5)</label>
+        <input class="form__input" type="number" placeholder="1:非常簡單 5:非常困難" id="hard">
+        <label for="wish">是否可以聽懂本次的課程 (1~5)</label>
+        <input class="form__input" type="number" placeholder="1:完全聽不懂 5:完全可以聽懂" id="get">
+        <label for="wish">是否與意想中的內容一致？ (1~5)</label>
+        <input class="form__input" type="number" placeholder="1:完全不同 5:完全相同" id="same">
+        <label for="wish">今日課程學到了什麼？</label>
+        <input class="form__input" type="text" placeholder="我學到了很多(X" id="learn">
+        <label for="wish">有什麼想跟講師講的</label>
+        <input class="form__input" type="text" placeholder="" id="comment">
+        <button onclick="submit()" id="submit">提交</button>
+    </main>
+    <script>
+        const submit = () => {
+            event.preventDefault();
+            var submit = document.getElementById("submit");
+            submit.disabled = true;
+            submit.innerHTML = "傳送中...深呼吸...";
+            submit.style.backgroundColor = "#4B70E2";
+            const name = document.getElementById("name").value;
+            const classNo = document.getElementById("hard").value;
+            const wish = document.getElementById("get").value;
+            const same = document.getElementById("same").value;
+            const learn = document.getElementById("learn").value;
+            const comment = document.getElementById("comment").value;
+            const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=SCAICT-web-design-feedback&data=["${name}",${classNo},${wish},${same},"${learn}","${comment}"]`;
+            fetch(url)
+                .then(function (response) {
+                    submit.innerHTML = "收到啦！";
+                    submit.style.backgroundColor = "#5be23f";
+                    submit.disabled = false;
+                })
+                .catch(function (error) {
+                    submit.innerHTML = "我沒有get到，請再試一次";
+                    submit.disabled = false;
+                });
+
+
+        }
+
+    </script>
+</body>
+
+</html>
