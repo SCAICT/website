@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
+    </style>
+</head>
+
+<body>
+    中電會10月主題課程: 網頁設計 <br>
+    10月6日晚上8:00開始
+    <div id="countdown"></div>
+    <script>
+
+        // 目標日期和時間：2023年10月6日晚上8:00
+        const targetDate = new Date("2023-10-06T20:00:00");
+
+        function updateCountdown() {
+            const currentDate = new Date();
+            const timeDifference = targetDate - currentDate;
+
+            if (timeDifference <= 0) {
+                // 如果目標時間已經過去，顯示相應的消息
+                document.getElementById("countdown").innerHTML = "已經過去了！";
+            } else {
+                // 計算剩餘的小時、分鐘和秒
+                const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                // 更新倒數計時顯示
+                document.getElementById("countdown").innerHTML = `還有 ${hours} 小時 ${minutes} 分鐘 ${seconds} 秒`;
+            }
+        }
+
+        // 每秒更新一次倒數計時
+        setInterval(updateCountdown, 1000);
+        updateCountdown()
+    </script>
+</body>
+
+</html>
