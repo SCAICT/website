@@ -30,15 +30,15 @@
 </head>
 <body>
     <div class="timer">
-        <div>1</div>
-        <div>0</div>
+        <div></div>
+        <div></div>
         <div>:</div>
-        <div>0</div>
-        <div>0</div>
+        <div></div>
+        <div></div>
     </div>
     <script>
-         // Timer logic remains the same
-         var countdown = 620; // 10 minutes in seconds
+        const urlParams = new URLSearchParams(window.location.search);
+var countdown = urlParams.get('t') ? parseInt(urlParams.get('t')) : 600;
 
 function startTimer() {
     var timerDisplay = document.querySelector(".timer");
