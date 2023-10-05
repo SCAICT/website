@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-Minute Timer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Aldrich', sans-serif;
+            text-align: center;
+            font-size: 10rem;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .timer div {
+            margin: 0;
+            width: .8em;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <div>1</div>
+        <div>0</div>
+        <div>:</div>
+        <div>0</div>
+        <div>0</div>
+    </div>
+    <script>
+         // Timer logic remains the same
+         var countdown = 620; // 10 minutes in seconds
+
+function startTimer() {
+    var timerDisplay = document.querySelector(".timer");
+
+    var timer = setInterval(function() {
+        var minutes = Math.floor(countdown / 60);
+        var seconds = countdown % 60;
+
+        // Add leading zeros if needed
+        var minutesStr = minutes < 10 ? "0" + minutes : minutes.toString();
+        var secondsStr = seconds < 10 ? "0" + seconds : seconds.toString();
+
+        // Update the individual div elements
+        timerDisplay.children[0].textContent = minutesStr[0];
+        timerDisplay.children[1].textContent = minutesStr[1];
+        timerDisplay.children[3].textContent = secondsStr[0];
+        timerDisplay.children[4].textContent = secondsStr[1];
+
+        if (countdown === 0) {
+            clearInterval(timer);
+        } else {
+            countdown--;
+        }
+    }, 1000);
+}
+
+startTimer();
+    </script>
+</body>
+</html>
