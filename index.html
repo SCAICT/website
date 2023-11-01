@@ -1,228 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中部電資聯合會議- SCAICT</title>
-    <style>
-        body {
-            overflow: hidden;
-            background: #fff;
-        }
-
-        h1 {
-            position: absolute;
-            top: calc(50% + 25vmin);
-            left: 50%;
-            font-size: 1.5rem;
-            transform: translate(-50%, -50%);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .margin div {
-            position: fixed;
-            width: 2px;
-            height: 100vh;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            /* background: #000; */
-        }
-
-        @media screen and (orientation: landscape) {
-            .margin div:nth-child(1) {
-                left: calc(50vmax - 50vmin);
-            }
-
-            .margin div:nth-child(2) {
-                left: calc(50vmax + 50vmin);
-            }
-        }
-
-        @media screen and (orientation: portrait) {
-            .margin div {
-                position: fixed;
-                width: 100vw;
-                height: 2px;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: #fff;
-            }
-
-            .margin div:nth-child(1) {
-                top: calc(50vmax - 50vmin);
-            }
-
-            .margin div:nth-child(2) {
-                top: calc(50vmax + 50vmin);
-            }
-        }
-
-        .base {
-            width: 50vmin;
-            height: 50vmin;
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-
-            transform: translate(-50%, -50%);
-        }
-
-        .emoji-cont {
-            width: 25%;
-            height: 25%;
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: bounce 750ms infinite;
-        }
-
-        .emoji {
-            position: absolute;
-            transform: translate(-50%, -50%);
-
-            top: 50%;
-            left: 50%;
-
-        }
-
-        .emoji::after {
-            font-size: 12.5vmin;
-            content: '😮';
-
-            position: absolute;
-            top: 0;
-            left: 0;
-
-
-            animation: rotate-emoji 750ms linear infinite, change-emoji 6s -375ms linear infinite;
-        }
-
-        .shadow {
-            width: 25%;
-            height: 5px;
-            background: #263238;
-
-            transform: translate(-50%, -50%);
-
-            position: absolute;
-            top: 85%;
-            left: 50%;
-
-            animation: shadow-bounce 750ms linear infinite;
-        }
-
-        @keyframes change-emoji {
-            0% {
-                content: '⚡️';
-            }
-
-            12.5% {
-                content: '🀄️';
-            }
-
-            25% {
-                content: '👨‍💻';
-            }
-
-            37.5% {
-                content: '🚧';
-            }
-
-            50% {
-                content: '⚡️';
-            }
-
-            62.5% {
-                content: '🀄️';
-            }
-
-            75% {
-                content: '👨‍💻';
-            }
-
-            87.5% {
-                content: '🚧';
-            }
-
-            100% {
-                content: '😎';
-            }
-        }
-
-        @keyframes rotate-emoji {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-
-        @keyframes bounce {
-            0% {
-                transform: translate(-50%, 50%) scale(1.25, 0.75);
-                animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-            }
-
-            50% {
-                transform: translate(-50%, -150%) scale(1, 1);
-                animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
-            }
-
-            100% {
-                transform: translate(-50%, 50%) scale(1.25, 0.75);
-            }
-        }
-
-        @keyframes shadow-bounce {
-            0% {
-                opacity: 0.25;
-                transform: translate(-50%, -50%) scaleX(1.5);
-                animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scaleX(0.75);
-                animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
-            }
-
-            100% {
-                opacity: 0.25;
-                transform: translate(-50%, -50%) scaleX(1.5);
-            }
-        }
-    </style>
+    <title>SCAICT 中部電資聯合會議</title>
+    <meta name="theme-color" content="#2f4154" />
+    <meta name="description"
+        content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對0基礎的主題式教育" />
+    <meta name="author" content="毛哥EM" />
+    <meta name="keywords" content="中部電資聯合會議, 中電會, SCAICT" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SCAICT 中部電資聯合會議" />
+    <meta property="og:url" content="https://scaict.org" />
+    <meta property="og:site_name" content="SCAICT 中部電資聯合會議" />
+    <meta property="og:description"
+        content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對0基礎的主題式教育" />
+    <meta property="og:locale" content="zh-TW" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon-16x16.png">
+    <link rel="manifest" href="/src/img/site.webmanifest">
+    <link rel="mask-icon" href="/src/img/safari-pinned-tab.svg" color="#ca4480">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="src/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4MZSTYBW8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-F4MZSTYBW8');
+    </script>
 </head>
 
 <body>
-    <div class="margin">
-        <div>
-
-        </div>
-        <div>
-
-
-        </div>
-    </div>
-
-    <div class="base">
-        <div class="emoji-cont">
-            <div class="emoji">
-
-            </div>
-        </div>
-        <div class="shadow">
-
-        </div>
-    </div>
-    <h1>施工中，在變了!</h1>
-
+    <main>
+        <header>
+            <h1>中部高中電資社團聯合會議</h1>
+            <h2>Student Club's Association of Information in Central Taiwan</h2>
+        </header>
+        <section id=""></section>
+        <section id=""></section>
+        <section id=""></section>
+        <section id=""></section>
+        <section id=""></section>
+    </main>
+    <script src="src/main.js"></script>
 </body>
 
 </html>
