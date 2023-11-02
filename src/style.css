@@ -234,6 +234,7 @@ header>div div{
     top: calc(729vh / var(--h));
     left: calc(85vh / var(--h));
     cursor: pointer;
+    background-size: contain;
 }
 
 .switchToggle {
@@ -325,6 +326,7 @@ a.button {
     width: calc(43vh / var(--h));
     height: calc(43vh / var(--h));
     background: url(/src/img/button.svg) no-repeat center;
+    background-size: contain;
 }
 
 .About {
