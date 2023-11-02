@@ -3,6 +3,19 @@
     src: url('/src/jf-openhuninn-2.0.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/quicksand/v31/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+    --h: 8.31;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +23,345 @@
 }
 
 body {
-    font-family: "OpenHuninn", sans-serif;
+    font-family: "Quicksand", "OpenHuninn", sans-serif;
     height: 100svh;
     color: #FFF;
-    background: radial-gradient( rgba(0, 38, 239, 0.30) 0%, rgb(30, 30, 30) 100%) #000;
+    font-size: 17px;
+    background: rgb(30, 30, 30);
+    overflow: hidden; 
+    /* 暫時 */
+}
+
+h1 {
+    font-size: 4vh;
+    font-weight: 400;
+    padding: calc(42vh / var(--h));
+    padding-bottom: 0;
+}
+
+h2 {
+    font-size: 2vh;
+    font-weight: 400;
+    padding-left: calc(42vh / var(--h));
+}
+
+section {
+    min-height: 100svh;
+}
+
+header {
+    background: radial-gradient(rgba(0, 40, 239, 0.251) 0%, rgb(0, 0, 0) 100%);
+}
+
+header>div {
+    width: calc(400vh / 3);
+    height: 100svh;
+    margin: 0 auto;
+    position: relative;
+}
+
+.lcd {
+    width: calc(268vh / var(--h));
+    height: calc(107.296vh / var(--h));
+    background: url(/src/img/LCD.svg) no-repeat;
+    position: absolute;
+    top: calc(42vh / var(--h));
+    right: calc(42vh / var(--h));
+    padding: 3.5vh 3vh;
+}
+
+.lcdButton {
+    position: absolute;
+    background: url(/src/img/redButton.svg) no-repeat;
+    width: calc(42vh / var(--h));
+    height: calc(42vh / var(--h));
+    top: calc(168vh / var(--h));
+    right: calc(42vh / var(--h));
+    cursor: pointer;
+}
+
+.lcdText {
+    position: absolute;
+    top: calc(170vh / var(--h));
+    height: calc(42vh / var(--h));
+    right: calc(93.89vh / var(--h));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.ukraine {
+    position: absolute;
+    top: calc(248vh / var(--h));
+    height: calc(34vh / var(--h));
+    width: calc(34vh / var(--h));
+    right: calc(146vh / var(--h));
+    background: url(/src/img/ukraine.svg) no-repeat center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ukraine::after {
+    content: "";
+    width: calc(14vh / var(--h));
+    height: calc(14vh / var(--h));
+    background: url(/src/img/ukraineX.svg) no-repeat center;
+    cursor: pointer;
+}
+
+#ukraineBrightness,
+.ukraineText.ukraineBrightness {
+    top: calc(293vh / var(--h));
+}
+
+.ukraineText {
+    position: absolute;
+    top: calc(248vh / var(--h));
+    height: calc(34vh / var(--h));
+    left: calc(970vh / var(--h));
+    display: flex;
+    align-items: center;
+}
+
+
+.bHole {
+    position: absolute;
+    bottom: calc(166vh / var(--h));
+    right: calc(45vh / var(--h));
+    width: calc(52vh / var(--h));
+    height: calc(58vh / var(--h));
+    background: url(/src/img/bHole.svg) no-repeat center;
+}
+
+.charger {
+    position: absolute;
+    top: calc(636vh / var(--h));
+    right: calc(48vh / var(--h));
+    width: calc(208vh / var(--h));
+    height: calc(365vh / var(--h));
+    background: url(/src/img/charger.svg) no-repeat top right;
+}
+
+.chargerText {
+    position: absolute;
+    text-align: right;
+    top: calc(706vh / var(--h));
+    right: calc(110vh / var(--h));
+}
+
+.cpu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(129vh / var(--h));
+    height: calc(129vh / var(--h));
+    transform: translate(-50%, -50%);
+    background: url(/src/img/cpu.svg) no-repeat center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cpu img {
+    height: calc(43vh / var(--h));
+}
+
+.scaict {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 3vh;
+}
+
+.friend {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: calc(331vh / var(--h));
+    left: calc(79vh / var(--h));
+    width: calc(61vh / var(--h));
+    height: calc(72vh / var(--h));
+    border: calc(2vh / var(--h)) solid #FFF;
+}
+
+.friend a {
+    text-decoration: none;
+    display: block;
+    color: #FFF;
+    font-size: 1.5vh;
+}
+
+.motor {
+    position: absolute;
+    background: url(/src/img/motor.svg) no-repeat;
+    width: calc(64.985vh / var(--h));
+    height: calc(166.523vh / var(--h));
+    top: calc(528vh / var(--h));
+    left: calc(76.1vh / var(--h));
+}
+
+.spinner {
+    position: absolute;
+    background: url(/src/img/spinner.svg) center no-repeat;
+    width: calc(73.108vh / var(--h));
+    height: calc(154.338vh / var(--h));
+    top: calc(508vh / var(--h));
+    left: calc(72vh / var(--h));
+    transform-origin: center;
+    animation: rotate 3s linear infinite;
+    transition: transform 0.2s ease;
+}
+
+#motorSwitch {
+    display: none;
+}
+
+.switch {
+    position: absolute;
+    background: url(/src/img/switch.svg) no-repeat;
+    width: calc(49vh / var(--h));
+    height: calc(26vh / var(--h));
+    top: calc(729vh / var(--h));
+    left: calc(85vh / var(--h));
+    cursor: pointer;
+}
+
+.switchToggle {
+    position: absolute;
+    width: calc(12vh / var(--h));
+    height: calc(12vh / var(--h));
+    top: calc(736vh / var(--h));
+    left: calc(114vh / var(--h));
+    pointer-events: none;
+    background: #000;
+}
+
+#motorSwitch:checked~.switchToggle {
+    transform: translateX(calc(-21vh / var(--h)));
+}
+
+#motorSwitch:checked~.spinner {
+    animation: none;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinnerText {
+    position: absolute;
+    top: calc(668vh / var(--h));
+    left: calc(155vh / var(--h));
+}
+
+.switchText {
+    position: absolute;
+    top: calc(768vh / var(--h));
+    left: calc(108.247vh / var(--h));
+    transform: translateX(-50%);
+}
+
+.line {
+    position: absolute;
+    top: calc(175vh / var(--h));
+    left: calc(226vh / var(--h));
+    width: calc(62vh / var(--h));
+    height: calc(146vh / var(--h));
+    background: url(/src/img/line.svg) no-repeat;
+}
+
+.resistance {
+    position: absolute;
+    top: calc(372vh / var(--h));
+    left: calc(237vh / var(--h));
+    width: calc(31vh / var(--h));
+    height: calc(140vh / var(--h));
+    background: url(/src/img/resistance.svg) no-repeat;
+}
+
+.sca1 {
+    position: absolute;
+    top: calc(603vh / var(--h));
+    left: calc(441vh / var(--h));
+    width: calc(89vh / var(--h));
+    height: calc(185vh / var(--h));
+    background: url(/src/img/sca1.svg) no-repeat;
+}
+
+.diode {
+    position: absolute;
+    top: calc(489vh / var(--h));
+    left: calc(837vh / var(--h));
+    width: calc(75vh / var(--h));
+    height: calc(98.5vh / var(--h));
+    background: url(/src/img/diode.svg) no-repeat;
+}
+
+.chip {
+    position: absolute;
+    top: calc(361vh / var(--h));
+    left: calc(778vh / var(--h));
+    width: calc(41vh / var(--h));
+    height: calc(55vh / var(--h));
+    background: url(/src/img/chip.svg) no-repeat;
+}
+
+a.button {
+    display: block;
+    text-decoration: none;
+    position: absolute;
+    width: calc(43vh / var(--h));
+    height: calc(43vh / var(--h));
+    background: url(/src/img/button.svg) no-repeat center;
+}
+
+.About {
+    top: calc(193vh / var(--h));
+    left: calc(373vh / var(--h));
+}
+
+.Activity {
+    top: calc(235vh / var(--h));
+    left: calc(735vh / var(--h));
+}
+
+.Project {
+    top: calc(597vh / var(--h));
+    left: calc(693vh / var(--h));
+}
+
+.Social {
+    top: calc(555vh / var(--h));
+    left: calc(331vh / var(--h));
+}
+
+header h3 {
+    height: calc(43vh / var(--h));
+    display: flex;
+    align-items: flex-end;
+    font-weight: 600;
+    font-size: 1rem;
+    position: absolute;
+}
+
+h3.About{
+    left: calc(320vh / var(--h));
+}
+h3.Activity{
+    left: calc(785vh / var(--h));
+}
+h3.Project{
+    left: calc(714.5vh / var(--h));
+    top: calc(620vh / var(--h));
+    transform: translateX(-50%);
+}
+h3.Social{
+    left: calc(278vh / var(--h));
 }
