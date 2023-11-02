@@ -28,7 +28,7 @@ body {
     color: #FFF;
     font-size: 17px;
     background: rgb(30, 30, 30);
-    overflow: hidden; 
+    overflow: hidden;
     /* 暫時 */
 }
 
@@ -59,7 +59,9 @@ header>div {
     margin: 0 auto;
     position: relative;
 }
-
+header>div div{
+    background-size: contain!important;
+}
 .lcd {
     width: calc(268vh / var(--h));
     height: calc(107.296vh / var(--h));
@@ -351,17 +353,20 @@ header h3 {
     position: absolute;
 }
 
-h3.About{
+h3.About {
     left: calc(320vh / var(--h));
 }
-h3.Activity{
+
+h3.Activity {
     left: calc(785vh / var(--h));
 }
-h3.Project{
+
+h3.Project {
     left: calc(714.5vh / var(--h));
     top: calc(620vh / var(--h));
     transform: translateX(-50%);
 }
-h3.Social{
+
+h3.Social {
     left: calc(278vh / var(--h));
 }
