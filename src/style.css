@@ -29,7 +29,6 @@ body {
     font-size: 17px;
     background: rgb(30, 30, 30);
     overflow: hidden;
-    /* 暫時 */
 }
 
 h1 {
@@ -51,6 +50,10 @@ section {
 
 header {
     background: radial-gradient(rgba(0, 40, 239, 0.251) 0%, rgb(0, 0, 0) 100%);
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
 }
 
 header>div {
@@ -69,7 +72,7 @@ header>div div{
     position: absolute;
     top: calc(42vh / var(--h));
     right: calc(42vh / var(--h));
-    padding: 3.5vh 3vh;
+    padding: 3vh 2.7vh;
 }
 
 .lcdButton {
