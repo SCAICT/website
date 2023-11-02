@@ -26,22 +26,22 @@ body {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
     height: 100svh;
     color: #FFF;
-    font-size: 2.4vh;
+    font-size: 2.4svh;
     background: rgb(30, 30, 30);
     overflow: hidden;
 }
 
 h1 {
-    font-size: 4vh;
+    font-size: 4svh;
     font-weight: 400;
-    padding: calc(42vh / var(--h));
+    padding: calc(42svh / var(--h));
     padding-bottom: 0;
 }
 
 h2 {
-    font-size: 2vh;
+    font-size: 2svh;
     font-weight: 400;
-    padding-left: calc(42vh / var(--h));
+    padding-left: calc(42svh / var(--h));
 }
 
 section {
@@ -57,7 +57,7 @@ header {
 }
 
 header>div {
-    width: calc(400vh / 3);
+    width: calc(400svh / 3);
     height: 100svh;
     margin: 0 auto;
     position: relative;
@@ -66,30 +66,30 @@ header>div div{
     background-size: contain!important;
 }
 .lcd {
-    width: calc(268vh / var(--h));
-    height: calc(107.296vh / var(--h));
+    width: calc(268svh / var(--h));
+    height: calc(107.296svh / var(--h));
     background: url(/src/img/LCD.svg) no-repeat;
     position: absolute;
-    top: calc(42vh / var(--h));
-    right: calc(42vh / var(--h));
-    padding: 3vh 2.7vh;
+    top: calc(42svh / var(--h));
+    right: calc(42svh / var(--h));
+    padding: 3svh 2.7svh;
 }
 
 .lcdButton {
     position: absolute;
     background: url(/src/img/redButton.svg) no-repeat;
-    width: calc(42vh / var(--h));
-    height: calc(42vh / var(--h));
-    top: calc(168vh / var(--h));
-    right: calc(42vh / var(--h));
+    width: calc(42svh / var(--h));
+    height: calc(42svh / var(--h));
+    top: calc(168svh / var(--h));
+    right: calc(42svh / var(--h));
     cursor: pointer;
 }
 
 .lcdText {
     position: absolute;
-    top: calc(170vh / var(--h));
-    height: calc(42vh / var(--h));
-    right: calc(93.89vh / var(--h));
+    top: calc(170svh / var(--h));
+    height: calc(42svh / var(--h));
+    right: calc(93.89svh / var(--h));
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -97,10 +97,10 @@ header>div div{
 
 .ukraine {
     position: absolute;
-    top: calc(248vh / var(--h));
-    height: calc(34vh / var(--h));
-    width: calc(34vh / var(--h));
-    right: calc(146vh / var(--h));
+    top: calc(248svh / var(--h));
+    height: calc(34svh / var(--h));
+    width: calc(34svh / var(--h));
+    right: calc(146svh / var(--h));
     background: url(/src/img/ukraine.svg) no-repeat center;
     display: flex;
     align-items: center;
@@ -109,22 +109,22 @@ header>div div{
 
 .ukraine::after {
     content: "";
-    width: calc(14vh / var(--h));
-    height: calc(14vh / var(--h));
+    width: calc(14svh / var(--h));
+    height: calc(14svh / var(--h));
     background: url(/src/img/ukraineX.svg) no-repeat center;
     cursor: pointer;
 }
 
 #ukraineBrightness,
 .ukraineText.ukraineBrightness {
-    top: calc(293vh / var(--h));
+    top: calc(293svh / var(--h));
 }
 
 .ukraineText {
     position: absolute;
-    top: calc(248vh / var(--h));
-    height: calc(34vh / var(--h));
-    left: calc(970vh / var(--h));
+    top: calc(248svh / var(--h));
+    height: calc(34svh / var(--h));
+    left: calc(970svh / var(--h));
     display: flex;
     align-items: center;
 }
@@ -132,35 +132,35 @@ header>div div{
 
 .bHole {
     position: absolute;
-    bottom: calc(166vh / var(--h));
-    right: calc(45vh / var(--h));
-    width: calc(52vh / var(--h));
-    height: calc(58vh / var(--h));
+    bottom: calc(166svh / var(--h));
+    right: calc(45svh / var(--h));
+    width: calc(52svh / var(--h));
+    height: calc(58svh / var(--h));
     background: url(/src/img/bHole.svg) no-repeat center;
 }
 
 .charger {
     position: absolute;
-    top: calc(636vh / var(--h));
-    right: calc(48vh / var(--h));
-    width: calc(208vh / var(--h));
-    height: calc(365vh / var(--h));
+    top: calc(636svh / var(--h));
+    right: calc(48svh / var(--h));
+    width: calc(208svh / var(--h));
+    height: calc(365svh / var(--h));
     background: url(/src/img/charger.svg) no-repeat top right;
 }
 
 .chargerText {
     position: absolute;
     text-align: right;
-    top: calc(706vh / var(--h));
-    right: calc(110vh / var(--h));
+    top: calc(706svh / var(--h));
+    right: calc(110svh / var(--h));
 }
 
 .cpu {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(129vh / var(--h));
-    height: calc(129vh / var(--h));
+    width: calc(129svh / var(--h));
+    height: calc(129svh / var(--h));
     transform: translate(-50%, -50%);
     background: url(/src/img/cpu.svg) no-repeat center;
     display: flex;
@@ -169,7 +169,7 @@ header>div div{
 }
 
 .cpu img {
-    height: calc(43vh / var(--h));
+    height: calc(43svh / var(--h));
 }
 
 .scaict {
@@ -178,7 +178,7 @@ header>div div{
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
-    font-size: 3vh;
+    font-size: 3svh;
 }
 
 .friend {
@@ -187,36 +187,36 @@ header>div div{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: calc(331vh / var(--h));
-    left: calc(79vh / var(--h));
-    width: calc(61vh / var(--h));
-    height: calc(72vh / var(--h));
-    border: calc(2vh / var(--h)) solid #FFF;
+    top: calc(331svh / var(--h));
+    left: calc(79svh / var(--h));
+    width: calc(61svh / var(--h));
+    height: calc(72svh / var(--h));
+    border: calc(2svh / var(--h)) solid #FFF;
 }
 
 .friend a {
     text-decoration: none;
     display: block;
     color: #FFF;
-    font-size: 1.5vh;
+    font-size: 1.5svh;
 }
 
 .motor {
     position: absolute;
     background: url(/src/img/motor.svg) no-repeat;
-    width: calc(64.985vh / var(--h));
-    height: calc(166.523vh / var(--h));
-    top: calc(528vh / var(--h));
-    left: calc(76.1vh / var(--h));
+    width: calc(64.985svh / var(--h));
+    height: calc(166.523svh / var(--h));
+    top: calc(528svh / var(--h));
+    left: calc(76.1svh / var(--h));
 }
 
 .spinner {
     position: absolute;
     background: url(/src/img/spinner.svg) center no-repeat;
-    width: calc(73.108vh / var(--h));
-    height: calc(154.338vh / var(--h));
-    top: calc(508vh / var(--h));
-    left: calc(72vh / var(--h));
+    width: calc(73.108svh / var(--h));
+    height: calc(154.338svh / var(--h));
+    top: calc(508svh / var(--h));
+    left: calc(72svh / var(--h));
     transform-origin: center;
     animation: rotate 3s linear infinite;
     transition: transform 0.2s ease;
@@ -229,26 +229,26 @@ header>div div{
 .switch {
     position: absolute;
     background: url(/src/img/switch.svg) no-repeat;
-    width: calc(49vh / var(--h));
-    height: calc(26vh / var(--h));
-    top: calc(729vh / var(--h));
-    left: calc(85vh / var(--h));
+    width: calc(49svh / var(--h));
+    height: calc(26svh / var(--h));
+    top: calc(729svh / var(--h));
+    left: calc(85svh / var(--h));
     cursor: pointer;
     background-size: contain;
 }
 
 .switchToggle {
     position: absolute;
-    width: calc(12vh / var(--h));
-    height: calc(12vh / var(--h));
-    top: calc(736vh / var(--h));
-    left: calc(114vh / var(--h));
+    width: calc(12svh / var(--h));
+    height: calc(12svh / var(--h));
+    top: calc(736svh / var(--h));
+    left: calc(114svh / var(--h));
     pointer-events: none;
     background: #000;
 }
 
 #motorSwitch:checked~.switchToggle {
-    transform: translateX(calc(-21vh / var(--h)));
+    transform: translateX(calc(-21svh / var(--h)));
 }
 
 #motorSwitch:checked~.spinner {
@@ -263,59 +263,59 @@ header>div div{
 
 .spinnerText {
     position: absolute;
-    top: calc(668vh / var(--h));
-    left: calc(155vh / var(--h));
+    top: calc(668svh / var(--h));
+    left: calc(155svh / var(--h));
 }
 
 .switchText {
     position: absolute;
-    top: calc(768vh / var(--h));
-    left: calc(108.247vh / var(--h));
+    top: calc(768svh / var(--h));
+    left: calc(108.247svh / var(--h));
     transform: translateX(-50%);
 }
 
 .line {
     position: absolute;
-    top: calc(175vh / var(--h));
-    left: calc(226vh / var(--h));
-    width: calc(62vh / var(--h));
-    height: calc(146vh / var(--h));
+    top: calc(175svh / var(--h));
+    left: calc(226svh / var(--h));
+    width: calc(62svh / var(--h));
+    height: calc(146svh / var(--h));
     background: url(/src/img/line.svg) no-repeat;
 }
 
 .resistance {
     position: absolute;
-    top: calc(372vh / var(--h));
-    left: calc(237vh / var(--h));
-    width: calc(31vh / var(--h));
-    height: calc(140vh / var(--h));
+    top: calc(372svh / var(--h));
+    left: calc(237svh / var(--h));
+    width: calc(31svh / var(--h));
+    height: calc(140svh / var(--h));
     background: url(/src/img/resistance.svg) no-repeat;
 }
 
 .sca1 {
     position: absolute;
-    top: calc(603vh / var(--h));
-    left: calc(441vh / var(--h));
-    width: calc(89vh / var(--h));
-    height: calc(185vh / var(--h));
+    top: calc(603svh / var(--h));
+    left: calc(441svh / var(--h));
+    width: calc(89svh / var(--h));
+    height: calc(185svh / var(--h));
     background: url(/src/img/sca1.svg) no-repeat;
 }
 
 .diode {
     position: absolute;
-    top: calc(489vh / var(--h));
-    left: calc(837vh / var(--h));
-    width: calc(75vh / var(--h));
-    height: calc(98.5vh / var(--h));
+    top: calc(489svh / var(--h));
+    left: calc(837svh / var(--h));
+    width: calc(75svh / var(--h));
+    height: calc(98.5svh / var(--h));
     background: url(/src/img/diode.svg) no-repeat;
 }
 
 .chip {
     position: absolute;
-    top: calc(361vh / var(--h));
-    left: calc(778vh / var(--h));
-    width: calc(41vh / var(--h));
-    height: calc(55vh / var(--h));
+    top: calc(361svh / var(--h));
+    left: calc(778svh / var(--h));
+    width: calc(41svh / var(--h));
+    height: calc(55svh / var(--h));
     background: url(/src/img/chip.svg) no-repeat;
 }
 
@@ -323,55 +323,55 @@ a.button {
     display: block;
     text-decoration: none;
     position: absolute;
-    width: calc(43vh / var(--h));
-    height: calc(43vh / var(--h));
+    width: calc(43svh / var(--h));
+    height: calc(43svh / var(--h));
     background: url(/src/img/button.svg) no-repeat center;
     background-size: contain;
 }
 
 .About {
-    top: calc(193vh / var(--h));
-    left: calc(373vh / var(--h));
+    top: calc(193svh / var(--h));
+    left: calc(373svh / var(--h));
 }
 
 .Activity {
-    top: calc(235vh / var(--h));
-    left: calc(735vh / var(--h));
+    top: calc(235svh / var(--h));
+    left: calc(735svh / var(--h));
 }
 
 .Project {
-    top: calc(597vh / var(--h));
-    left: calc(693vh / var(--h));
+    top: calc(597svh / var(--h));
+    left: calc(693svh / var(--h));
 }
 
 .Social {
-    top: calc(555vh / var(--h));
-    left: calc(331vh / var(--h));
+    top: calc(555svh / var(--h));
+    left: calc(331svh / var(--h));
 }
 
 header h3 {
-    height: calc(43vh / var(--h));
+    height: calc(43svh / var(--h));
     display: flex;
     align-items: flex-end;
     font-weight: 600;
-    font-size: 2.4vh;
+    font-size: 2.4svh;
     position: absolute;
 }
 
 h3.About {
-    left: calc(305vh / var(--h));
+    left: calc(305svh / var(--h));
 }
 
 h3.Activity {
-    left: calc(790vh / var(--h));
+    left: calc(790svh / var(--h));
 }
 
 h3.Project {
-    left: calc(714.5vh / var(--h));
-    top: calc(629vh / var(--h));
+    left: calc(714.5svh / var(--h));
+    top: calc(629svh / var(--h));
     transform: translateX(-50%);
 }
 
 h3.Social {
-    left: calc(263vh / var(--h));
+    left: calc(263svh / var(--h));
 }
