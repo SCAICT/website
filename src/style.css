@@ -26,7 +26,7 @@ body {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
     height: 100svh;
     color: #FFF;
-    font-size: 17px;
+    font-size: 2.4vh;
     background: rgb(30, 30, 30);
     overflow: hidden;
 }
@@ -354,24 +354,24 @@ header h3 {
     display: flex;
     align-items: flex-end;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 2.4vh;
     position: absolute;
 }
 
 h3.About {
-    left: calc(320vh / var(--h));
+    left: calc(305vh / var(--h));
 }
 
 h3.Activity {
-    left: calc(785vh / var(--h));
+    left: calc(790vh / var(--h));
 }
 
 h3.Project {
     left: calc(714.5vh / var(--h));
-    top: calc(620vh / var(--h));
+    top: calc(629vh / var(--h));
     transform: translateX(-50%);
 }
 
 h3.Social {
-    left: calc(278vh / var(--h));
+    left: calc(263vh / var(--h));
 }
