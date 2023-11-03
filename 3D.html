@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript & CSS 陀螺儀使圖片三維翻轉</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var xyz_img = document.getElementById('xyz-img');
+        
+function permission() {
+    if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
+        DeviceMotionEvent.requestPermission()
+            .then(response => {
+                var xyz_img = document.getElementById('xyz-img');
             if (window.DeviceOrientationEvent) {
                 window.addEventListener('deviceorientation', function (event) {
 
@@ -24,7 +28,12 @@
             } else {
                 document.querySelector('body').innerHTML = '瀏覽器不支援';
             }
-        });
+            })
+            .catch(console.error)
+    } else {
+        alert("DeviceMotionEvent is not defined");
+    }
+}
     </script>
     <style>
         html,
