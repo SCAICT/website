@@ -19,22 +19,19 @@ header.addEventListener('mousemove', (e) => {
     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
 })
 
-//Use gyroscopes on mobile devices
-
 function permission() {
     if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
-        // (optional) Do something before API request prompt.
         DeviceMotionEvent.requestPermission()
             .then(response => {
                 // (optional) Do something after API prompt dismissed.
                 if (response == "granted") {
                     window.addEventListener("devicemotion", (e) => {
-                        const x = e.gamma / 10;
-                        const y = e.beta / 10;
+                        const x = e.gamma / 2;
+                        const y = e.beta / 2;
                         document.querySelector('.lcd').innerHTML = x;
                         header.style.transform = `translate(${-x}vh, ${-y}vh)`;
                     })
-                }else{
+                } else {
                     alert("Permission not granted");
                 }
             })
