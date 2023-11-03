@@ -36,7 +36,7 @@ function permission() {
                         x = e.gamma / 6;
                         y = e.beta / 6;
                     } else {
-                        y = e.gamma / 6;
+                        y = -e.gamma / 6;
                         x = e.beta / 6;
                     }
 
