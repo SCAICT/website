@@ -20,8 +20,8 @@ header.addEventListener('mousemove', (e) => {
 })
 
 function permission() {
-    if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
-        DeviceMotionEvent.requestPermission()
+    if (typeof (DeviceOrientationEvent) !== "undefined" && typeof (DeviceOrientationEvent.requestPermission) === "function") {
+        DeviceOrientationEvent.requestPermission()
             .then(response => {
                 // (optional) Do something after API prompt dismissed.
                 if (response == "granted") {
