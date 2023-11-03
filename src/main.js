@@ -25,8 +25,8 @@ function permission() {
             // (optional) Do something after API prompt dismissed.
             if (response == "granted") {
                 window.addEventListener("deviceorientation", (e) => {
-                    const x = e.gamma / 6;
-                    const y = e.beta / 6;
+                    const y = e.gamma / 6;
+                    const x = e.beta / 6;
                     document.querySelector('.lcd').innerHTML = x;
                     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
                 })
@@ -36,3 +36,10 @@ function permission() {
         })
         .catch(console.error)
 }
+
+// resize event
+
+window.addEventListener('resize', () => {
+alert("spin!");
+permission()
+})
