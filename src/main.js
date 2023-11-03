@@ -32,7 +32,7 @@ function permission() {
             // (optional) Do something after API prompt dismissed.
             if (response == "granted") {
                 window.addEventListener("deviceorientation", (e) => {
-                    if (rotation) {
+                    if (!rotation) {
                         x = e.gamma / 6;
                         y = -e.beta / 6;
                     } else {
