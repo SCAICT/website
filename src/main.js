@@ -24,7 +24,7 @@ function permission() {
         .then(response => {
             // (optional) Do something after API prompt dismissed.
             if (response == "granted") {
-                window.addEventListener("devicemotion", (e) => {
+                window.addEventListener("deviceorientation", (e) => {
                     const x = e.gamma / 6;
                     const y = e.beta / 6;
                     document.querySelector('.lcd').innerHTML = x;
