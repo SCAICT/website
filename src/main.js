@@ -34,10 +34,10 @@ function permission() {
                 window.addEventListener("deviceorientation", (e) => {
                     if (!rotation) {
                         x = e.gamma / 6;
-                        y = -e.beta / 6;
+                        y = e.beta / 6;
                     } else {
                         y = e.gamma / 6;
-                        x = -e.beta / 6;
+                        x = e.beta / 6;
                     }
 
                     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
