@@ -1,8 +1,9 @@
+/* 中文園體 */
 @font-face {
     font-family: 'OpenHuninn';
     src: url('/src/jf-openhuninn-2.0.ttf') format('truetype');
 }
-
+/* 英文字體 */
 @font-face {
     font-family: 'Quicksand';
     font-style: normal;
@@ -26,20 +27,21 @@ body {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
     height: 100vmin;
     color: #FFF;
-    font-size: 2.4vmin;
     background: #000;
-    overflow: hidden;
+    overflow-x: hidden;
     transition: opacity 0.2s ease-out;
 }
 
-h1 {
+/* home */
+
+header h1 {
     font-size: 4vmin;
     font-weight: 400;
     padding: calc(42vmin / var(--h));
     padding-bottom: 0;
 }
 
-h2 {
+header h2 {
     font-size: 2vmin;
     font-weight: 400;
     padding-left: calc(42vmin / var(--h));
@@ -47,15 +49,18 @@ h2 {
 
 section {
     min-height: 100vmin;
+    width: 100%;
 }
 
 header {
     background: radial-gradient(rgba(0, 40, 239, 0.251) 0%, rgb(0, 0, 0) 100%);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     transition: transform 0.2s ease-out;
+    z-index: 2;
+    font-size: 2.4vmin;
 }
 
 header>div {
@@ -391,6 +396,31 @@ h3.Project {
 h3.Social {
     left: calc(263vmin / var(--h));
 }
+
+/* about */
+
+#About{
+    position: fixed;
+    background: #000;
+    z-index: 1;
+    opacity: 0;
+}
+
+
+#About h2 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+#About h3 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+#About>div{
+    padding: 2em;
+}
+
+
 
 .reminder {
     display: none;
