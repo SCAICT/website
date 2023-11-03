@@ -34,6 +34,8 @@ function permission() {
         alert("DeviceMotionEvent is not defined");
     }
 }
+const btn = document.getElementById( "request" );
+btn.addEventListener( "click", permission );
     </script>
     <style>
         html,
@@ -64,6 +66,7 @@ function permission() {
 </head>
 
 <body>
+    <button id="request">aaa</button>
     <div id="container">
         <div id="xyz-img"></div>
     </div>
