@@ -21,9 +21,25 @@ header.addEventListener('mousemove', (e) => {
 
 //Use gyroscopes on mobile devices
 
-window.addEventListener('deviceorientation', (e) => {
-    const x = e.gamma / 10;
-    const y = e.beta / 10;
-document.querySelector('.lcd').innerHTML = x;
-    header.style.transform = `translate(${-x}vh, ${-y}vh)`;
-})
+function permission() {
+    if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
+        // (optional) Do something before API request prompt.
+        DeviceMotionEvent.requestPermission()
+            .then(response => {
+                // (optional) Do something after API prompt dismissed.
+                if (response == "granted") {
+                    window.addEventListener("devicemotion", (e) => {
+                        const x = e.gamma / 10;
+                        const y = e.beta / 10;
+                        document.querySelector('.lcd').innerHTML = x;
+                        header.style.transform = `translate(${-x}vh, ${-y}vh)`;
+                    })
+                }else{
+                    alert("Permission not granted");
+                }
+            })
+            .catch(console.error)
+    } else {
+        alert("DeviceMotionEvent is not defined");
+    }
+}
