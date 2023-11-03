@@ -27,8 +27,9 @@ body {
     height: 100svh;
     color: #FFF;
     font-size: 2.4svh;
-    background: rgb(30, 30, 30);
+    background: #000;
     overflow: hidden;
+    transition: opacity 0.2s ease-out;
 }
 
 h1 {
@@ -54,6 +55,7 @@ header {
     top:0;
     left:0;
     width: 100%;
+    transition: transform 0.2s ease-out;
 }
 
 header>div {
@@ -137,6 +139,7 @@ header>div div{
     width: calc(52svh / var(--h));
     height: calc(58svh / var(--h));
     background: url(/src/img/bHole.svg) no-repeat center;
+    z-index: 2;
 }
 
 .charger {
@@ -146,6 +149,13 @@ header>div div{
     width: calc(208svh / var(--h));
     height: calc(365svh / var(--h));
     background: url(/src/img/charger.svg) no-repeat top right;
+    transition: transform 0.2s ease;
+}
+.charger:hover, .bHole:hover+ .charger{
+    transform: translateY(3vh);
+}
+.charger:active, .bHole:active+ .charger {
+    transform: translateY(5vh);
 }
 
 .chargerText {
