@@ -10,40 +10,32 @@ fetch('https://raw.githubusercontent.com/SCAICT/website-data/main/home.json')
         console.error('Error:', error);
     });
 
-const header = document.querySelector('header');
 
+// Mouse Move Effect
+const header = document.querySelector('header');
 header.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth * 10 - 5;
     const y = e.clientY / window.innerHeight * 10 - 5;
-
     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
 })
 
+// Device Orientation Effect
 var phone = (/Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-var rotation = false;
-
+var rotation = false, x, y;
 function checkRotation() {
     rotation = (window.innerHeight < window.innerWidth && phone);
 }
-var x, y;
+
 function permission() {
+    if (!DeviceOrientationEvent.requestPermission) return;
     DeviceOrientationEvent.requestPermission()
         .then(response => {
-            // (optional) Do something after API prompt dismissed.
             if (response == "granted") {
                 window.addEventListener("deviceorientation", (e) => {
-                    if (!rotation) {
-                        x = e.gamma / 6;
-                        y = e.beta / 6;
-                    } else {
-                        y = -e.gamma / 6;
-                        x = e.beta / 6;
-                    }
-
+                    x = (rotation ? e.beta : e.gamma) / 6;
+                    y = (rotation ? -e.gamma : e.beta) / 6;
                     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
                 })
-            } else {
-                alert("Permission not granted");
             }
         })
         .catch(console.error)
@@ -52,4 +44,22 @@ function permission() {
 window.addEventListener('resize', () => {
     checkRotation();
     permission()
+})
+
+//Scroll Effect
+
+// Scale big header on scroll
+
+const bigHeader = document.querySelector('header');
+const About = document.querySelector('#About');
+
+window.addEventListener('scroll', () => {
+    bigHeader.style.transform = `scale(${1 + window.scrollY / window.innerHeight*80})`;
+    if(window.scrollY > window.innerHeight*0.1) {
+        bigHeader.style.opacity = 1-window.scrollY / window.innerHeight*3;
+        About.style.opacity = window.scrollY / window.innerHeight*3;
+    }else {
+        bigHeader.style.opacity = 1;
+        About.style.opacity = 0;
+    }
 })
