@@ -20,23 +20,19 @@ header.addEventListener('mousemove', (e) => {
 })
 
 function permission() {
-    if (typeof (DeviceOrientationEvent) !== "undefined" && typeof (DeviceOrientationEvent.requestPermission) === "function") {
-        DeviceOrientationEvent.requestPermission()
-            .then(response => {
-                // (optional) Do something after API prompt dismissed.
-                if (response == "granted") {
-                    window.addEventListener("devicemotion", (e) => {
-                        const x = e.gamma / 2;
-                        const y = e.beta / 2;
-                        document.querySelector('.lcd').innerHTML = x;
-                        header.style.transform = `translate(${-x}vh, ${-y}vh)`;
-                    })
-                } else {
-                    alert("Permission not granted");
-                }
-            })
-            .catch(console.error)
-    } else {
-        alert("DeviceMotionEvent is not defined");
-    }
+    DeviceOrientationEvent.requestPermission()
+        .then(response => {
+            // (optional) Do something after API prompt dismissed.
+            if (response == "granted") {
+                window.addEventListener("devicemotion", (e) => {
+                    const x = e.gamma / 6;
+                    const y = e.beta / 6;
+                    document.querySelector('.lcd').innerHTML = x;
+                    header.style.transform = `translate(${-x}vh, ${-y}vh)`;
+                })
+            } else {
+                alert("Permission not granted");
+            }
+        })
+        .catch(console.error)
 }
