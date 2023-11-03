@@ -19,15 +19,27 @@ header.addEventListener('mousemove', (e) => {
     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
 })
 
+var phone = (/Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+var rotation = false;
+
+function checkRotation() {
+    rotation = (window.innerHeight < window.innerWidth && phone);
+}
+var x, y;
 function permission() {
     DeviceOrientationEvent.requestPermission()
         .then(response => {
             // (optional) Do something after API prompt dismissed.
             if (response == "granted") {
                 window.addEventListener("deviceorientation", (e) => {
-                    const y = e.gamma / 6;
-                    const x = e.beta / 6;
-                    document.querySelector('.lcd').innerHTML = x;
+                    if (rotation) {
+                        x = e.gamma / 6;
+                        y = -e.beta / 6;
+                    } else {
+                        y = e.gamma / 6;
+                        x = -e.beta / 6;
+                    }
+
                     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
                 })
             } else {
@@ -37,9 +49,7 @@ function permission() {
         .catch(console.error)
 }
 
-// resize event
-
 window.addEventListener('resize', () => {
-alert("spin!");
-permission()
+    checkRotation();
+    permission()
 })
