@@ -3,6 +3,7 @@
     font-family: 'OpenHuninn';
     src: url('/src/jf-openhuninn-2.0.ttf') format('truetype');
 }
+
 /* 英文字體 */
 @font-face {
     font-family: 'Quicksand';
@@ -25,7 +26,7 @@
 
 body {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
-    height: 100vmin;
+    height: 138.34vmin;
     color: #FFF;
     background: #000;
     overflow-x: hidden;
@@ -46,12 +47,6 @@ header h2 {
     font-weight: 400;
     padding-left: calc(42vmin / var(--h));
 }
-
-section {
-    min-height: 100vmin;
-    width: 100%;
-}
-
 header {
     background: radial-gradient(rgba(0, 40, 239, 0.251) 0%, rgb(0, 0, 0) 100%);
     position: fixed;
@@ -399,13 +394,18 @@ h3.Social {
 
 /* about */
 
-#About{
+#About {
     position: fixed;
     background: #000;
     z-index: 1;
     opacity: 0;
+    width: 100vw;
 }
 
+.container {
+    width: 300vw;
+    height: 100vmin;
+}
 
 #About h2 {
     font-size: 3rem;
@@ -416,7 +416,8 @@ h3.Social {
     font-size: 2rem;
     font-weight: 400;
 }
-#About>div{
+
+#About>.container>div {
     padding: 2em;
 }
 
@@ -427,7 +428,7 @@ h3.Social {
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    height:100svh;
+    height: 100svh;
 }
 
 @media (max-aspect-ratio: 1/1) {
