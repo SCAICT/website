@@ -1,97 +1,281 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCAICT 中部電資聯合會議</title>
+        <meta name="theme-color" content="#2f4154" />
+        <meta
+            name="description"
+            content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對0基礎的主題式教育"
+        />
+        <meta name="author" content="毛哥EM" />
+        <meta name="keywords" content="中部電資聯合會議, 中電會, SCAICT" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="SCAICT 中部電資聯合會議" />
+        <meta property="og:url" content="https://scaict.org" />
+        <meta property="og:site_name" content="SCAICT 中部電資聯合會議" />
+        <meta
+            property="og:description"
+            content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對0基礎的主題式教育"
+        />
+        <meta property="og:locale" content="zh-TW" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/src/img/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/src/img/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/src/img/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/src/img/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/src/img/safari-pinned-tab.svg"
+            color="#ca4480"
+        />
+        <meta name="msapplication-TileColor" content="#2b5797" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="src/style.css" />
+        <script
+            src="https://kit.fontawesome.com/ca1af7f37f.js"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-F4MZSTYBW8"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-F4MZSTYBW8");
+        </script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCAICT 中部電資聯合會議</title>
-    <meta name="theme-color" content="#2f4154" />
-    <meta name="description"
-        content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對0基礎的主題式教育" />
-    <meta name="author" content="毛哥EM" />
-    <meta name="keywords" content="中部電資聯合會議, 中電會, SCAICT" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="SCAICT 中部電資聯合會議" />
-    <meta property="og:url" content="https://scaict.org" />
-    <meta property="og:site_name" content="SCAICT 中部電資聯合會議" />
-    <meta property="og:description"
-        content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對0基礎的主題式教育" />
-    <meta property="og:locale" content="zh-TW" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon-16x16.png">
-    <link rel="manifest" href="/src/img/site.webmanifest">
-    <link rel="mask-icon" href="/src/img/safari-pinned-tab.svg" color="#ca4480">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="src/style.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4MZSTYBW8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-F4MZSTYBW8');
-    </script>
-</head>
-
-<body>
-    <main>
-        <header>
-            <div>
-                <h1>中部高中電資社團聯合會議</h1>
-                <h2>Student Club's Association of Information in Central Taiwan</h2>
-                <div class="lcd">_</div>
-                <div class="lcdText">Learn More</div>
-                <a href="" id="lcdLink">
-                    <div class="lcdButton"></div>
-                </a>
-                <div class="ukraine"></div>
-                <div class="ukraineText">Hue</div>
-                <div class="ukraineText ukraineBrightness">Brightness</div>
-                <div class="ukraine" id="ukraineBrightness"></div>
-                <div class="bHole"></div>
-                <div class="charger" onclick="document.body.style.opacity=0"></div>
-                <div class="chargerText">Sponsor</div>
-                <div class="cpu" onclick="permission()"><img src="/src/img/logo.svg" alt=""></div>
-                <div class="scaict">SCAICT</div>
-                <div class="friend"><a href="https://www.instagram.com/scint.tw/">SCINT</a><br>
-                    <a href="/">SCAICT</a><br>
-                    <a href="https://scist.org/">SCIST</a>
-                </div>
-                <div class="motor"></div>
-                <input type="checkbox" id="motorSwitch">
-                <label class="switch" for="motorSwitch"></label>
-                <div class="switchToggle"></div>
-                <div class="switchText">Motor</div>
-                <div class="spinner"></div>
-                <div class="spinnerText">Scroll Down</div>
-                <div class="line"></div>
-                <div class="resistance"></div>
-                <div class="sca1"></div>
-                <div class="diode"></div>
-                <div class="chip"></div>
-                <a href="#About" class="button About"></a>
-                <h3 class="About">About</h3>
-                <a href="#Activity" class="button Activity"></a>
-                <h3 class="Activity">Activity</h3>
-                <a href="#Project" class="button Project"></a>
-                <h3 class="Project">Project</h3>
-                <a href="#Social" class="button Social"></a>
-                <h3 class="Social">Social</h3>
-            </div>
-        </header>
-        <section id="About">
-            <div class="container">
+    <body>
+        <main>
+            <header>
                 <div>
-                    <h2>關於我們</h2>
-                    <h3>About Us</h3>
+                    <h1>中部高中電資社團聯合會議</h1>
+                    <h2>
+                        Student Club's Association of Information in Central
+                        Taiwan
+                    </h2>
+                    <div class="lcd">_</div>
+                    <div class="lcdText">Learn More</div>
+                    <a href="" id="lcdLink">
+                        <div class="lcdButton"></div>
+                    </a>
+                    <div class="ukraine"></div>
+                    <div class="ukraineText">Hue</div>
+                    <div class="ukraineText ukraineBrightness">Brightness</div>
+                    <div class="ukraine" id="ukraineBrightness"></div>
+                    <div class="bHole"></div>
+                    <div
+                        class="charger"
+                        onclick="document.body.style.opacity=0"
+                    ></div>
+                    <div class="chargerText">Sponsor</div>
+                    <div class="cpu" onclick="permission()">
+                        <img src="/src/img/logo.svg" alt="" />
+                    </div>
+                    <div class="scaict">SCAICT</div>
+                    <div class="friend">
+                        <a href="https://www.instagram.com/scint.tw/">SCINT</a
+                        ><br />
+                        <a href="/">SCAICT</a><br />
+                        <a href="https://scist.org/">SCIST</a>
+                    </div>
+                    <div class="motor"></div>
+                    <input type="checkbox" id="motorSwitch" />
+                    <label class="switch" for="motorSwitch"></label>
+                    <div class="switchToggle"></div>
+                    <div class="switchText">Motor</div>
+                    <div class="spinner"></div>
+                    <div class="spinnerText">Scroll Down</div>
+                    <div class="line"></div>
+                    <div class="resistance"></div>
+                    <div class="sca1"></div>
+                    <div class="diode"></div>
+                    <div class="chip"></div>
+                    <a href="#About" class="button About"></a>
+                    <h3 class="About">About</h3>
+                    <a href="#Activity" class="button Activity"></a>
+                    <h3 class="Activity">Activity</h3>
+                    <a href="#Project" class="button Project"></a>
+                    <h3 class="Project">Project</h3>
+                    <a href="#Social" class="button Social"></a>
+                    <h3 class="Social">Social</h3>
                 </div>
-            </div>
-        </section>
-    </main>
-    <div class="reminder">請旋轉螢幕</div>
-    <script src="src/main.js"></script>
-</body>
+            </header>
+            <section id="About">
+                <div class="container">
+                    <div class="titleBox cpuLogo">
+                        <h2>關於我們</h2>
+                        <h3>About Us</h3>
+                    </div>
+                    <div class="introduction">
+                        <h3>中部高中電資社團聯合會議</h3>
+                        <p>
+                            成立於2021年，是由一群熱愛資訊科技和社團活動的高中職生所組成，而主要目的在於整合中部資訊科技資源，推廣資訊相關的課程。本學期目前規劃邀請各大講師來線上授課，且學員可以免費且自由報名。
+                        </p>
+                    </div>
+                    <img src="/src/img/背影.webp" alt="" class="introImg" />
+                    <div class="titleBox goal">
+                        <h2>團隊目標</h2>
+                        <h3>Our Goals</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Magni tempora sit, quo sequi quas blanditiis.
+                            Officia incidunt fugit hic ducimus totam quo nihil
+                        </p>
+                        <div class="goals">
+                            <article>
+                                <img src="" alt="" />
+                                <h4>主題課程</h4>
+                                <p></p>
+                            </article>
+                            <article>
+                                <img src="" alt="" />
+                                <h4>開源社群</h4>
+                                <p></p>
+                            </article>
+                            <article>
+                                <img src="" alt="" />
+                                <h4>創社pioneer</h4>
+                                <p>
+                                    協助中部地區學校創立/復興電資類型社團。以零成本、零壓力為目標，只要推派社團幹部，我們就會盡全力的幫忙。
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <section id="Activity">
+                        <h2>近期活動</h2>
+                        <h3>Recent Activities</h3>
+                        <div class="activities">
+                            <article>
+                                <img src="/src/img/背影.webp" alt="" />
+                                <div>
+                                    <h4>Network Infra Security</h4>
+                                    <h5>你可以學到很多知識，但是沒有芝士</h5>
+                                    <ul>
+                                        <li>
+                                            <i class="fa-solid fa-calendar"></i>
+                                            2023/10/29
+                                        </li>
+                                        <li>
+                                            <i
+                                                class="fa-solid fa-location-dot"
+                                            ></i>
+                                            台中高工
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-tag"></i> 免費
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
 
+                            <article>
+                                <div>
+                                    <h4>Network Infra Security</h4>
+                                    <h5>你可以學到很多知識，但是沒有芝士</h5>
+                                    <ul>
+                                        <li>
+                                            <i class="fa-solid fa-calendar"></i>
+                                            2023/10/29
+                                        </li>
+                                        <li>
+                                            <i
+                                                class="fa-solid fa-location-dot"
+                                            ></i>
+                                            台中高工
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-tag"></i> 免費
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article>
+                                <div>
+                                    <h4>Network Infra Security</h4>
+                                    <h5>你可以學到很多知識，但是沒有芝士</h5>
+                                    <ul>
+                                        <li>
+                                            <i class="fa-solid fa-calendar"></i>
+                                            2023/10/29
+                                        </li>
+                                        <li>
+                                            <i
+                                                class="fa-solid fa-location-dot"
+                                            ></i>
+                                            台中高工
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-tag"></i> 免費
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="/src/img/背影.webp" alt="" />
+                                <div>
+                                    <h4>Network Infra Security</h4>
+                                    <h5>你可以學到很多知識，但是沒有芝士</h5>
+                                    <ul>
+                                        <li>
+                                            <i class="fa-solid fa-calendar"></i>
+                                            2023/10/29
+                                        </li>
+                                        <li>
+                                            <i
+                                                class="fa-solid fa-location-dot"
+                                            ></i>
+                                            台中高工
+                                        </li>
+                                        <li>
+                                            <i class="fa-solid fa-tag"></i> 免費
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <section id="PastActivities">
+                        <div>
+                            <h2>過去活動</h2>
+                            <h3>Past Events</h3>
+                            <div class="sdReader"></div>
+                            <div class="cpuMem">
+                                <img src="/src/img/logo.svg" alt="" />
+                            </div>
+                            <div class="imgButton"></div>
+                            <div class="imgButton right"></div>
+                            <div class="imgLcd"></div>
+                            <img src="/src/img/背影.webp" alt="" id="showImg">
+                            <div class="sdReaderTop"></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+        <div class="reminder">請旋轉螢幕</div>
+        <script src="src/main.js"></script>
+    </body>
 </html>
