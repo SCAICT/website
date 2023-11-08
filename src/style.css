@@ -1,17 +1,21 @@
-/* 中文園體 */
+/** @format */
+
 @font-face {
-    font-family: 'OpenHuninn';
-    src: url('/src/jf-openhuninn-2.0.ttf') format('truetype');
+    font-family: "OpenHuninn"; /* 中文園體 */
+    src: url("/src/jf-openhuninn-2.0.ttf") format("truetype");
 }
 
 /* 英文字體 */
 @font-face {
-    font-family: 'Quicksand';
+    font-family: "Quicksand";
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/quicksand/v31/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: url(https://fonts.gstatic.com/s/quicksand/v31/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv58a-wg.woff2)
+        format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
@@ -26,8 +30,8 @@
 
 body {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
-    height: 138.34vmin;
-    color: #FFF;
+    height: 838.34dvh;
+    color: #fff;
     background: #000;
     overflow-x: hidden;
     transition: opacity 0.2s ease-out;
@@ -36,16 +40,16 @@ body {
 /* home */
 
 header h1 {
-    font-size: 4vmin;
+    font-size: 4dvh;
     font-weight: 400;
-    padding: calc(42vmin / var(--h));
+    padding: calc(42dvh / var(--h));
     padding-bottom: 0;
 }
 
 header h2 {
-    font-size: 2vmin;
+    font-size: 2dvh;
     font-weight: 400;
-    padding-left: calc(42vmin / var(--h));
+    padding-left: calc(42dvh / var(--h));
 }
 header {
     background: radial-gradient(rgba(0, 40, 239, 0.251) 0%, rgb(0, 0, 0) 100%);
@@ -55,45 +59,45 @@ header {
     width: 100%;
     transition: transform 0.2s ease-out;
     z-index: 2;
-    font-size: 2.4vmin;
+    font-size: 2.4dvh;
 }
 
-header>div {
-    width: calc(400vmin / 3);
-    height: 100vmin;
+header > div {
+    width: calc(400dvh / 3);
+    height: 100dvh;
     margin: 0 auto;
     position: relative;
 }
 
-header>div div {
+header > div div {
     background-size: contain !important;
 }
 
 .lcd {
-    width: calc(268vmin / var(--h));
-    height: calc(107.296vmin / var(--h));
+    width: calc(268dvh / var(--h));
+    height: calc(107.296dvh / var(--h));
     background: url(/src/img/LCD.svg) no-repeat;
     position: absolute;
-    top: calc(42vmin / var(--h));
-    right: calc(42vmin / var(--h));
-    padding: 3vmin 2.7vmin;
+    top: calc(42dvh / var(--h));
+    right: calc(42dvh / var(--h));
+    padding: 3dvh 2.7dvh;
 }
 
 .lcdButton {
     position: absolute;
     background: url(/src/img/redButton.svg) no-repeat;
-    width: calc(42vmin / var(--h));
-    height: calc(42vmin / var(--h));
-    top: calc(168vmin / var(--h));
-    right: calc(42vmin / var(--h));
+    width: calc(42dvh / var(--h));
+    height: calc(42dvh / var(--h));
+    top: calc(168dvh / var(--h));
+    right: calc(42dvh / var(--h));
     cursor: pointer;
 }
 
 .lcdText {
     position: absolute;
-    top: calc(170vmin / var(--h));
-    height: calc(42vmin / var(--h));
-    right: calc(93.89vmin / var(--h));
+    top: calc(170dvh / var(--h));
+    height: calc(42dvh / var(--h));
+    right: calc(93.89dvh / var(--h));
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -101,10 +105,10 @@ header>div div {
 
 .ukraine {
     position: absolute;
-    top: calc(248vmin / var(--h));
-    height: calc(34vmin / var(--h));
-    width: calc(34vmin / var(--h));
-    right: calc(146vmin / var(--h));
+    top: calc(248dvh / var(--h));
+    height: calc(34dvh / var(--h));
+    width: calc(34dvh / var(--h));
+    right: calc(146dvh / var(--h));
     background: url(/src/img/ukraine.svg) no-repeat center;
     display: flex;
     align-items: center;
@@ -113,70 +117,69 @@ header>div div {
 
 .ukraine::after {
     content: "";
-    width: calc(14vmin / var(--h));
-    height: calc(14vmin / var(--h));
+    width: calc(14dvh / var(--h));
+    height: calc(14dvh / var(--h));
     background: url(/src/img/ukraineX.svg) no-repeat center;
     cursor: pointer;
 }
 
 #ukraineBrightness,
 .ukraineText.ukraineBrightness {
-    top: calc(293vmin / var(--h));
+    top: calc(293dvh / var(--h));
 }
 
 .ukraineText {
     position: absolute;
-    top: calc(248vmin / var(--h));
-    height: calc(34vmin / var(--h));
-    left: calc(970vmin / var(--h));
+    top: calc(248dvh / var(--h));
+    height: calc(34dvh / var(--h));
+    left: calc(970dvh / var(--h));
     display: flex;
     align-items: center;
 }
 
-
 .bHole {
     position: absolute;
-    bottom: calc(166vmin / var(--h));
-    right: calc(45vmin / var(--h));
-    width: calc(52vmin / var(--h));
-    height: calc(58vmin / var(--h));
+    bottom: calc(166dvh / var(--h));
+    right: calc(45dvh / var(--h));
+    width: calc(52dvh / var(--h));
+    height: calc(58dvh / var(--h));
     background: url(/src/img/bHole.svg) no-repeat center;
     z-index: 2;
 }
 
 .charger {
     position: absolute;
-    top: calc(636vmin / var(--h));
-    right: calc(48vmin / var(--h));
-    width: calc(208vmin / var(--h));
-    height: calc(365vmin / var(--h));
+    top: calc(636dvh / var(--h));
+    right: calc(48dvh / var(--h));
+    width: calc(208dvh / var(--h));
+    height: calc(365dvh / var(--h));
     background: url(/src/img/charger.svg) no-repeat top right;
     transition: transform 0.2s ease;
 }
 
 .charger:hover,
-.bHole:hover+.charger {
-    transform: translateY(3vmin);
+.bHole:hover + .charger {
+    transform: translateY(3dvh);
 }
 
 .charger:active,
-.bHole:active+.charger {
-    transform: translateY(5vmin);
+.bHole:active + .charger {
+    transform: translateY(5dvh);
 }
 
 .chargerText {
     position: absolute;
     text-align: right;
-    top: calc(706vmin / var(--h));
-    right: calc(110vmin / var(--h));
+    top: calc(706dvh / var(--h));
+    right: calc(110dvh / var(--h));
 }
 
 .cpu {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(129vmin / var(--h));
-    height: calc(129vmin / var(--h));
+    width: calc(129dvh / var(--h));
+    height: calc(129dvh / var(--h));
     transform: translate(-50%, -50%);
     background: url(/src/img/cpu.svg) no-repeat center;
     display: flex;
@@ -185,7 +188,7 @@ header>div div {
 }
 
 .cpu img {
-    height: calc(43vmin / var(--h));
+    height: calc(43dvh / var(--h));
 }
 
 .scaict {
@@ -194,7 +197,7 @@ header>div div {
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
-    font-size: 3vmin;
+    font-size: 3dvh;
 }
 
 .friend {
@@ -203,36 +206,36 @@ header>div div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: calc(331vmin / var(--h));
-    left: calc(79vmin / var(--h));
-    width: calc(61vmin / var(--h));
-    height: calc(72vmin / var(--h));
-    border: calc(2vmin / var(--h)) solid #FFF;
+    top: calc(331dvh / var(--h));
+    left: calc(79dvh / var(--h));
+    width: calc(61dvh / var(--h));
+    height: calc(72dvh / var(--h));
+    border: calc(2dvh / var(--h)) solid #fff;
 }
 
 .friend a {
     text-decoration: none;
     display: block;
-    color: #FFF;
-    font-size: 1.5vmin;
+    color: #fff;
+    font-size: 1.5dvh;
 }
 
 .motor {
     position: absolute;
     background: url(/src/img/motor.svg) no-repeat;
-    width: calc(64.985vmin / var(--h));
-    height: calc(166.523vmin / var(--h));
-    top: calc(528vmin / var(--h));
-    left: calc(76.1vmin / var(--h));
+    width: calc(64.985dvh / var(--h));
+    height: calc(166.523dvh / var(--h));
+    top: calc(528dvh / var(--h));
+    left: calc(76.1dvh / var(--h));
 }
 
 .spinner {
     position: absolute;
     background: url(/src/img/spinner.svg) center no-repeat;
-    width: calc(73.108vmin / var(--h));
-    height: calc(154.338vmin / var(--h));
-    top: calc(508vmin / var(--h));
-    left: calc(72vmin / var(--h));
+    width: calc(73.108dvh / var(--h));
+    height: calc(154.338dvh / var(--h));
+    top: calc(508dvh / var(--h));
+    left: calc(72dvh / var(--h));
     transform-origin: center;
     animation: rotate 3s linear infinite;
     transition: transform 0.2s ease;
@@ -245,29 +248,29 @@ header>div div {
 .switch {
     position: absolute;
     background: url(/src/img/switch.svg) no-repeat;
-    width: calc(49vmin / var(--h));
-    height: calc(26vmin / var(--h));
-    top: calc(729vmin / var(--h));
-    left: calc(85vmin / var(--h));
+    width: calc(49dvh / var(--h));
+    height: calc(26dvh / var(--h));
+    top: calc(729dvh / var(--h));
+    left: calc(85dvh / var(--h));
     cursor: pointer;
     background-size: contain;
 }
 
 .switchToggle {
     position: absolute;
-    width: calc(12vmin / var(--h));
-    height: calc(12vmin / var(--h));
-    top: calc(736vmin / var(--h));
-    left: calc(114vmin / var(--h));
+    width: calc(12dvh / var(--h));
+    height: calc(12dvh / var(--h));
+    top: calc(736dvh / var(--h));
+    left: calc(114dvh / var(--h));
     pointer-events: none;
     background: #000;
 }
 
-#motorSwitch:checked~.switchToggle {
-    transform: translateX(calc(-21vmin / var(--h)));
+#motorSwitch:checked ~ .switchToggle {
+    transform: translateX(calc(-21dvh / var(--h)));
 }
 
-#motorSwitch:checked~.spinner {
+#motorSwitch:checked ~ .spinner {
     animation: none;
 }
 
@@ -279,59 +282,59 @@ header>div div {
 
 .spinnerText {
     position: absolute;
-    top: calc(668vmin / var(--h));
-    left: calc(155vmin / var(--h));
+    top: calc(668dvh / var(--h));
+    left: calc(155dvh / var(--h));
 }
 
 .switchText {
     position: absolute;
-    top: calc(768vmin / var(--h));
-    left: calc(108.247vmin / var(--h));
+    top: calc(768dvh / var(--h));
+    left: calc(108.247dvh / var(--h));
     transform: translateX(-50%);
 }
 
 .line {
     position: absolute;
-    top: calc(175vmin / var(--h));
-    left: calc(226vmin / var(--h));
-    width: calc(62vmin / var(--h));
-    height: calc(146vmin / var(--h));
+    top: calc(175dvh / var(--h));
+    left: calc(226dvh / var(--h));
+    width: calc(62dvh / var(--h));
+    height: calc(146dvh / var(--h));
     background: url(/src/img/line.svg) no-repeat;
 }
 
 .resistance {
     position: absolute;
-    top: calc(372vmin / var(--h));
-    left: calc(237vmin / var(--h));
-    width: calc(31vmin / var(--h));
-    height: calc(140vmin / var(--h));
+    top: calc(372dvh / var(--h));
+    left: calc(237dvh / var(--h));
+    width: calc(31dvh / var(--h));
+    height: calc(140dvh / var(--h));
     background: url(/src/img/resistance.svg) no-repeat;
 }
 
 .sca1 {
     position: absolute;
-    top: calc(603vmin / var(--h));
-    left: calc(441vmin / var(--h));
-    width: calc(89vmin / var(--h));
-    height: calc(185vmin / var(--h));
+    top: calc(603dvh / var(--h));
+    left: calc(441dvh / var(--h));
+    width: calc(89dvh / var(--h));
+    height: calc(185dvh / var(--h));
     background: url(/src/img/sca1.svg) no-repeat;
 }
 
 .diode {
     position: absolute;
-    top: calc(489vmin / var(--h));
-    left: calc(837vmin / var(--h));
-    width: calc(75vmin / var(--h));
-    height: calc(98.5vmin / var(--h));
+    top: calc(489dvh / var(--h));
+    left: calc(837dvh / var(--h));
+    width: calc(75dvh / var(--h));
+    height: calc(98.5dvh / var(--h));
     background: url(/src/img/diode.svg) no-repeat;
 }
 
 .chip {
     position: absolute;
-    top: calc(361vmin / var(--h));
-    left: calc(778vmin / var(--h));
-    width: calc(41vmin / var(--h));
-    height: calc(55vmin / var(--h));
+    top: calc(361dvh / var(--h));
+    left: calc(778dvh / var(--h));
+    width: calc(41dvh / var(--h));
+    height: calc(55dvh / var(--h));
     background: url(/src/img/chip.svg) no-repeat;
 }
 
@@ -339,57 +342,57 @@ a.button {
     display: block;
     text-decoration: none;
     position: absolute;
-    width: calc(43vmin / var(--h));
-    height: calc(43vmin / var(--h));
+    width: calc(43dvh / var(--h));
+    height: calc(43dvh / var(--h));
     background: url(/src/img/button.svg) no-repeat center;
     background-size: contain;
 }
 
 .About {
-    top: calc(193vmin / var(--h));
-    left: calc(373vmin / var(--h));
+    top: calc(193dvh / var(--h));
+    left: calc(373dvh / var(--h));
 }
 
 .Activity {
-    top: calc(235vmin / var(--h));
-    left: calc(735vmin / var(--h));
+    top: calc(235dvh / var(--h));
+    left: calc(735dvh / var(--h));
 }
 
 .Project {
-    top: calc(597vmin / var(--h));
-    left: calc(693vmin / var(--h));
+    top: calc(597dvh / var(--h));
+    left: calc(693dvh / var(--h));
 }
 
 .Social {
-    top: calc(555vmin / var(--h));
-    left: calc(331vmin / var(--h));
+    top: calc(555dvh / var(--h));
+    left: calc(331dvh / var(--h));
 }
 
 header h3 {
-    height: calc(43vmin / var(--h));
+    height: calc(43dvh / var(--h));
     display: flex;
     align-items: flex-end;
     font-weight: 600;
-    font-size: 2.4vmin;
+    font-size: 2.4dvh;
     position: absolute;
 }
 
 h3.About {
-    left: calc(305vmin / var(--h));
+    left: calc(305dvh / var(--h));
 }
 
 h3.Activity {
-    left: calc(790vmin / var(--h));
+    left: calc(790dvh / var(--h));
 }
 
 h3.Project {
-    left: calc(714.5vmin / var(--h));
-    top: calc(629vmin / var(--h));
+    left: calc(714.5dvh / var(--h));
+    top: calc(629dvh / var(--h));
     transform: translateX(-50%);
 }
 
 h3.Social {
-    left: calc(263vmin / var(--h));
+    left: calc(263dvh / var(--h));
 }
 
 /* about */
@@ -399,17 +402,20 @@ h3.Social {
     background: #000;
     z-index: 1;
     opacity: 0;
-    width: 100vw;
 }
 
 .container {
-    width: 300vw;
-    height: 100vmin;
+    height: 100dvh;
+    display: flex;
+    transition: transform 0.2s ease-out;
 }
 
 #About h2 {
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: 900;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 }
 
 #About h3 {
@@ -417,12 +423,197 @@ h3.Social {
     font-weight: 400;
 }
 
-#About>.container>div {
+#About > .container > .titleBox {
     padding: 2em;
+    width: 80vh;
+    background-position: 0 -2.5rem;
 }
 
+.cpuLogo {
+    background: url("/src/img/logo-spread.png") no-repeat bottom;
+}
+#About > .container .goal {
+    width: fit-content;
+}
+.introduction {
+    width: 40rem;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 6rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+#About .introduction h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.introImg {
+    width: 30rem;
+    height: 100%;
+    object-fit: cover;
+}
 
+.goal h3 {
+    margin-bottom: 1rem;
+}
 
+.goal > p {
+    max-width: 40rem;
+}
+.goals {
+    display: flex;
+    gap: 2rem;
+    margin-top: 8rem;
+}
+article h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+article {
+    width: 20rem;
+}
+
+.goals article img {
+    width: 100%;
+    height: calc(20rem / 16 * 9);
+    object-fit: cover;
+    background: gray;
+}
+#Activity {
+    padding: 2rem;
+}
+
+.activities {
+    display: flex;
+    width: 66rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.activities article {
+    width: 30rem;
+    position: relative;
+    background: #9a9a9a;
+    background-size: cover;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.activities article h5 {
+    margin: 0.1rem 0 0.5rem 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+article ul {
+    list-style: none;
+}
+article li {
+    margin-top: 0.25rem;
+    vertical-align: middle;
+}
+.activities article > div {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    padding: 2rem;
+    height: 100%;
+    backdrop-filter: blur(0.25rem) brightness(0.75);
+}
+.activities article img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#PastActivities {
+    width: 100vw;
+    height: 100dvh;
+    background: #2e2e2e;
+}
+#PastActivities > div {
+    width: calc(100dvh / 832 * 1280);
+    height: 100dvh;
+    margin: 0 auto;
+    padding: 2rem 0 0 calc(62dvh / var(--h));
+    height: 100%;
+    position: relative;
+}
+#PastActivities>div>div{
+    background-size: contain;
+}
+.sdReader {
+    width: calc(239.114dvh / var(--h));
+    height: calc(149.447dvh / var(--h));
+    background: url(/src/img/SD\ reader\ buttom.svg) no-repeat;
+    position: absolute;
+    left: calc(75.28dvh / var(--h));
+    top: calc(298dvh / var(--h));
+}
+.sdReaderTop {
+    width: calc(151.66057dvh / var(--h));
+    height: calc(150.00012dvh / var(--h));
+    background: url(/src/img/SD\ reader\ top.svg) no-repeat;
+    position: absolute;
+    left: calc(62dvh / var(--h));
+    top: calc(298dvh / var(--h));
+}
+.cpuMem {
+    width: calc(129dvh / var(--h));
+    height: calc(129dvh / var(--h));
+    top: calc(491dvh / var(--h));
+    left: calc(123dvh / var(--h));
+    background: url(/src/img/cpu.svg) no-repeat center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.cpuMem img {
+    width: calc(79dvh / var(--h));
+}
+
+.imgButton {
+    width: calc(54dvh / var(--h));
+    height: calc(142dvh / var(--h));
+    background: url(/src/img/image-button.svg) no-repeat;
+    position: absolute;
+    left: calc(89dvh / var(--h));
+    top: calc(636dvh / var(--h));
+}
+.right{
+    left:calc(233dvh / var(--h));
+    transform: scaleX(-1);
+}
+.imgLcd{
+    width: calc(812dvh / var(--h));
+    height: calc(408dvh / var(--h));
+    background: url(/src/img/color-lcd.svg) no-repeat;
+    position: absolute;
+    left: calc(388dvh / var(--h));
+    top: calc(361dvh / var(--h));
+}
+#showImg{
+    width: calc(624dvh / var(--h));
+    height: calc(352dvh / var(--h));
+    position: absolute;
+    left: calc(482dvh / var(--h));
+    top: calc(389dvh / var(--h));
+    object-fit: cover;
+    background: #000;
+}
 .reminder {
     display: none;
     justify-content: center;
