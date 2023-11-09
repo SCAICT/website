@@ -3,10 +3,48 @@
 fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/home.json")
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         document.querySelector(".lcd").innerHTML = data.lcd.text;
         document.getElementById("lcdLink").href = data.lcd.link;
         document.getElementById("lcdLink").target = "_blank";
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+
+// Events
+fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
+    .then(response => response.json())
+    .then(data => {
+        var events = data.activities;
+        var eventsHTML = "";
+        for (var i = 0; i < events.length; i++) {
+            eventsHTML += `
+            <article>
+            ${
+                events[i].image != ""
+                    ? '<img src="' + events[i].image + '" />'
+                    : ""
+            }
+                <div>
+                    <h4>${events[i].title}</h4>
+                    <h5>${events[i].description}</h5>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-calendar"></i>
+                            ${events[i].date}
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            ${events[i].location}
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-tag"></i> ${events[i].price}
+                        </li>
+                    </ul>
+                </div>
+            </article>`;
+        }
+        document.querySelector(".events").innerHTML = eventsHTML;
     })
     .catch(error => {
         console.error("Error:", error);
@@ -59,7 +97,7 @@ window.addEventListener("resize", () => {
 
 const bigHeader = document.querySelector("header");
 const container = document.querySelector(".container");
-const PastActivities = document.querySelector("#PastActivities");
+const PastActivities = document.querySelector("#Pastevents");
 var last;
 window.addEventListener("scroll", () => {
     // 放大效果
@@ -86,20 +124,17 @@ window.addEventListener("scroll", () => {
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
             About.style.opacity = 1;
-            // Get the right offset of #PastActivities to the screen
-            console.log(  PastActivities.getBoundingClientRect().left )
-            // if (
-            //     PastActivities.getBoundingClientRect().left >=
-            //     0
-            // )
-                container.style.transform =
-                    "translateX(" +
-                    ((window.innerHeight * 1.15) / 3 - window.scrollY) +
-                    "px)";
-                    
+            container.style.transform =
+                "translateX(" +
+                ((window.innerHeight * 1.15) / 3 - window.scrollY) +
+                "px)";
         }
     } else {
         bigHeader.style.opacity = 1;
         About.style.opacity = 0;
     }
 });
+
+
+// get the width of container
+document.body.style.height =(window.innerHeight * 1.15) / 3 +  container.offsetWidth +"px";
