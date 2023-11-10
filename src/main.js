@@ -98,7 +98,15 @@ window.addEventListener("resize", () => {
 const bigHeader = document.querySelector("header");
 const container = document.querySelector(".container");
 const PastActivities = document.querySelector("#Pastevents");
-var last;
+
+window.onload = () => {
+    const containerWidth = container.offsetWidth;
+    console.log( containerWidth - window.height - (window.innerHeight * 1.15) / 3 -500+ "px");
+    document.body.style.height =
+        containerWidth -  (window.innerHeight * 1.15) / 3 + "px";
+};
+
+var last = window.scrollY;
 window.addEventListener("scroll", () => {
     // 放大效果
     if (window.scrollY < (window.innerHeight * 1.15) / 3)
@@ -124,10 +132,23 @@ window.addEventListener("scroll", () => {
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
             About.style.opacity = 1;
+            // if (
+            //     Pastevents.getBoundingClientRect().left -
+            //         (window.scrollY - last)
+            // )
             container.style.transform =
                 "translateX(" +
                 ((window.innerHeight * 1.15) / 3 - window.scrollY) +
                 "px)";
+            // else
+            //     container.style.transform =
+            //         "translateX(" +
+            //         ((window.innerHeight * 1.15) / 3 -
+            //             window.scrollY -
+            //             (Pastevents.getBoundingClientRect().left -
+            //                 (window.scrollY - last))) +
+            //         "px)";
+            // last = window.scrollY;
         }
     } else {
         bigHeader.style.opacity = 1;
@@ -135,6 +156,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-
 // get the width of container
-document.body.style.height =(window.innerHeight * 1.15) / 3 +  container.offsetWidth +"px";
+document.body.style.height =
+    (window.innerHeight * 1.15) / 3 + container.offsetWidth + "px";
