@@ -7,32 +7,27 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
+      - name: Copy Main to Publish
+        run: |
+          git checkout -b publish
+          git fetch origin main:publish
+          git checkout publish
+          git push origin publish -f
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
         with:
           overwrite: true
-
-      - name: Fetch remote changes
-        run: git fetch origin publish
-
-      - name: Switch to publish branch
-        run: git checkout publish
-
-      - name: Merge changes from origin/publish
-        run: git merge origin/publish
-
-      - name: Resolve merge conflicts if any
-        run: git merge --continue || true
-
-      - name: Switch back to main branch
-        run: git checkout main
-
-      - name: Merge changes from publish branch
-        run: git merge --strategy-option=theirs publish
-
-      - name: Push changes to publish branch (force overwrite)
-        run: git push --force origin publish
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Minify Code"
+            git pull origin publish --rebase
+            git push origin HEAD:publish
+          fi
