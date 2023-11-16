@@ -14,7 +14,8 @@ jobs:
       - name: Create and Push Publish Branch
         run: |
           git checkout -b publish
-          git push origin publish -u publish
+          git branch -u origin/publish
+          git push origin publish
 
       - name: Fetch Changes from Main
         run: git fetch origin main
@@ -24,7 +25,6 @@ jobs:
 
       - name: Push Changes to Publish
         run: git push origin publish -f
-          
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
         with:
