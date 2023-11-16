@@ -11,16 +11,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Create and Checkout Publish Branch
+      - name: Create and Push Publish Branch
         run: |
           git checkout -b publish
           git push origin publish -u publish
-          git fetch origin main
-          git reset --hard origin/main
+
+      - name: Fetch Changes from Main
+        run: git fetch origin main
+
+      - name: Reset Publish Branch to Main
+        run: git reset --hard origin/main
 
       - name: Push Changes to Publish
-        run: |
-          git push origin publish -f
+        run: git push origin publish -f
           
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
