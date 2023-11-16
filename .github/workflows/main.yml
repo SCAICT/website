@@ -9,28 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
         with:
           overwrite: true
-
+      - name: Switch to publish branch
+        run: git checkout publish
       - name: Commit and push if changed
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-
           # Check for changes
           if git diff --staged --quiet; then
             echo "No changes"
           else
             git commit -m "Minify Code"
-
-            # Perform rebase
-            if git pull origin publish --rebase; then
-              git push origin HEAD:publish
-            else
-              echo "Rebase failed. Resolve conflicts manually."
-            fi
+            git push origin publish
           fi
