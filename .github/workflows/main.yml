@@ -20,6 +20,7 @@ jobs:
             echo "No changes"
           else
             git commit -m "Minify Code"
+            git rebase --continue
             git pull origin publish --rebase
-            git push origin HEAD:publish -f
+            git push -f origin HEAD:publish
           fi
