@@ -1,19 +1,12 @@
 name: Minify CSS and Js
-
 on:
   push:
   workflow_dispatch:
-
 jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Copy to publish branch
-        run: |
-          git checkout main
-          git push origin main:publish
-          git checkout publish
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
         with:
@@ -23,10 +16,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          # Check for changes
           if git diff --staged --quiet; then
             echo "No changes"
           else
             git commit -m "Minify Code"
-            git push origin publish
+            git pull origin publish --rebase
+            git push origin HEAD:publish
           fi
