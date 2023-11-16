@@ -152,7 +152,8 @@ header > div div {
     z-index: 2;
 }
 
-.charger, .sponsor-charger {
+.charger,
+.sponsor-charger {
     position: absolute;
     top: calc(636dvh / var(--h));
     right: calc(48dvh / var(--h));
@@ -665,27 +666,32 @@ article li {
     display: flex;
     gap: 2rem;
 }
-.sponsor-charger {
-    left: 0;
-    right: unset;
-    top: calc(100dvh - 394dvh / var(--h));
-    width: calc(211dvh / var(--h));
-    height: calc(394dvh / var(--h));
-}
 .sponsor-charger.fixed {
     position: fixed;
     z-index: 3;
-    display: none;
+    left: 0;
+    right: unset;
+    top: unset;
+    bottom: 0;
+    transform: translate3d(0, 100%, 0);
+    transition: 0.4s ease;
+    background-size: contain;
+}
+.sponsor-charger.fixed.rise {
+    transform: translate3d(0, 0, 0);
 }
 .sponsor-fixed {
     width: 10rem;
 }
 .sponsor-relative {
     flex: 1;
+}
+.sponsor-company {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    width: 100%;
 }
 .sponsor-list {
     flex-grow: 1;
@@ -723,6 +729,7 @@ article li {
     padding: 2rem;
     color: #000;
     display: flex;
+    align-items: center;
     gap: 1rem;
     text-decoration: none;
 }
@@ -735,6 +742,51 @@ article li {
     font-size: 1.75rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
+}
+.invert {
+    filter: invert(1);
+}
+.sponsor-club,
+.sponsor-join {
+    margin-left: 4rem;
+    margin-top: 4rem;
+}
+.club-list {
+    vertical-align: middle;
+padding: 2rem 2rem 2rem 0;
+margin-top: 2rem;
+}
+.club-list a{
+    margin-right:  1.5rem;
+}
+.club-list img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #000;
+    border: #9a9a9a 0.5rem solid;
+}
+
+.sponsor-join p {
+    line-height: 1.5;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.sponsor-join{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-left: 0;
+
+}
+.batteryCase{
+    height: 10em;
+}
+#About .Sponsor-container h2{
+    font-family: "Quicksand", "OpenHuninn", sans-serif;
+    font-weight: 400;
 }
 
 @media (max-aspect-ratio: 1/1) {

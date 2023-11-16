@@ -100,6 +100,7 @@ const container = document.querySelector(".container");
 const PastActivities = document.querySelector("#Pastevents");
 const charger = document.querySelector(".sponsor-fixed .sponsor-charger");
 const fixedCharger = document.querySelector(".sponsor-charger.fixed");
+const clubTitle = document.getElementById("clubTitle");
 let containerScrollWidth;
 window.onload = () => {
     containerScrollWidth =
@@ -108,10 +109,7 @@ window.onload = () => {
         (window.innerHeight * 1.15) / 3;
 };
 // for scroll don't need original window.innerHeight;
-
-var last = window.scrollY;
-window.addEventListener("scroll", () => {
-    // 放大效果
+const scrollFunction = () => {
     if (window.scrollY < (window.innerHeight * 1.15) / 3)
         bigHeader.style.transform = `scale(${
             1 + (window.scrollY / window.innerHeight) * 80
@@ -139,10 +137,6 @@ window.addEventListener("scroll", () => {
                     "translateX(" +
                     ((window.innerHeight * 1.15) / 3 - window.scrollY) +
                     "px)";
-                setTimeout(() => {
-                    charger.style.display = "block";
-                    fixedCharger.style.display = "none";
-                }, 200);
             } else {
                 container.style.transform =
                     "translate(-" +
@@ -153,20 +147,29 @@ window.addEventListener("scroll", () => {
                         containerScrollWidth -
                         window.innerHeight / 2) +
                     "px)";
-
-                //0.2s delay
-                setTimeout(() => {
-                    charger.style.display = "none";
-                    fixedCharger.style.display = "block";
-                }, 200);
+            }
+            fixedCharger.classList.toggle(
+                "rise",
+                window.scrollY + window.innerHeight / 5.5 > containerScrollWidth
+            );
+            if (clubTitle.getBoundingClientRect().top < window.innerHeight) {
+                fixedCharger.style.transform =
+                    "translateY(" +
+                    (clubTitle.getBoundingClientRect().top -
+                        window.innerHeight) +
+                    "px)";
+                fixedCharger.style.transitionDuration = ".1s";
+            } else {
+                fixedCharger.style.transform = "";
+                fixedCharger.style.transitionDuration = ".4s";
             }
         }
     } else {
         bigHeader.style.opacity = 1;
         About.style.opacity = 0;
     }
-});
+};
 
-// // get the width of container
-// document.body.style.height =
-//     (window.innerHeight * 1.15) / 3 + container.offsetWidth + "px";
+var last = window.scrollY;
+window.addEventListener("scroll", scrollFunction);
+scrollFunction()
