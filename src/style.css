@@ -152,7 +152,7 @@ header > div div {
     z-index: 2;
 }
 
-.charger {
+.charger, .sponsor-charger {
     position: absolute;
     top: calc(636dvh / var(--h));
     right: calc(48dvh / var(--h));
@@ -665,14 +665,18 @@ article li {
     display: flex;
     gap: 2rem;
 }
-#Sponsor .charger {
+.sponsor-charger {
     left: 0;
     right: unset;
     top: calc(100dvh - 394dvh / var(--h));
     width: calc(211dvh / var(--h));
     height: calc(394dvh / var(--h));
 }
-
+.sponsor-charger.fixed {
+    position: fixed;
+    z-index: 3;
+    display: none;
+}
 .sponsor-fixed {
     width: 10rem;
 }
@@ -700,14 +704,15 @@ article li {
 .battery-gogoro {
     text-align: center;
     background: url(/src/img/gogoro.svg) no-repeat center;
-    padding-left:calc(89dvh / var(--h));
+    padding-left: calc(89dvh / var(--h));
 }
 .battery-9v {
     background: url(/src/img/battery-9v.svg) no-repeat center;
-    padding-left:calc(131dvh / var(--h));
+    padding-left: calc(131dvh / var(--h));
 }
 .battery {
     background: url(/src/img/battery.svg) no-repeat center;
+    padding-left: calc(111dvh / var(--h));
 }
 
 .sponsor a {
@@ -718,7 +723,7 @@ article li {
     padding: 2rem;
     color: #000;
     display: flex;
-    gap:1rem;
+    gap: 1rem;
     text-decoration: none;
 }
 .sponsor img {
@@ -726,9 +731,10 @@ article li {
     height: 8rem;
     object-fit: contain;
 }
-.sponsor h4{
+.sponsor h4 {
     font-size: 1.75rem;
     font-weight: 400;
+    margin-bottom: 0.5rem;
 }
 
 @media (max-aspect-ratio: 1/1) {
