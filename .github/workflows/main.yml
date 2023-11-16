@@ -1,19 +1,31 @@
-name: Minify CSS and Js
+name: Convert Events to JSON
 on:
   push:
+    paths:
+      - 'events.md'
+      - 'convert.js'
+  # allows to manually run the job at any time
   workflow_dispatch:
 jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Auto Minify
-        uses: nizarmah/auto-minify@v2.1
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          overwrite: true
-      - name: Auto committing minified files
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Github Action: Auto Minified JS and CSS files"
-          branch: publish
-
+          node-version: '16'
+      - name: Run script
+        run: node ./convert.js
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add events.json
+          if git diff --staged --quiet; then
+            echo "No changes in events.json"
+          else
+            git commit -m "Update events.json"
+            git push
+          fi
