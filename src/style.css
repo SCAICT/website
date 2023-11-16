@@ -788,7 +788,31 @@ margin-top: 2rem;
     font-family: "Quicksand", "OpenHuninn", sans-serif;
     font-weight: 400;
 }
-
+.treebox{
+    max-width: 800px;
+    margin: 4rem auto;
+    display: flex;
+    gap:2rem
+}
+.treebox >div{
+    flex:1;
+}
+.treebox>div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.arrow{
+    width: 8rem;
+}
+.treebox >div>p{
+    text-align: left;
+}
+.tree{
+width: 100%;
+padding-top: 3rem;
+}
 @media (max-aspect-ratio: 1/1) {
     .reminder {
         display: flex;
