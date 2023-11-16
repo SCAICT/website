@@ -790,7 +790,7 @@ margin-top: 2rem;
 }
 .treebox{
     max-width: 800px;
-    margin: 4rem auto;
+    margin: 4rem auto 0 auto;
     display: flex;
     gap:2rem
 }
@@ -802,16 +802,24 @@ margin-top: 2rem;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    padding-bottom: 3rem;
 }
 .arrow{
     width: 8rem;
 }
 .treebox >div>p{
     text-align: left;
+    width: 100%;
+    font-size: 1.5rem;
 }
 .tree{
 width: 100%;
 padding-top: 3rem;
+}
+.braille{
+    word-wrap: break-word;
+    font-size: 1.95vw;
+    transform: translateY(-1rem);
 }
 @media (max-aspect-ratio: 1/1) {
     .reminder {
