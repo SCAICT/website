@@ -1,32 +1,12 @@
 name: Minify CSS and Js
-
 on:
   push:
   workflow_dispatch:
-
 jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Create and Push Publish Branch
-        run: |
-          git checkout -b publish
-          git push origin publish -u publish
-
-      - name: Fetch Changes from Main
-        run: git fetch origin main
-
-      - name: Reset Publish Branch to Main
-        run: git reset --hard origin/main
-
-      - name: Push Changes to Publish
-        run: git push origin publish -f
-
-      - name: Push Changes to Publish
-        run: git push origin publish -f
+      - uses: actions/checkout@v2
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
         with:
@@ -41,5 +21,5 @@ jobs:
           else
             git commit -m "Minify Code"
             git pull origin publish --rebase
-            git push origin HEAD:publish
+            git push origin HEAD:publish -f
           fi
