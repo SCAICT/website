@@ -9,12 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Copy to publish branch
+        run: |
+          git checkout main
+          git push origin main:public
+          git checkout publish
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
         with:
           overwrite: true
-      - name: Switch to publish branch
-        run: git checkout publish
       - name: Commit and push if changed
         run: |
           git config --local user.email "action@github.com"
