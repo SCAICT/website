@@ -18,6 +18,11 @@
         U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+    font-family: "NicoMoji"; /* 中文園體 */
+    src: url("/src/Nico-Moji.woff") format("truetype");
+}
+
 :root {
     --h: 8.31;
 }
@@ -30,7 +35,7 @@
 
 body {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
-    height: 838.34dvh;
+    height: 1538.34dvh;
     color: #fff;
     background: #000;
     overflow-x: hidden;
@@ -490,7 +495,6 @@ article {
     display: flex;
     flex-direction: column;
     height: 100dvh;
-    box-shadow: 1rem 0 2rem 0 rgb(66, 66, 66);
     position: relative;
     z-index: 1;
 }
@@ -549,19 +553,13 @@ article li {
 }
 
 #Pastevents {
-    width: 100vw;
-    height: 100dvh;
-    background: #2e2e2e;
-}
-#Pastevents > div {
     width: calc(100dvh / 832 * 1280);
     height: 100dvh;
-    margin: 0 auto;
     padding: 2rem 0 0 calc(62dvh / var(--h));
     height: 100%;
     position: relative;
 }
-#Pastevents > div > div {
+#Pastevents > div {
     background-size: contain;
 }
 .sdReader {
@@ -615,13 +613,16 @@ article li {
     left: calc(388dvh / var(--h));
     top: calc(361dvh / var(--h));
 }
-.sdBox{
+.sdBox {
     width: calc(812dvh / var(--h));
-    height: calc(28dvh / var(--h));
+    height: calc(200dvh / var(--h));
     background: gray;
     position: absolute;
     left: calc(388dvh / var(--h));
     top: calc(30dvh / var(--h));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #showImg {
     width: calc(624dvh / var(--h));
@@ -632,7 +633,7 @@ article li {
     object-fit: cover;
     background: #000;
 }
-.sd{
+.sd {
     height: calc(143.787dvh / var(--h));
     width: calc(190.674dvh / var(--h));
     position: absolute;
@@ -654,6 +655,80 @@ article li {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+#Sponsor {
+    width: 100vw;
+    position: relative;
+    padding: 2rem;
+}
+.Sponsor-container {
+    display: flex;
+    gap: 2rem;
+}
+#Sponsor .charger {
+    left: 0;
+    right: unset;
+    top: calc(100dvh - 394dvh / var(--h));
+    width: calc(211dvh / var(--h));
+    height: calc(394dvh / var(--h));
+}
+
+.sponsor-fixed {
+    width: 10rem;
+}
+.sponsor-relative {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.sponsor-list {
+    flex-grow: 1;
+    max-width: 35rem;
+}
+.sponsor-battery > div {
+    font-family: NicoMoji;
+    display: flex;
+    align-items: center;
+    background-size: contain;
+    font-size: calc(24dvh / var(--h));
+    width: calc(305dvh / var(--h));
+    height: 30vh;
+    margin-bottom: 2rem;
+}
+.battery-gogoro {
+    text-align: center;
+    background: url(/src/img/gogoro.svg) no-repeat center;
+    padding-left:calc(89dvh / var(--h));
+}
+.battery-9v {
+    background: url(/src/img/battery-9v.svg) no-repeat center;
+    padding-left:calc(131dvh / var(--h));
+}
+.battery {
+    background: url(/src/img/battery.svg) no-repeat center;
+}
+
+.sponsor a {
+    height: 30vh;
+    border-radius: 1rem;
+    background: #d9d9d9;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    color: #000;
+    display: flex;
+    gap:1rem;
+    text-decoration: none;
+}
+.sponsor img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: contain;
+}
+.sponsor h4{
+    font-size: 1.75rem;
+    font-weight: 400;
 }
 
 @media (max-aspect-ratio: 1/1) {
