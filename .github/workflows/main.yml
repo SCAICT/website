@@ -14,14 +14,16 @@ jobs:
       - name: Create and Push Publish Branch
         run: |
           git checkout -b publish
-          git branch -u origin/publish
-          git push origin publish
+          git push origin publish -u publish
 
       - name: Fetch Changes from Main
         run: git fetch origin main
 
       - name: Reset Publish Branch to Main
         run: git reset --hard origin/main
+
+      - name: Push Changes to Publish
+        run: git push origin publish -f
 
       - name: Push Changes to Publish
         run: git push origin publish -f
