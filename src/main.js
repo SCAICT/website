@@ -99,12 +99,14 @@ const bigHeader = document.querySelector("header");
 const container = document.querySelector(".container");
 const PastActivities = document.querySelector("#Pastevents");
 
+let containerScrollWidth;
 window.onload = () => {
-    const containerWidth = container.offsetWidth;
-    console.log( containerWidth - window.height - (window.innerHeight * 1.15) / 3 -500+ "px");
-    document.body.style.height =
-        containerWidth -  (window.innerHeight * 1.15) / 3 + "px";
+    containerScrollWidth =
+        container.offsetWidth -
+        window.innerWidth +
+        (window.innerHeight * 1.15) / 3;
 };
+// for scroll don't need original window.innerHeight;
 
 var last = window.scrollY;
 window.addEventListener("scroll", () => {
@@ -113,7 +115,6 @@ window.addEventListener("scroll", () => {
         bigHeader.style.transform = `scale(${
             1 + (window.scrollY / window.innerHeight) * 80
         })`;
-
     // 透明度轉場
     if (window.scrollY > window.innerHeight * 0.05) {
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
@@ -132,14 +133,22 @@ window.addEventListener("scroll", () => {
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
             About.style.opacity = 1;
-            // if (
-            //     Pastevents.getBoundingClientRect().left -
-            //         (window.scrollY - last)
-            // )
-            container.style.transform =
-                "translateX(" +
-                ((window.innerHeight * 1.15) / 3 - window.scrollY) +
-                "px)";
+            if (window.scrollY < containerScrollWidth)
+                container.style.transform =
+                    "translateX(" +
+                    ((window.innerHeight * 1.15) / 3 - window.scrollY) +
+                    "px)";
+            else
+                container.style.transform =
+                    "translate(-" +
+                    (container.offsetWidth - window.innerWidth) +
+                    "px," +
+                    ((window.innerHeight * 1.15) / 3 -
+                        window.scrollY +
+                        containerScrollWidth -
+                        window.innerHeight / 2) +
+                    "px)";
+            // last = window.scrollY;
             // else
             //     container.style.transform =
             //         "translateX(" +
@@ -148,7 +157,6 @@ window.addEventListener("scroll", () => {
             //             (Pastevents.getBoundingClientRect().left -
             //                 (window.scrollY - last))) +
             //         "px)";
-            // last = window.scrollY;
         }
     } else {
         bigHeader.style.opacity = 1;
@@ -156,6 +164,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// get the width of container
-document.body.style.height =
-    (window.innerHeight * 1.15) / 3 + container.offsetWidth + "px";
+// // get the width of container
+// document.body.style.height =
+//     (window.innerHeight * 1.15) / 3 + container.offsetWidth + "px";
