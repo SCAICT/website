@@ -12,7 +12,7 @@ jobs:
       - name: Copy to publish branch
         run: |
           git checkout main
-          git push origin main:public
+          git push origin main:publish
           git checkout publish
       - name: Auto Minify
         uses: nizarmah/auto-minify@v2.1
