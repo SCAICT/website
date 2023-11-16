@@ -98,7 +98,8 @@ window.addEventListener("resize", () => {
 const bigHeader = document.querySelector("header");
 const container = document.querySelector(".container");
 const PastActivities = document.querySelector("#Pastevents");
-
+const charger = document.querySelector(".sponsor-fixed .sponsor-charger");
+const fixedCharger = document.querySelector(".sponsor-charger.fixed");
 let containerScrollWidth;
 window.onload = () => {
     containerScrollWidth =
@@ -133,12 +134,16 @@ window.addEventListener("scroll", () => {
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
             About.style.opacity = 1;
-            if (window.scrollY < containerScrollWidth)
+            if (window.scrollY < containerScrollWidth) {
                 container.style.transform =
                     "translateX(" +
                     ((window.innerHeight * 1.15) / 3 - window.scrollY) +
                     "px)";
-            else
+                setTimeout(() => {
+                    charger.style.display = "block";
+                    fixedCharger.style.display = "none";
+                }, 200);
+            } else {
                 container.style.transform =
                     "translate(-" +
                     (container.offsetWidth - window.innerWidth) +
@@ -148,15 +153,13 @@ window.addEventListener("scroll", () => {
                         containerScrollWidth -
                         window.innerHeight / 2) +
                     "px)";
-            // last = window.scrollY;
-            // else
-            //     container.style.transform =
-            //         "translateX(" +
-            //         ((window.innerHeight * 1.15) / 3 -
-            //             window.scrollY -
-            //             (Pastevents.getBoundingClientRect().left -
-            //                 (window.scrollY - last))) +
-            //         "px)";
+
+                //0.2s delay
+                setTimeout(() => {
+                    charger.style.display = "none";
+                    fixedCharger.style.display = "block";
+                }, 200);
+            }
         }
     } else {
         bigHeader.style.opacity = 1;
