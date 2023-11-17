@@ -662,7 +662,7 @@ article li {
     position: relative;
     padding: 2rem;
 }
-.Sponsor-container {
+.Sponsor-ccontainer {
     display: flex;
     gap: 2rem;
 }
@@ -753,11 +753,11 @@ article li {
 }
 .club-list {
     vertical-align: middle;
-padding: 2rem 2rem 2rem 0;
-margin-top: 2rem;
+    padding: 2rem 2rem 2rem 0;
+    margin-top: 2rem;
 }
-.club-list a{
-    margin-right:  1.5rem;
+.club-list a {
+    margin-right: 1.5rem;
 }
 .club-list img {
     width: 10rem;
@@ -773,50 +773,80 @@ margin-top: 2rem;
     font-size: 1.2rem;
     margin-top: 1rem;
 }
-.sponsor-join{
+.sponsor-join {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     margin-left: 0;
-
 }
-.batteryCase{
+.batteryCase {
     height: 10em;
 }
-#About .Sponsor-container h2{
+#About .Sponsor-ccontainer h2 {
     font-family: "Quicksand", "OpenHuninn", sans-serif;
     font-weight: 400;
 }
-.treebox{
+.treebox {
     max-width: 800px;
     margin: 4rem auto 0 auto;
     display: flex;
-    gap:2rem
+    gap: 2rem;
 }
-.treebox >div{
-    flex:1;
+.treebox > div {
+    flex: 1;
 }
-.treebox>div:first-child{
+.treebox > div:first-child {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     padding-bottom: 3rem;
 }
-.arrow{
+.arrow {
     width: 8rem;
 }
-.treebox >div>p{
+.treebox > div > p {
     text-align: left;
     width: 100%;
     font-size: 1.5rem;
 }
-.tree{
-width: 100%;
-padding-top: 3rem;
+.tree {
+    width: 100%;
+    padding-top: 3rem;
+    position: relative;
 }
-.braille{
+.tree i {
+    position: absolute;
+    font-size: 30px;
+    z-index: 3;
+}
+.fa-envelope {
+    left: 2%;
+    top: 28.5%;
+    color: #ff6464;
+}
+.fa-discord {
+    left: -2%;
+    top: 58%;
+    color: #9969ff;
+}
+.fa-github {
+    left: 59.4%;
+    top: 10.3%;
+    color: #fff;
+}
+.fa-instagram {
+    left: 78.3%;
+    top: 44.3%;
+    color: #ff83be;
+}
+.fa-facebook {
+    top: 40%;
+    left: 95%;
+    color: #2dbaf6;
+}
+.braille {
     word-wrap: break-word;
     font-size: 1.95vw;
     transform: translateY(-1rem);
