@@ -19,30 +19,19 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
         var eventsHTML = "";
         for (var i = 0; i < events.length; i++) {
             eventsHTML += `
-            <article>
-            ${
+            <article>${
                 events[i].image != ""
                     ? '<img src="' + events[i].image + '" />'
                     : ""
-            }
-                <div>
-                    <h4>${events[i].title}</h4>
-                    <h5>${events[i].description}</h5>
-                    <ul>
-                        <li>
-                            <i class="fa-solid fa-calendar"></i>
-                            ${events[i].date}
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            ${events[i].location}
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-tag"></i> ${events[i].price}
-                        </li>
-                    </ul>
-                </div>
-            </article>`;
+            }<div><h4>${events[i].title}</h4><h5>${
+                events[i].description
+            }</h5><ul><li><i class="fa-solid fa-calendar"></i>${
+                events[i].date
+            }</li><li><i class="fa-solid fa-location-dot"></i>${
+                events[i].location
+            }</li><li><i class="fa-solid fa-tag"></i> ${
+                events[i].price
+            }</li></ul></div></article>`;
         }
         document.querySelector(".events").innerHTML = eventsHTML;
     })
@@ -69,6 +58,16 @@ var rotation = false,
     y;
 function checkRotation() {
     rotation = window.innerHeight < window.innerWidth && phone;
+
+    containerScrollWidth =
+        container.offsetWidth -
+        window.innerWidth +
+        (window.innerHeight * 1.15) / 3;
+    SponsorBoxForHeight = document.querySelector(
+        ".SponsorBoxForHeight"
+    ).offsetHeight;
+    document.body.style.height =
+    containerScrollWidth+SponsorBoxForHeight- parseFloat(getComputedStyle(document.documentElement).fontSize)*3.5+"px";
 }
 
 function permission() {
@@ -101,12 +100,9 @@ const PastActivities = document.querySelector("#Pastevents");
 const charger = document.querySelector(".sponsor-fixed .sponsor-charger");
 const fixedCharger = document.querySelector(".sponsor-charger.fixed");
 const clubTitle = document.getElementById("clubTitle");
-let containerScrollWidth;
+let containerScrollWidth, SponsorBoxForHeight;
 window.onload = () => {
-    containerScrollWidth =
-        container.offsetWidth -
-        window.innerWidth +
-        (window.innerHeight * 1.15) / 3;
+    checkRotation();
 };
 // for scroll don't need original window.innerHeight;
 const scrollFunction = () => {
@@ -172,4 +168,9 @@ const scrollFunction = () => {
 
 var last = window.scrollY;
 window.addEventListener("scroll", scrollFunction);
-scrollFunction()
+scrollFunction();
+
+let elements = document.querySelectorAll(".tree i");
+elements.forEach(element => {
+    element.addEventListener("click", () => (element.style.top = "100%"));
+});

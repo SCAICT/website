@@ -68,6 +68,7 @@
     </head>
 
     <body>
+        <input type="checkbox" name="" id="credits" />
         <main>
             <header>
                 <div>
@@ -91,7 +92,10 @@
                         onclick="document.body.style.opacity=0"
                     ></div>
                     <div class="chargerText">Sponsor</div>
-                    <div class="cpu" onclick="permission()">
+                    <div
+                        class="cpu"
+                        onclick="document.querySelector('.cpu img').style.animation='jump .5s ease-in-out';setTimeout(function() {document.querySelector('.cpu img').style.animation=''}, 500);"
+                    >
                         <img src="/src/img/logo.svg" alt="" />
                     </div>
                     <div class="scaict">SCAICT</div>
@@ -186,7 +190,7 @@
                             <div class="sdBox">記憶卡維護中...</div>
                         </div>
                     </section>
-                    <section id="Sponsor">
+                    <section id="Sponsor"><div class="SponsorBoxForHeight">
                         <h2>充電夥伴</h2>
                         <h3>Sponsors</h3>
                         <div class="Sponsor-ccontainer">
@@ -329,14 +333,14 @@
                         </div>
                         <div class="sponsor-join">
                             <div>
-                                <h2>一起充電吧</h2>
-                                <h3>You are the missing one</h3>
+                                <h2>一起充電吧!</h2>
+                                <h3>You are the missing one!</h3>
                                 <p>
                                     電池還缺你一個!
                                     <br />
                                     你的贊助能讓中電會提供更多U質的資源和更多豐富的課程與活動。
                                     <br />
-                                    若你有任何資源想要分享歡迎聯絡我們!
+                                    若你有任何資源想要分享歡迎聯絡我們。
                                 </p>
                             </div>
                             <img
@@ -357,29 +361,73 @@
                                 </p>
                             </div>
                             <div class="tree">
-                                <a href="https://www.facebook.com/scaict.tw/" class="facebook">
+                                <img
+                                    src="/src/img/logo.svg"
+                                    alt="Logo"
+                                    class="logo"
+                                />
+                                <a
+                                    href="https://www.facebook.com/scaict.tw/"
+                                    class="facebook" target="_blank"
+                                >
                                     <i class="fa-brands fa-facebook"></i></a
-                                ><a href="https://discord.gg/neQ7QEUcqe" class="discord"
+                                ><a
+                                    href="https://discord.gg/neQ7QEUcqe"
+                                    class="discord" target="_blank"
                                     ><i class="fa-brands fa-discord"></i></a
-                                ><a href="https://www.instagram.com/scaict.tw/" class="instagram"
+                                ><a
+                                    href="https://www.instagram.com/scaict.tw/"
+                                    class="instagram" target="_blank"
                                     ><i class="fa-brands fa-instagram"></i></a
-                                ><a href="mailto:scaict.official@gmail.com" class="envelope"
+                                ><a
+                                    href="mailto:scaict.official@gmail.com"
+                                    class="envelope" target="_blank"
                                     ><i class="fa-regular fa-envelope"></i></a
-                                ><a href="https://github.com/SCAICT" class="github"
+                                ><a
+                                    href="https://github.com/SCAICT"
+                                    class="github" target="_blank"
                                     ><i class="fa-brands fa-github"></i
                                 ></a>
                                 <img src="/src/img/tree.svg" alt="" />
                             </div>
                         </div>
                         <div class="braille">
+                            <label for="credits" class="creditsLabel">
+                                <i class="fa-regular fa-copyright"></i
+                            ></label>
                             ⠁⠯⠄⠕⠌⠐⠅⠩⠄⠁⠯⠄⠙⠞⠐⠓⠱⠄⠊⠮⠐⠋⠻⠂⠉⠞⠂⠗⠮⠂⠗⠫⠐⠡⠐⠀⠠⠎⠞⠥⠙⠑⠝⠞⠀⠠⠉⠇⠥⠃⠄⠎⠀⠠⠁⠎⠎⠕⠉⠊⠁⠞⠊⠕⠝⠀⠕⠋⠀⠠⠊⠝⠋⠕⠗⠍⠁⠞⠊⠕⠝⠀⠊⠝⠀⠠⠉⠑⠝⠞⠗⠁⠇⠀⠠⠞⠁⠊⠺⠁⠝⠀⠖⠐⠍⠭⠂⠛⠥⠂⠙⠞⠈⠓⠱⠐⠙⠮⠁⠑⠬⠈⠟⠜⠈⠃⠭⠂⠁⠮⠐⠨⠐⠤⠀⠛⠌⠂⠅⠒⠈⠝⠡⠈⠟⠜⠄⠑⠞⠐⠁⠮⠐⠅⠮⠐⠚⠺⠈⠙⠧⠐⠙⠮⠁⠗⠔⠐⠮⠂⠐⠐⠐⠅⠯⠄⠑⠡⠈⠝⠡⠈⠊⠱⠐⠉⠡⠐⠕⠌⠐⠚⠒⠐
                         </div>
-                    </section>
+                    </div> </section>
                 </div>
             </section>
             <div class="sponsor-charger fixed"></div>
         </main>
         <div class="reminder">請旋轉螢幕</div>
+        <section class="credits">
+            <div>
+                <label for="credits" class="credits-x">
+                    <i class="fa-regular fa-circle-xmark"></i
+                ></label>
+                <h2>Credits</h2>
+                <p>
+                    Front-End: 毛哥EM<br />
+                    Back-End: Edit Mr.<br />
+                    Design: Elvis Mao<br />
+
+                    Font:
+                    <a href="http://nicofont.pupu.jp/nicomoji.html">NicoMoji</a
+                    >,
+                    <a
+                        href="https://github.com/andrew-paglinawan/QuicksandFamily"
+                        >Quicksand</a
+                    >, <a href="https://justfont.com/huninn/">jf open 粉圓</a
+                    >
+                   <footer>
+                     Copyright © 2023 SCAICT <br />All Rights Reserved
+                   </footer>
+                </p>
+            </div>
+        </section>
         <script src="src/main.js"></script>
     </body>
 </html>
