@@ -195,6 +195,7 @@ header > div div {
 
 .cpu img {
     height: calc(43dvh / var(--h));
+    transform-origin: bottom;
 }
 
 .scaict {
@@ -816,13 +817,14 @@ article li {
     padding-top: 3rem;
     position: relative;
 }
-.tree i {
+.tree i,
+.tree .logo {
     position: absolute;
     font-size: 30px;
     z-index: 3;
 }
 .fa-envelope {
-    left: 2%;
+    left: 2.11%;
     top: 28.5%;
     color: #ff6464;
 }
@@ -838,18 +840,118 @@ article li {
 }
 .fa-instagram {
     left: 78.3%;
-    top: 44.3%;
+    top: 45.4%;
     color: #ff83be;
 }
 .fa-facebook {
     top: 40%;
-    left: 95%;
+    left: 95.6%;
     color: #2dbaf6;
 }
 .braille {
     word-wrap: break-word;
     font-size: 1.95vw;
     transform: translateY(-1rem);
+    position: relative;
+}
+.tree i {
+    transition: scale 0.2s ease-out, top 0.2s ease-in;
+}
+.tree .logo {
+    top: 26.1%;
+    left: 57%;
+    display: block;
+    width: 50px;
+}
+.cpu img,
+.logo {
+    transition: filter 1s linear;
+}
+.logo:hover,
+.cpu img:hover {
+    filter: hue-rotate(360deg);
+}
+@keyframes jump {
+    0%,
+    100% {
+        transform: scaleY(100%) translateY(0%);
+    }
+    30% {
+        transform: scaleY(80%) translateY(0%);
+    }
+    70% {
+        transform: scaleY(100%) translateY(-30%);
+    }
+}
+.tree a:hover i {
+    scale: 1.1;
+}
+
+.creditsLabel {
+    right: 1.5rem;
+    top: -2.5rem;
+    display: block;
+    position: absolute;
+    font-size: 2rem;
+}
+.credits {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.412);
+    backdrop-filter: blur(3px);
+    z-index: 4;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.5s ease;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transform: rotateX(90deg);
+}
+
+#credits {
+    width: 1px;
+    height: 1px;
+    display: none;
+}
+
+#credits:checked ~ .credits {
+    opacity: 1;
+    pointer-events: all;
+    transform: rotateX(0deg);
+}
+.credits div {
+    max-width: 25rem;
+    width: 100%;
+    position: relative;
+}
+.credits-x {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    right: -1.5rem;
+    top: -1.5rem;
+}
+.credits h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.credits h2::after {
+    content: "";
+    display: block;
+    margin-top: 0.5rem;
+    width: 1.7rem;
+    height: 0.2rem;
+    background: #fff;
+}
+.credits a {
+    color: #fff;
+}
+footer {
+    margin-top: 0.5rem;
 }
 @media (max-aspect-ratio: 1/1) {
     .reminder {
