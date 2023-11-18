@@ -82,7 +82,7 @@ header > div div {
 .lcd {
     width: calc(268dvh / var(--h));
     height: calc(107.296dvh / var(--h));
-    background: url(/src/img/LCD.svg) no-repeat;
+    background: url(/src/img/LCD.svg) no-repeat center;
     position: absolute;
     top: calc(42dvh / var(--h));
     right: calc(42dvh / var(--h));
