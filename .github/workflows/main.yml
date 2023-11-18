@@ -15,11 +15,14 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
           if git diff --staged --quiet; then
             echo "No changes"
           else
-            git commit -m "Minify Code"
             git pull -f origin publish --rebase
-            git push -f origin HEAD:publish
+            git checkout publish
+            git checkout --ours "src/main.js"
+            git checkout --ours "src/style.css"
+            git add .
+            git commit -m "Minify Code"
+            git push -f
           fi
