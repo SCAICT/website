@@ -1,28 +1,22 @@
-name: Minify CSS and Js
+name: Minify Workflow
 on:
   push:
-  workflow_dispatch:
+    branches: [ publish ]
+
 jobs:
-  convert:
+  build:
     runs-on: ubuntu-latest
     steps:
+      # Checks-out your repository
       - uses: actions/checkout@v2
-      - name: Auto Minify
-        uses: nizarmah/auto-minify@v2.1
         with:
-          overwrite: true
-      - name: Commit and push if changed
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Minifing Code"
-          if git diff --staged --quiet; then
-            echo "No changes"
-          else
-            git pull -f origin publish --rebase
-            git checkout publish
-            git add .
-            git commit -m "Minify Code"
-            git push -f
-          fi
+          ref: ${{ github.ref }}
+
+      - name: Minify Action
+        uses: anthonyftwang/minify-action@v1.0.1
+
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Minify source code
+          branch: ${{ github.ref }}
