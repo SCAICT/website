@@ -5,29 +5,15 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: Create Publish Branch
-        run: git checkout publish
-      - name: Copy Files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git checkout main -- *
-          git add .
-          git commit -m "Copy files to publish branch"
-          git push origin publish
-      - name: Auto Minify
-        uses: nizarmah/auto-minify@v2.1
-        with:
-          overwrite: true
-      - name: Commit and push if changed
-        run: |
-          git add .
-          if git diff --staged --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Minify Code"
-            git push
-          fi
+  steps:
+  # Checks-out your repository under $GITHUB_WORKSPACE, so auto-minify job can access it
+  - uses: actions/checkout@v2
+  - name: Auto Minify
+    uses: nizarmah/auto-minify@v2.1
+    with:
+      overwrite: true
+  - name: Auto committing minified files
+    uses: stefanzweifel/git-auto-commit-action@v4
+    with:
+      commit_message: "Github Action: Auto Minified JS and CSS files"
+      branch: publish
