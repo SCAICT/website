@@ -67,7 +67,10 @@ function checkRotation() {
         ".SponsorBoxForHeight"
     ).offsetHeight;
     document.body.style.height =
-    containerScrollWidth+SponsorBoxForHeight- parseFloat(getComputedStyle(document.documentElement).fontSize)*3.5+"px";
+        containerScrollWidth +
+        SponsorBoxForHeight -
+        parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.5 +
+        "px";
 }
 
 function permission() {
@@ -172,5 +175,10 @@ scrollFunction();
 
 let elements = document.querySelectorAll(".tree i");
 elements.forEach(element => {
-    element.addEventListener("click", () => (element.style.top = "100%"));
+    element.addEventListener("click", () => {
+        element.style.top = "100%";
+        setTimeout(() => {
+            window.open(element.getAttribute("link"), "_blank");
+        }, 300);
+    });
 });
