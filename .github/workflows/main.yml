@@ -1,25 +1,33 @@
-name: Copy to Publish Branch
-
+name: Minify CSS and Js
 on:
   push:
-    branches:
-      - main
-
+  workflow_dispatch:
 jobs:
-  copy-to-publish:
+  convert:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
+      
       - name: Create Publish Branch
-        run: git checkout -b publish
-
+        run: git checkout publish
       - name: Copy Files
         run: |
-          shopt -s extglob
-          cp -r !(publish) .
-          git add -A
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout main -- *
+          git add .
           git commit -m "Copy files to publish branch"
           git push origin publish
+      - name: Auto Minify
+        uses: nizarmah/auto-minify@v2.1
+        with:
+          overwrite: true
+      - name: Commit and push if changed
+        run: |
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Minify Code"
+            git push
+          fi
