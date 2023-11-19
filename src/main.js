@@ -8,7 +8,7 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/home.json")
         document.getElementById("lcdLink").target = "_blank";
     })
     .catch(error => {
-        console.error("Error:", error);
+        console.error("Error: ", error);
     });
 
 // Events
