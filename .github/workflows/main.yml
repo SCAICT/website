@@ -18,7 +18,8 @@ jobs:
 
       - name: Copy Files
         run: |
-          cp -r * .
+          shopt -s extglob
+          cp -r !(publish) .
           git add -A
           git commit -m "Copy files to publish branch"
           git push origin publish
