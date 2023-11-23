@@ -75,11 +75,11 @@ const showImg = event => {
     setTimeout(() => {
         sd.style.left = `calc(20vh / var(--h))`;
         setTimeout(() => {
-            imgContainer.innerHTML = '';
+            imgContainer.innerHTML = "";
             for (var i = 0; i < imageData[activityName].length; i++) {
                 var div = document.createElement("div");
                 div.classList.add("showImg");
-                div.style.backgroundImage = `url(https://raw.githubusercontent.com/SCAICT/website-data/main/img/${activityName}/${imageData[activityName][i]})`;
+                div.style.backgroundImage = `url(https://raw.githubusercontent.com/SCAICT/website-data/main/converted/img/${activityName}/${imageData[activityName][i]})`;
                 imgContainer.appendChild(div);
             }
             document
@@ -97,7 +97,9 @@ const changeImg = (direction = 1) => {
     if (imageIndex < 0) imageIndex = imageData[sd.innerText].length - 1;
     if (imageIndex >= imageData[sd.innerText].length) imageIndex = 0;
     document
-        .querySelector(`#showImg-container .showImg:nth-child(${imageIndex + 1})`)
+        .querySelector(
+            `#showImg-container .showImg:nth-child(${imageIndex + 1})`
+        )
         .classList.add("displaying");
 };
 
