@@ -631,11 +631,11 @@ article li {
 }
 .sdBox {
     width: calc(812dvh / var(--h));
-    height: calc(200dvh / var(--h));
+    height: calc(220dvh / var(--h));
     background: gray;
     position: absolute;
     left: calc(388dvh / var(--h));
-    top: calc(120dvh / var(--h));
+    top: calc(110dvh / var(--h));
     display: flex;
     align-items: center;
     padding: 2dvh;
@@ -662,8 +662,23 @@ article li {
     position: absolute;
     left: calc(482dvh / var(--h));
     top: calc(389dvh / var(--h));
-    background: url(/src/img/背影.webp) no-repeat left;
+    background: #000;
     background-size: cover;
+}
+.displaying {
+    animation: drawImage 0.5s ease forwards;
+    z-index: 1;
+}
+@keyframes drawImage {
+    0% {
+        filter: brightness(0) invert(1);
+    }
+    50% {
+        filter: brightness(1) invert(1);
+    }
+    100% {
+        filter: brightness(1) invert(0);
+    }
 }
 .sd {
     width: calc(143.787dvh / var(--h));
