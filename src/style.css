@@ -42,6 +42,7 @@ body {
     overflow-x: hidden;
     font-size: 2.28vh;
     transition: opacity 0.2s ease-out;
+    scroll-behavior: smooth;
 }
 
 /* home */
@@ -432,7 +433,7 @@ h3.Social {
     font-weight: 400;
 }
 
-#About > .container > .titleBox {
+#About > .container .titleBox {
     padding: 2em;
     width: 80vh;
     background-position: 0 -2.5rem;
@@ -496,10 +497,11 @@ article {
 }
 
 .goals article img {
-    width: 100%;
-    height: calc(20rem / 16 * 9);
+    width: 44.8dvh;
+    height: 25.2dvh;
     object-fit: cover;
     background: gray;
+    margin-bottom: .5em;
 }
 #Events {
     padding: 2rem;
@@ -671,7 +673,7 @@ article li {
 }
 @keyframes drawImage {
     0% {
-        filter: brightness(0) invert(1);
+        filter: brightness(100) invert(1);
     }
     50% {
         filter: brightness(1) invert(1);
@@ -1001,6 +1003,13 @@ article li {
 footer {
     margin-top: 0.8rem;
     font-size: 0.8em;
+}
+.top-header{
+    height: calc(115dvh / 3);
+}
+.before-goals{
+    display: flex;
+    height:100%;
 }
 @media (max-aspect-ratio: 1/1) {
     .reminder {
