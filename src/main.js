@@ -42,7 +42,8 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
 // Images
 
 let imageData,
-    pressed = false;
+    pressed = false,
+    imageIndex = 0;
 fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
     .then(response => response.json())
     .then(data => {
@@ -69,17 +70,35 @@ const showImg = event => {
     var activityName = event.target.innerText;
     event.target.classList.add("selected-sd");
     sd.style.left = "-25vh";
-    imgContainer.innerHTML = "";
+    imgContainer.innerHTML = '<div class="showImg"></div>';
+    imageIndex = 0;
     setTimeout(() => {
         sd.style.left = `calc(20vh / var(--h))`;
-        for (var i = 0; i < imageData[activityName].length; i++) {
-            var div = document.createElement("div");
-            div.classList.add("showImg");
-            div.style.backgroundImage = `url(https://raw.githubusercontent.com/SCAICT/website-data/main/img/${activityName}/${imageData[activityName][i]})`;
-            imgContainer.appendChild(div);
-        }
+        setTimeout(() => {
+            imgContainer.innerHTML = '';
+            for (var i = 0; i < imageData[activityName].length; i++) {
+                var div = document.createElement("div");
+                div.classList.add("showImg");
+                div.style.backgroundImage = `url(https://raw.githubusercontent.com/SCAICT/website-data/main/img/${activityName}/${imageData[activityName][i]})`;
+                imgContainer.appendChild(div);
+            }
+            document
+                .querySelector("#showImg-container .showImg:last-child")
+                .classList.add("displaying");
+        }, 500);
     }, 500);
     sd.innerText = activityName;
+};
+const changeImg = (direction = 1) => {
+    document
+        .querySelector("#showImg-container .showImg.displaying")
+        .classList.remove("displaying");
+    imageIndex += direction;
+    if (imageIndex < 0) imageIndex = imageData[sd.innerText].length - 1;
+    if (imageIndex >= imageData[sd.innerText].length) imageIndex = 0;
+    document
+        .querySelector(`#showImg-container .showImg:nth-child(${imageIndex + 1})`)
+        .classList.add("displaying");
 };
 
 // Mouse Move Effect
@@ -88,7 +107,7 @@ header.addEventListener("mousemove", e => {
     const x = (e.clientX / window.innerWidth) * 10 - 5;
     const y = (e.clientY / window.innerHeight) * 10 - 5;
     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
-    bigHeader.style.opacity = 1;
+    header.style.opacity = 1;
     About.style.opacity = 0;
 });
 
