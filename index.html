@@ -118,30 +118,32 @@
                     <div class="sca1"></div>
                     <div class="diode"></div>
                     <div class="chip"></div>
-                    <a href="#About" class="button About"></a>
+                    <a href="#About_" class="button About"></a>
                     <h3 class="About">About</h3>
-                    <a href="#Events" class="button Events"></a>
+                    <a href="#Events_" class="button Events"></a>
                     <h3 class="Events">Events</h3>
-                    <a href="#Project" class="button Project"></a>
+                    <a href="#Project_" class="button Project"></a>
                     <h3 class="Project">Project</h3>
-                    <a href="#Social" class="button Social"></a>
+                    <a href="#Social_" class="button Social"></a>
                     <h3 class="Social">Social</h3>
                 </div>
             </header>
             <section id="About">
                 <div class="container">
-                    <div class="titleBox cpuLogo">
-                        <h2>關於我們</h2>
-                        <h3>About Us</h3>
+                    <div class="before-goals">
+                        <div class="titleBox cpuLogo">
+                            <h2>關於我們</h2>
+                            <h3>About Us</h3>
+                        </div>
+                        <div class="introduction">
+                            <h3>中部高中電資社團聯合會議</h3>
+                            <p>
+                                成立於2021年，是由一群熱愛資訊科技和社團活動的高中職生所組成，而主要目的在於整合中部資訊科技資源，推廣資訊相關的課程。本學期目前規劃邀請各大講師來線上授課，且學員可以免費且自由報名。
+                            </p>
+                        </div>
+                        <img src="/src/img/背影.webp" alt="" class="introImg" />
                     </div>
-                    <div class="introduction">
-                        <h3>中部高中電資社團聯合會議</h3>
-                        <p>
-                            成立於2021年，是由一群熱愛資訊科技和社團活動的高中職生所組成，而主要目的在於整合中部資訊科技資源，推廣資訊相關的課程。本學期目前規劃邀請各大講師來線上授課，且學員可以免費且自由報名。
-                        </p>
-                    </div>
-                    <img src="/src/img/背影.webp" alt="" class="introImg" />
-                    <div class="titleBox goal">
+                    <div class="titleBox goal" id="Project">
                         <div>
                             <h2>團隊目標</h2>
                             <h3>Our Goals</h3>
@@ -187,10 +189,13 @@
                         <div class="sd"></div>
                         <div class="sdReaderTop"></div>
                         <div class="cpuMem">
-                            <img src="/src/img/logo.svg"/>
+                            <img src="/src/img/logo.svg" />
                         </div>
                         <div class="imgButton" onclick="changeImg(-1)"></div>
-                        <div class="imgButton right" onclick="changeImg()"></div>
+                        <div
+                            class="imgButton right"
+                            onclick="changeImg()"
+                        ></div>
                         <div class="imgLcd"></div>
                         <div id="showImg-container">
                             <div class="showImg"></div>
@@ -438,6 +443,14 @@
                     </footer>
                 </div>
             </div>
+        </section>
+        <section class="link">
+            <div class="top-header"></div>
+            <div id="About_"></div>
+            <div id="Project_"></div>
+            <div id="Events_"></div>
+
+            <div id="Social_"></div>
         </section>
         <script src="src/main.js"></script>
     </body>

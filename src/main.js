@@ -134,6 +134,10 @@ function checkRotation() {
         SponsorBoxForHeight -
         parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.5 +
         "px";
+    document.getElementById("About_").style.height =
+        document.querySelector(".before-goals").offsetWidth + "px";
+        document.getElementById("Project_").style.height =
+        document.querySelector("#Project").offsetWidth + "px";
 }
 
 function permission() {
