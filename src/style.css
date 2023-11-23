@@ -25,7 +25,7 @@
 
 :root {
     --h: 8.31;
-    --c: 123
+    --c: 123;
 }
 
 * {
@@ -40,6 +40,7 @@ body {
     color: #fff;
     background: #000;
     overflow-x: hidden;
+    font-size: 2.28vh;
     transition: opacity 0.2s ease-out;
 }
 
@@ -464,18 +465,25 @@ h3.Social {
     height: 100%;
     object-fit: cover;
 }
+.goal {
+    display: flex;
+    flex-direction: column;
+}
+.goal .space {
+    flex-grow: 1;
+    max-height: 8em;
+}
 
 .goal h3 {
     margin-bottom: 1rem;
 }
 
-.goal > p {
+.goal p {
     max-width: 40rem;
 }
 .goals {
     display: flex;
     gap: 2rem;
-    margin-top: 8rem;
 }
 article h4 {
     font-size: 1.5rem;
@@ -500,16 +508,18 @@ article {
     height: 100dvh;
     position: relative;
     z-index: 1;
+    width: 100vw;
+    /* 暫時不知道怎麼處理 */
 }
 
 .events {
     display: flex;
-    width: 66rem;
     gap: 2rem;
     flex-wrap: wrap;
     margin-top: 2rem;
-    flex: 0;
-    padding-bottom: 2rem;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
 }
 
 .events article {
@@ -526,6 +536,7 @@ article {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
+    font-weight: 500;
 }
 
 article ul {
@@ -561,7 +572,9 @@ article li {
     padding: 2rem 0 0 calc(62dvh / var(--h));
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
+
 #Pastevents > div {
     background-size: contain;
 }
@@ -622,27 +635,47 @@ article li {
     background: gray;
     position: absolute;
     left: calc(388dvh / var(--h));
-    top: calc(30dvh / var(--h));
+    top: calc(120dvh / var(--h));
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 2dvh;
+    gap: 2dvh;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
-#showImg {
+.sdCard {
+    width: calc(143.787dvh / var(--h));
+    height: calc(190.674dvh / var(--h));
+    background: url(/src/img/SD.svg) no-repeat center;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+    padding: 4.6vh 2vh 2vh 2.9vh;
+    cursor: pointer;
+    background-size: contain;
+}
+.selected-sd {
+    transform: translateY(-30vh);
+}
+#Pastevents .showImg {
     width: calc(624dvh / var(--h));
     height: calc(352dvh / var(--h));
     position: absolute;
     left: calc(482dvh / var(--h));
     top: calc(389dvh / var(--h));
-    object-fit: cover;
-    background: #000;
+    background: url(/src/img/背影.webp) no-repeat left;
+    background-size: cover;
 }
 .sd {
-    height: calc(143.787dvh / var(--h));
-    width: calc(190.674dvh / var(--h));
+    width: calc(143.787dvh / var(--h));
+    height: calc(190.674dvh / var(--h));
+    padding: 4.6vh 2vh 2vh 2.9vh;
     position: absolute;
     top: calc(301dvh / var(--h));
     left: calc(20dvh / var(--h));
     background: url(/src/img/SD.svg) no-repeat;
+    transform: rotate(-90deg) translateX(-100%);
+    transform-origin: top left;
+    transition: left 0.5s ease;
 }
 .reminder {
     display: none;
@@ -688,26 +721,17 @@ article li {
 .sponsor-relative {
     flex: 1;
 }
-.sponsor-company {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-}
 .sponsor-list {
     flex-grow: 1;
-    max-width: 35rem;
 }
-.sponsor-battery > div {
+.sponsor > div {
     font-family: NicoMoji;
     display: flex;
     align-items: center;
     background-size: contain;
     font-size: calc(24dvh / var(--h));
     width: calc(305dvh / var(--h));
-    height: 30vh;
-    margin-bottom: 2rem;
+    height: calc(200dvh / var(--h));
 }
 .battery-gogoro {
     text-align: center;
@@ -722,18 +746,26 @@ article li {
     background: url(/src/img/battery.svg) no-repeat center;
     padding-left: calc(111dvh / var(--h));
 }
+.sponsor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
 
 .sponsor a {
-    height: 30vh;
     border-radius: 1rem;
     background: #d9d9d9;
-    margin-bottom: 2rem;
     padding: 2rem;
     color: #000;
     display: flex;
     align-items: center;
     gap: 1rem;
     text-decoration: none;
+    flex: 1 1;
+    max-width: 30rem;
 }
 .sponsor img {
     width: 8rem;
@@ -953,7 +985,7 @@ article li {
 }
 footer {
     margin-top: 0.8rem;
-    font-size: .8em;
+    font-size: 0.8em;
 }
 @media (max-aspect-ratio: 1/1) {
     .reminder {
