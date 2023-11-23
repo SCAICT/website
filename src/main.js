@@ -25,9 +25,9 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
                     : ""
             }<div><h4>${events[i].title}</h4><h5>${
                 events[i].description
-            }</h5><ul><li><i class="fa-solid fa-calendar"></i>${
+            }</h5><ul><li><i class="fa-solid fa-calendar"></i> ${
                 events[i].date
-            }</li><li><i class="fa-solid fa-location-dot"></i>${
+            }</li><li><i class="fa-solid fa-location-dot"></i> ${
                 events[i].location
             }</li><li><i class="fa-solid fa-tag"></i> ${
                 events[i].price
@@ -38,6 +38,49 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
     .catch(error => {
         console.error("Error:", error);
     });
+
+// Images
+
+let imageData,
+    pressed = false;
+fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
+    .then(response => response.json())
+    .then(data => {
+        imageData = data;
+        let sdBox = document.querySelector(".sdBox");
+        for (var event in imageData) {
+            var div = document.createElement("div");
+            div.classList.add("sdCard");
+            div.textContent = event;
+            sdBox.appendChild(div);
+            div.addEventListener("click", showImg);
+        }
+    })
+    .catch(error => {
+        console.error("Error: ", error);
+    });
+
+const sd = document.querySelector(".sd");
+const imgContainer = document.getElementById("showImg-container");
+const showImg = event => {
+    if (pressed)
+        document.querySelector(".selected-sd").classList.remove("selected-sd");
+    else pressed = true;
+    var activityName = event.target.innerText;
+    event.target.classList.add("selected-sd");
+    sd.style.left = "-25vh";
+    imgContainer.innerHTML = "";
+    setTimeout(() => {
+        sd.style.left = `calc(20vh / var(--h))`;
+        for (var i = 0; i < imageData[activityName].length; i++) {
+            var div = document.createElement("div");
+            div.classList.add("showImg");
+            div.style.backgroundImage = `url(https://raw.githubusercontent.com/SCAICT/website-data/main/img/${activityName}/${imageData[activityName][i]})`;
+            imgContainer.appendChild(div);
+        }
+    }, 500);
+    sd.innerText = activityName;
+};
 
 // Mouse Move Effect
 const header = document.querySelector("header");
@@ -173,7 +216,7 @@ var last = window.scrollY;
 window.addEventListener("scroll", scrollFunction);
 scrollFunction();
 
-let elements = document.querySelectorAll(".tree i");
+elements = document.querySelectorAll(".tree i");
 elements.forEach(element => {
     element.addEventListener("click", () => {
         element.style.top = "100%";
