@@ -40,7 +40,6 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
     });
 
 // Images
-
 let imageData,
     pressed = false,
     imageIndex = 0;
