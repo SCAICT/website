@@ -446,7 +446,6 @@ h3.Social {
     width: fit-content;
 }
 .introduction {
-    width: 40rem;
     font-size: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -464,7 +463,10 @@ h3.Social {
 .introImg {
     width: 30rem;
     height: 100%;
-    object-fit: cover;
+    background: url(/src/img/背影.webp) no-repeat;
+    background-size: cover;
+    background-position: 0%;
+    transition: introImg 0.5s ease;
 }
 .goal {
     display: flex;
@@ -501,7 +503,7 @@ article {
     height: 25.2dvh;
     object-fit: cover;
     background: gray;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 #Events {
     padding: 2rem;
@@ -569,7 +571,7 @@ article li {
 }
 
 #Pastevents {
-    width: calc(100dvh / 832 * 1280);
+    width: calc(100dvh / 832 * 1480);
     height: 100dvh;
     padding: 2rem 0 0 calc(62dvh / var(--h));
     height: 100%;
@@ -823,6 +825,7 @@ article li {
     line-height: 1.5;
     font-size: 1.2rem;
     margin-top: 1rem;
+    max-width: 30em;
 }
 .sponsor-join {
     display: flex;
@@ -857,7 +860,7 @@ article li {
 .arrow {
     width: 8rem;
 }
-.treebox > div > p {
+.treebox > div p {
     text-align: left;
     width: 100%;
     font-size: 1.5rem;
@@ -1004,12 +1007,30 @@ footer {
     margin-top: 0.8rem;
     font-size: 0.8em;
 }
-.top-header{
+.top-header {
     height: calc(115dvh / 3);
 }
-.before-goals{
+.before-goals {
     display: flex;
-    height:100%;
+    height: 100%;
+}
+#Social_ {
+    height: 100%;
+}
+.creditsLabel,
+.credits-x {
+    cursor: pointer;
+}
+.treebox > div p[lang="en-US"],
+.sponsor-join p[lang="en-US"] {
+    font-size: 1em;
+}
+.introduction p[lang="en-US"]{
+    font-size: .8em;
+    margin: 3em 0 0 5em;
+}
+.introduction p{
+    max-width: 40em;
 }
 @media (max-aspect-ratio: 1/1) {
     .reminder {

@@ -136,7 +136,7 @@ function checkRotation() {
         "px";
     document.getElementById("About_").style.height =
         document.querySelector(".before-goals").offsetWidth + "px";
-        document.getElementById("Project_").style.height =
+    document.getElementById("Project_").style.height =
         document.querySelector("#Project").offsetWidth + "px";
 }
 
@@ -170,6 +170,7 @@ const PastActivities = document.querySelector("#Pastevents");
 const charger = document.querySelector(".sponsor-fixed .sponsor-charger");
 const fixedCharger = document.querySelector(".sponsor-charger.fixed");
 const clubTitle = document.getElementById("clubTitle");
+const introImg = document.querySelector(".introImg");
 let containerScrollWidth, SponsorBoxForHeight;
 window.onload = () => {
     checkRotation();
@@ -203,6 +204,25 @@ const scrollFunction = () => {
                     "translateX(" +
                     ((window.innerHeight * 1.15) / 3 - window.scrollY) +
                     "px)";
+                var projectOffset = document
+                    .getElementById("Project")
+                    .getBoundingClientRect().left;
+                //0.684
+                if (
+                    projectOffset < window.innerWidth &&
+                    projectOffset > window.innerHeight * -0.684
+                ) {
+                    introImg.style.backgroundPositionX =
+                        (1 -
+                            (projectOffset + window.innerHeight * 0.684) /
+                                (window.innerWidth +
+                                    window.innerHeight * 0.684)) *
+                            100 +
+                        "%";
+                    console.log(
+                        (1 - projectOffset / window.innerWidth) * 100 + "%"
+                    );
+                }
             } else {
                 container.style.transform =
                     "translate(-" +
