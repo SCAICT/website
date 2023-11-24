@@ -52,15 +52,18 @@ header h1 {
     font-weight: 400;
     padding: calc(42dvh / var(--h));
     padding-bottom: 0;
+    z-index: 1;
+    position: relative;
 }
 
 header h2 {
     font-size: 2dvh;
     font-weight: 400;
     padding-left: calc(42dvh / var(--h));
+    z-index: 1;
+    position: relative;
 }
 header {
-    background: radial-gradient(rgba(0, 40, 239, 0.251) 0%, rgb(0, 0, 0) 100%);
     position: fixed;
     top: 0;
     left: 0;
@@ -68,6 +71,23 @@ header {
     transition: transform 0.2s ease-out;
     z-index: 2;
     font-size: 2.4dvh;
+}
+.background {
+    position: absolute;
+    width: calc(800dvh / 3);
+    height: 300dvh;
+    background: url(/src/img/background.svg);
+    background-size: calc(200dvh / 3) !important;
+    top: -100dvh;
+    left: calc(200dvh / -3);
+    filter: opacity(0.5);
+    transform: translateZ(0);
+}
+.background-center {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgb(0, 14, 85), #00000068);
 }
 
 header > div {
@@ -466,7 +486,7 @@ h3.Social {
     background: url(/src/img/背影.webp) no-repeat;
     background-size: cover;
     background-position: 0%;
-    transition: introImg 0.5s ease;
+    transition: background-position 0.2s ease-out;
 }
 .goal {
     display: flex;
@@ -620,6 +640,13 @@ article li {
     position: absolute;
     left: calc(89dvh / var(--h));
     top: calc(636dvh / var(--h));
+    cursor: pointer;
+}
+.imgButton:hover {
+    background: url(/src/img/image-button-hover.svg) no-repeat;
+}
+.imgButton:active {
+    background: url(/src/img/image-button-active.svg) no-repeat;
 }
 .right {
     left: calc(233dvh / var(--h));
@@ -657,6 +684,9 @@ article li {
     cursor: pointer;
     background-size: contain;
 }
+.sdBox .sdCard:hover:not(.selected-sd) {
+    transform: translateY(-1.5vh);
+}
 .selected-sd {
     transform: translateY(-30vh);
 }
@@ -667,7 +697,13 @@ article li {
     left: calc(482dvh / var(--h));
     top: calc(389dvh / var(--h));
     background: #000;
-    background-size: cover;
+    background-size: calc(624dvh / var(--h));
+}
+.original {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .displaying {
     animation: drawImage 0.5s ease forwards;
@@ -675,13 +711,10 @@ article li {
 }
 @keyframes drawImage {
     0% {
-        filter: brightness(100) invert(1);
-    }
-    50% {
-        filter: brightness(1) invert(1);
+        width: 0;
     }
     100% {
-        filter: brightness(1) invert(0);
+        width: calc(624dvh / var(--h));
     }
 }
 .sd {
@@ -1025,11 +1058,11 @@ footer {
 .sponsor-join p[lang="en-US"] {
     font-size: 1em;
 }
-.introduction p[lang="en-US"]{
-    font-size: .8em;
+.introduction p[lang="en-US"] {
+    font-size: 0.8em;
     margin: 3em 0 0 5em;
 }
-.introduction p{
+.introduction p {
     max-width: 40em;
 }
 @media (max-aspect-ratio: 1/1) {
