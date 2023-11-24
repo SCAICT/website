@@ -1,0 +1,13 @@
+<svg width="54" height="142" viewBox="0 0 54 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 53H3V114.5M17 84V139" stroke="#BD5EC7" stroke-width="2"/>
+<rect x="54" y="90" width="43" height="43" rx="6" transform="rotate(180 54 90)" fill="#D9D9D9"/>
+<circle cx="32.5" cy="68.5" r="15.5" transform="rotate(180 32.5 68.5)" fill="#737373"/>
+<circle cx="32.5" cy="68.5" r="12.5" transform="rotate(180 32.5 68.5)" fill="#737373" stroke="#474747" stroke-width="2"/>
+<circle cx="48" cy="84" r="2" transform="rotate(180 48 84)" fill="#5C5C5C"/>
+<circle cx="17" cy="84" r="2" transform="rotate(180 17 84)" fill="#5C5C5C"/>
+<circle cx="48" cy="53" r="2" transform="rotate(180 48 53)" fill="#5C5C5C"/>
+<circle cx="17" cy="53" r="2" transform="rotate(180 17 53)" fill="#5C5C5C"/>
+<circle cx="3" cy="3" r="2.5" transform="matrix(-1 0 0 1 6 111)" fill="#84FF7A" stroke="#BD5EC7"/>
+<circle cx="3" cy="3" r="2.5" transform="matrix(-1 0 0 1 20 136)" fill="#84FF7A" stroke="#BD5EC7"/>
+<path d="M37.5296 34.3393L32.8713 26.4891L37.537 18.6433L33.955 18.6416L29.4153 26.4875L33.9656 34.3376L37.5296 34.3393Z" fill="white"/>
+</svg>
