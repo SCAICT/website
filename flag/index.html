@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>線上報到</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
         :root {
             --background-rgb: 29 30 34;
             --blue-rgb: 33 150 243;
@@ -19,7 +21,7 @@
 
         body {
             background-color: rgb(var(--background-rgb));
-            font-family: '微軟正黑體', sans-serif;
+            font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
             color: #FFF;
             position: relative;
             height: 100vh;
@@ -42,7 +44,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: min(calc(100vh - 4rem),533.333333333333px);
+            height: min(calc(100vh - 4rem), 533.333333333333px);
             gap: 1rem;
             width: min(300px, 90vw);
             transition: all 1s ease;
@@ -159,46 +161,45 @@
         <h1>Save Data in Cookie</h1>
         <input type="text" id="dataInput" placeholder="傳說中的隊伍">
         <button onclick="saveDataInCookie()" id="submit">回報</button>
-        <p>Cookie 會記錄你的隊名<br>讓你下次可以直接送出</p>
+        <p>Cookie 會記錄你的隊名<br>讓你下次可以直接送出！</p>
     </main>
     <div class="success">
-        <h2>回報成功!</h2>
+        <h2>回報成功！</h2>
         <h3>繼續加油</h3>
-        <button onclick="window.close();">再見</button>
+        <button onclick="window.close()">再見</button>
     </div>
 
 
     <script>
-        const main = document.querySelector("main");
-        const input = document.getElementById("dataInput");
+        const main = document.querySelector('main');
+        const input = document.getElementById('dataInput');
         function saveDataInCookie() {
             event.preventDefault();
-            var expiryDate = new Date();
+            let expiryDate = new Date();
             expiryDate.setFullYear(expiryDate.getFullYear() + 1);
             document.cookie = `userData=${encodeURIComponent(input.value)}; expires=${expiryDate.toUTCString()};SameSite=None;Secure;`;
-            var submit = document.getElementById("submit");
+            let submit = document.getElementById('submit');
             submit.disabled = true;
-            document.querySelector("h1").innerText = "傳送中...";
-            main.classList.add("sending");
+            document.querySelector('h1').innerText = '傳送中……';
+            main.classList.add('sending');
             const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=簽到&data=["${q}","${input.value}"]`;
             fetch(url)
                 .then(function (response) {
-                    main.classList.add("sent");
-                    main.classList.remove("sending");
+                    main.classList.add('sent');
+                    main.classList.remove('sending');
                     submit.disabled = false;
                 })
                 .catch(function (error) {
-                    submit.innerHTML = "我沒有get到，請再試一次";
+                    submit.innerHTML = '我沒有 get 到，請再試一次。';
                     submit.disabled = false;
                 });
         }
 
         function checkForCookie() {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.startsWith("userData=")) {
-                    var userData = decodeURIComponent(cookie.substring("userData=".length));
+            const cookies = document.cookie.split(';');
+            for (const cookie of cookies) {
+                if (cookie.startsWith('userData=')) {
+                    const userData = decodeURIComponent(cookie.substring('userData='.length));
                     input.value = userData;
                     break;
                 }
@@ -207,17 +208,15 @@
 
         // Check for the cookie when the page loads
         checkForCookie();
-        //read property q from url and display
+        // Read property q from url and display
         const urlParams = new URLSearchParams(window.location.search);
         const q = urlParams.get('q');
         if (q) {
-            document.querySelector("h1").innerText = q;
+            document.querySelector('h1').innerText = q;
         } else {
-            document.querySelector("h1").innerText = "簽到";
+            document.querySelector('h1').innerText = '簽到';
         }
     </script>
-    </script>
-
 </body>
 
 </html>
