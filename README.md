@@ -1,6 +1,4 @@
-<div align=center>
-    
-# 中電會官方網站前端代碼
+# 中電會官方網站前端 Repository
 
 **編輯前請詳讀 [Wiki](https://github.com/SCAICT/website/wiki)**
 

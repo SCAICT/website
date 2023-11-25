@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>主題課程:網頁設計</title>
+    <title>主題課程：網頁設計</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +16,7 @@
 
         body {
             background-color: #ecf0f3;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Noto Sans TC', '微軟正黑體', sans-serif;
         }
 
         main {
@@ -138,46 +140,44 @@
     <main class="sending">
         <div class="circle"></div>
         <div class="circle c2"></div>
-        <h1>中電會10月主題課程: 網頁設計</h1>
-        <p>想要成為一位網頁設計大師嗎？這個10月，中電會為您帶來了一個絕佳的機會！我們誠摯邀請您參加我們的主題課程，
+        <h1>中電會 10 月主題課程：網頁設計</h1>
+        <p>想要成為一位網頁設計大師嗎？這個10月，中電會為您帶來了一個絕佳的機會！
+            我們誠摯邀請您參加我們的主題課程，在這個課程中，您將學會使用 HTML、CSS 等前端技術來開發互動式網頁，
+            並學會將自己的網站部署到線上伺服器。讓您了解背後的原理，獲得網頁設計技能，並應用在網路安全等各領域。
         </p>
-        <p>
-            在這個課程中，您將學會使用HTML、CSS等前端技術來開發互動式網頁，並學會將自己的網站部署到線上伺服器。讓你了解背後的原理，獲得網頁設計技能，並應用在網路安全等各領域。</p>
-        <div class="dis"><b>結業條件：</b> 期限內繳交每次簡單課堂作業</div>
-
-        <label for="name">姓名</label>
-        <input class="form__input" type="text" placeholder="如: 張三" id="name">
-        <label for="classNo">學校</label>
-        <input class="form__input" type="text" placeholder="如: 台中一中" id="classNo">
-        <label for="wish">E-Mail (寄送課程連結及證書)</label>
-        <input class="form__input" type="email" placeholder="" id="wish">
-        <button onclick="submit()" id="submit">提交</button>
+        <div class="dis"><b>結業條件：</b>期限內繳交每次簡單課堂作業</div>
+        <form onsubmit="return false">
+            <label for="name">姓名</label>
+            <input type="text" placeholder="如：張三" id="name" autocomplete="name">
+            <label for="classNo">學校</label>
+            <input type="text" placeholder="如：台中一中" id="classNo" autocomplete="work">
+            <label for="wish">E-Mail（寄送課程連結及證書）</label>
+            <input type="email" placeholder="" id="wish">
+            <button onclick="submit()" id="submitButton" type="button">提交</button>
+        </form>
     </main>
     <script>
-        const submit = () => {
-            event.preventDefault();
-            var submit = document.getElementById("submit");
+        function submit() {
+            const submit = document.getElementById('submitButton');
             submit.disabled = true;
-            submit.innerHTML = "傳送中...深呼吸...";
-            submit.style.backgroundColor = "#4B70E2";
-            const name = document.getElementById("name").value;
-            const classNo = document.getElementById("classNo").value;
-            const wish = document.getElementById("wish").value;
+            submit.innerHTML = '傳送中……深呼吸……';
+            submit.style.backgroundColor = '#4B70E2';
+            const name = document.getElementById('name').value;
+            const classNo = document.getElementById('classNo').value;
+            const wish = document.getElementById('wish').value;
             const url = `https://script.google.com/macros/s/AKfycbwZK-Ode5UnYWrfCn9bRi31-D64GgixunrFEDKEdvlu3sKANGeDfgnIFhtdeloeaDyQkw/exec?form=SCAICT-web-design&data=["${name}","${classNo}","${wish}"]`;
             fetch(url)
                 .then(function (response) {
-                    submit.innerHTML = "收到啦！";
-                    submit.style.backgroundColor = "#5be23f";
+                    submit.innerHTML = '收到啦！';
+                    submit.style.backgroundColor = '#5be23f';
                     submit.disabled = false;
                 })
                 .catch(function (error) {
-                    submit.innerHTML = "我沒有get到，請再試一次";
+                    submit.innerHTML = '我沒有 get 到，請再試一次。';
                     submit.disabled = false;
                 });
-
-
+            return false;
         }
-
     </script>
 </body>
 
