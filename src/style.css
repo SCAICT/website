@@ -727,6 +727,7 @@ article li {
     top: calc(389dvh / var(--h));
     background: #000;
     background-size: calc(624dvh / var(--h));
+    z-index: 1;
 }
 .original {
     display: flex;
@@ -734,9 +735,12 @@ article li {
     align-items: center;
     text-align: center;
 }
-.displaying {
+#Pastevents .displaying {
     animation: drawImage 0.5s ease forwards;
-    z-index: 1;
+    z-index: 3;
+}
+#Pastevents .last-display{
+    z-index: 2;
 }
 @keyframes drawImage {
     0% {

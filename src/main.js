@@ -103,9 +103,14 @@ const showImg = event => {
     sd.innerText = activityName;
 };
 const changeImg = (direction = 1) => {
-    document
-        .querySelector("#showImg-container .showImg.displaying")
-        .classList.remove("displaying");
+    var lastDisplay = document.querySelector(".displaying");
+    lastDisplay.classList.add("last-display");
+    lastDisplay.classList.remove("displaying");
+
+    setTimeout(() => {
+        lastDisplay.classList.remove("last-display");
+    }, 500);
+
     imageIndex += direction;
     if (imageIndex < 0) imageIndex = imageData[sd.innerText].length - 1;
     if (imageIndex >= imageData[sd.innerText].length) imageIndex = 0;
