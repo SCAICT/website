@@ -40,7 +40,7 @@ body {
     color: #fff;
     background: #000;
     overflow-x: hidden;
-    font-size: 2.28vh;
+    font-size: 2.28dvh;
     transition: opacity 0.2s ease-out;
     scroll-behavior: smooth;
 }
@@ -80,14 +80,14 @@ header {
     background-size: calc(200dvh / 3) !important;
     top: -100dvh;
     left: calc(200dvh / -3);
-    filter: opacity(0.5);
+    filter: opacity(0.4);
     transform: translateZ(0);
 }
 .background-center {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(rgb(0, 14, 85), #00000068);
+    background: radial-gradient(rgb(0, 14, 85), hsla(0, 0%, 0%, 0.4));
 }
 
 header > div {
@@ -455,7 +455,7 @@ h3.Social {
 
 #About > .container .titleBox {
     padding: 2em;
-    width: 80vh;
+    width: 80dvh;
     background-position: 0 -2.5rem;
 }
 
@@ -532,29 +532,36 @@ article {
     height: 100dvh;
     position: relative;
     z-index: 1;
-    width: 100vw;
     /* 暫時不知道怎麼處理 */
 }
 
 .events {
     display: flex;
     gap: 2rem;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     margin-top: 2rem;
-    flex-direction: column;
+    /* flex-direction: column; */
     flex-grow: 1;
     min-height: 0;
 }
 
 .events article {
-    width: 30rem;
+    width: 20rem;
     position: relative;
-    background: #9a9a9a;
-    background-size: cover;
-    border-radius: 2rem;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.2) 8%,
+        transparent 8%
+    );
+    background-position: center;
+    background-size: 4dvh 4dvh;
+    height: calc(100% - 10vmin);
+    transition: background-position 350ms ease;
+    border: 5px solid #2dbaf6;
     overflow: hidden;
 }
-
+.events article h4 {
+    font-size: 4.5dvh;
+}
 .events article h5 {
     margin: 0.1rem 0 0.5rem 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -680,15 +687,15 @@ article li {
     background: url(/src/img/SD.svg) no-repeat center;
     flex-shrink: 0;
     transition: transform 0.5s ease;
-    padding: 4.6vh 2vh 2vh 2.9vh;
+    padding: 4.6dvh 2dvh 2dvh 2.9dvh;
     cursor: pointer;
     background-size: contain;
 }
 .sdBox .sdCard:hover:not(.selected-sd) {
-    transform: translateY(-1.5vh);
+    transform: translateY(-1.5dvh);
 }
 .selected-sd {
-    transform: translateY(-30vh);
+    transform: translateY(-30dvh);
 }
 #Pastevents .showImg {
     width: calc(624dvh / var(--h));
@@ -720,7 +727,7 @@ article li {
 .sd {
     width: calc(143.787dvh / var(--h));
     height: calc(190.674dvh / var(--h));
-    padding: 4.6vh 2vh 2vh 2.9vh;
+    padding: 4.6dvh 2dvh 2dvh 2.9dvh;
     position: absolute;
     top: calc(301dvh / var(--h));
     left: calc(20dvh / var(--h));
@@ -734,16 +741,16 @@ article li {
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    height: 100svh;
+    height: 100sdvh;
 }
 
-.events h5 {
+/* .events h5 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} */
 #Sponsor {
     width: 100vw;
     position: relative;
