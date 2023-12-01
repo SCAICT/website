@@ -45,7 +45,6 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
     .then(response => response.json())
     .then(data => {
         imageData = data;
-        console.log(imageData);
         let sdBox = document.querySelector(".sdBox");
         for (const event in imageData) {
             const div = document.createElement("div");
@@ -238,9 +237,6 @@ const scrollFunction = () => {
                                     window.innerHeight * 0.684)) *
                             100 +
                         "%";
-                    console.log(
-                        (1 - projectOffset / window.innerWidth) * 100 + "%"
-                    );
                 }
             } else {
                 container.style.transform =
