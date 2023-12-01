@@ -2,54 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10-Minute Timer</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-Minute Timer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
 
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Aldrich', sans-serif;
-            text-align: center;
-            font-size: 10rem;
-        }
-        .timer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-        .timer div {
-            margin: 0;
-            width: .8em;
-            overflow: hidden;
-        }
-    </style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Aldrich', sans-serif;
+      text-align: center;
+      font-size: 10rem;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .timer div {
+      margin: 0;
+      width: .8em;
+      overflow: hidden;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="timer">
-        <div></div>
-        <div></div>
-        <div>:</div>
-        <div></div>
-        <div></div>
-    </div>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-var countdown = urlParams.get('t') ? parseInt(urlParams.get('t')) : 600;
+  <div class="timer">
+    <div></div>
+    <div></div>
+    <div>:</div>
+    <div></div>
+    <div></div>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    let countdown = urlParams.get('t') ? parseInt(urlParams.get('t')) : 600;
 
-function startTimer() {
-    var timerDisplay = document.querySelector(".timer");
+    function startTimer() {
+      let timerDisplay = document.querySelector('.timer');
 
-    var timer = setInterval(function() {
-        var minutes = Math.floor(countdown / 60);
-        var seconds = countdown % 60;
+      let timer = setInterval(function () {
+        let minutes = Math.floor(countdown / 60);
+        let seconds = countdown % 60;
 
         // Add leading zeros if needed
-        var minutesStr = minutes < 10 ? "0" + minutes : minutes.toString();
-        var secondsStr = seconds < 10 ? "0" + seconds : seconds.toString();
+        let minutesStr = minutes < 10 ? '0' + minutes : minutes.toString();
+        let secondsStr = seconds < 10 ? '0' + seconds : seconds.toString();
 
         // Update the individual div elements
         timerDisplay.children[0].textContent = minutesStr[0];
@@ -58,14 +61,15 @@ function startTimer() {
         timerDisplay.children[4].textContent = secondsStr[1];
 
         if (countdown === 0) {
-            clearInterval(timer);
+          clearInterval(timer);
         } else {
-            countdown--;
+          countdown--;
         }
-    }, 1000);
-}
+      }, 1000);
+    }
 
-startTimer();
-    </script>
+    startTimer();
+  </script>
 </body>
+
 </html>
