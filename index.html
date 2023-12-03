@@ -104,20 +104,23 @@
             const text = "Welcome to SCAICT";
             let index = 0;
             document.querySelector(".loading").textContent = "";
-            setInterval(() => {
-                if (index < text.length)
-                    document.querySelector(".loading").innerHTML =
-                        text.slice(0, ++index) + "<span>_</span>";
-                else {
-                    clearInterval();
+        let intervalId = setInterval(() => {
+            if (index < text.length)
+                document.querySelector(".loading").innerHTML =
+                    text.slice(0, ++index) + "<span>_</span>";
+            else {
+                clearInterval(intervalId);
 
+                setTimeout(() => {
+                    document
+                        .querySelector(".loading")
+                        .classList.add("shown");
                     setTimeout(() => {
-                        document
-                            .querySelector(".loading")
-                            .classList.add("shown");
-                    }, 500);
-                }
-            }, 150);
+                        document.querySelector(".loading").remove();
+                    }, 2000);
+                }, 500);
+            }
+        }, 150);
         </script>
         <input type="checkbox" name="" id="credits" />
         <main>
