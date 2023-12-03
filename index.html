@@ -2,374 +2,552 @@
 
 <!DOCTYPE html>
 <html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SCAICT 中部高中電資社團聯合會議</title>
+        <meta name="theme-color" content="#2f4154" />
+        <meta
+            name="description"
+            content="中部高中電資社團聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱 SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對 0 基礎的主題式教育"
+        />
+        <meta name="author" content="毛哥EM" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCAICT 中部高中電資社團聯合會議</title>
-    <meta name="theme-color" content="#2f4154" />
-    <meta name="description"
-        content="中部高中電資社團聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱 SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對 0 基礎的主題式教育" />
-    <meta name="author" content="毛哥EM" />
+        <meta name="keywords" content="中部電資聯合會議, 中電會, SCAICT" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="SCAICT 中部電資聯合會議" />
+        <meta property="og:url" content="https://scaict.org" />
+        <meta property="og:site_name" content="SCAICT 中部電資聯合會議" />
+        <meta
+            property="og:description"
+            content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱 SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對 0 基礎的主題式教育"
+        />
+        <meta property="og:locale" content="zh-TW" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/src/img/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/src/img/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/src/img/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/src/img/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="/src/img/safari-pinned-tab.svg"
+            color="#ca4480"
+        />
+        <meta name="msapplication-TileColor" content="#2b5797" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="src/style.css" />
+        <script
+            src="https://kit.fontawesome.com/ca1af7f37f.js"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-F4MZSTYBW8"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-F4MZSTYBW8");
+        </script>
+    </head>
 
-    <meta name="keywords" content="中部電資聯合會議, 中電會, SCAICT" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="SCAICT 中部電資聯合會議" />
-    <meta property="og:url" content="https://scaict.org" />
-    <meta property="og:site_name" content="SCAICT 中部電資聯合會議" />
-    <meta property="og:description"
-        content="中部高中電資聯合會議 Student's Clubs Alliance of Information in Central Taiwan，簡稱 SCAICT 中電會是新創的中部地區在地高中職學生資訊組織。我們會準備很多的資安，演算法、人工智慧活動，都是針對 0 基礎的主題式教育" />
-    <meta property="og:locale" content="zh-TW" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/src/img/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon-16x16.png" />
-    <link rel="manifest" href="/src/img/site.webmanifest" />
-    <link rel="mask-icon" href="/src/img/safari-pinned-tab.svg" color="#ca4480" />
-    <meta name="msapplication-TileColor" content="#2b5797" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="src/style.css" />
-    <script src="https://kit.fontawesome.com/ca1af7f37f.js" crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4MZSTYBW8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-F4MZSTYBW8");
-    </script>
-</head>
+    <body>
+        <style>
+            .loading {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100dvh;
+                background: #000;
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2rem;
+                transition: opacity 0.5s ease-in-out;
+            }
+            .loading span {
+                animation: blink 1s infinite;
+            }
+            @keyframes blink {
+                0% {
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        </style>
+        <section class="loading"><span></span></section>
+        <script>
+            const text = "Welcome to SCAICT";
+            let index = 0;
+            document.querySelector(".loading").textContent = "";
+            setInterval(() => {
+                if (index < text.length)
+                    document.querySelector(".loading").innerHTML =
+                        text.slice(0, ++index) + "<span>_</span>";
+                else {
+                    clearInterval();
 
-<body>
-    <input type="checkbox" name="" id="credits" />
-    <main>
-
-        <header>
-            <div>
-                <div class="background"></div>
-                <div class="background-center"></div>
-                <h1>中部高中電資社團聯合會議</h1>
-                <h2>
-                    Student Club's Association of Information in Central
-                    Taiwan
-                </h2>
-                <div class="lcd">_</div>
-                <div class="lcdText">Learn More</div>
-                <a href="" id="lcdLink">
-                    <div class="lcdButton"></div>
-                </a>
-                <div class="ukraine"></div>
-                <div class="ukraineText">Hue</div>
-                <div class="ukraineText ukraineBrightness">Brightness</div>
-                <div class="ukraine" id="ukraineBrightness"></div>
-                <div class="bHole"></div>
-                <div class="charger" onclick="document.body.style.opacity=0"></div>
-                <div class="chargerText">Sponsor</div>
-                <div class="cpu"
-                    onclick="document.querySelector('.cpu img').style.animation='jump .5s ease-in-out';setTimeout(function() {document.querySelector('.cpu img').style.animation=''}, 500);">
-                    <img src="/src/img/logo.svg" alt="" />
+                    setTimeout(() => {
+                        document
+                            .querySelector(".loading")
+                            .classList.add("shown");
+                    }, 500);
+                }
+            }, 150);
+        </script>
+        <input type="checkbox" name="" id="credits" />
+        <main>
+            <header>
+                <div>
+                    <div class="background"></div>
+                    <div class="background-center"></div>
+                    <h1>中部高中電資社團聯合會議</h1>
+                    <h2>
+                        Student Club's Association of Information in Central
+                        Taiwan
+                    </h2>
+                    <div class="lcd">_</div>
+                    <div class="lcdText">Learn More</div>
+                    <a href="" id="lcdLink">
+                        <div class="lcdButton"></div>
+                    </a>
+                    <div class="ukraine"></div>
+                    <div class="ukraineText">Hue</div>
+                    <div class="ukraineText ukraineBrightness">Brightness</div>
+                    <div class="ukraine" id="ukraineBrightness"></div>
+                    <div class="bHole"></div>
+                    <div
+                        class="charger"
+                        onclick="document.body.style.opacity=0"
+                    ></div>
+                    <div class="chargerText">Sponsor</div>
+                    <div
+                        class="cpu"
+                        onclick="document.querySelector('.cpu img').style.animation='jump .5s ease-in-out';setTimeout(function() {document.querySelector('.cpu img').style.animation=''}, 500);"
+                    >
+                        <img src="/src/img/logo.svg" alt="" />
+                    </div>
+                    <div class="scaict">SCAICT</div>
+                    <div class="friend">
+                        <a href="https://www.instagram.com/scint.tw/">SCINT</a
+                        ><br />
+                        <a href="/">SCAICT</a><br />
+                        <a href="https://scist.org/">SCIST</a>
+                    </div>
+                    <div class="motor"></div>
+                    <input type="checkbox" id="motorSwitch" />
+                    <label class="switch" for="motorSwitch"></label>
+                    <div class="switchToggle"></div>
+                    <div class="switchText">Motor</div>
+                    <div class="spinner"></div>
+                    <div class="spinnerText">Scroll Down</div>
+                    <div class="line"></div>
+                    <div class="resistance"></div>
+                    <div class="sca1"></div>
+                    <div class="diode"></div>
+                    <div class="chip"></div>
+                    <a href="#About_" class="button About"></a>
+                    <h3 class="About">About</h3>
+                    <a href="#Events_" class="button Events"></a>
+                    <h3 class="Events">Events</h3>
+                    <a href="#Project_" class="button Project"></a>
+                    <h3 class="Project">Project</h3>
+                    <a href="#Social_" class="button Social"></a>
+                    <h3 class="Social">Social</h3>
                 </div>
-                <div class="scaict">SCAICT</div>
-                <div class="friend">
-                    <a href="https://www.instagram.com/scint.tw/">SCINT</a><br />
-                    <a href="/">SCAICT</a><br />
-                    <a href="https://scist.org/">SCIST</a>
-                </div>
-                <div class="motor"></div>
-                <input type="checkbox" id="motorSwitch" />
-                <label class="switch" for="motorSwitch"></label>
-                <div class="switchToggle"></div>
-                <div class="switchText">Motor</div>
-                <div class="spinner"></div>
-                <div class="spinnerText">Scroll Down</div>
-                <div class="line"></div>
-                <div class="resistance"></div>
-                <div class="sca1"></div>
-                <div class="diode"></div>
-                <div class="chip"></div>
-                <a href="#About_" class="button About"></a>
-                <h3 class="About">About</h3>
-                <a href="#Events_" class="button Events"></a>
-                <h3 class="Events">Events</h3>
-                <a href="#Project_" class="button Project"></a>
-                <h3 class="Project">Project</h3>
-                <a href="#Social_" class="button Social"></a>
-                <h3 class="Social">Social</h3>
-            </div>
-        </header>
-        <section id="About">
-            <div class="container">
-                <div class="before-goals">
-                    <div class="titleBox cpuLogo">
-                        <h2>關於我們</h2>
-                        <h3>About Us</h3>
-                    </div>
-                    <div class="introduction">
-                        <h3>中部高中電資社團聯合會議</h3>
-                        <p>
-                            成立於2021年，是由一群熱愛資訊科技和社團活動的高中職生所組成，而主要目的在於整合中部資訊科技資源，推廣資訊相關的課程。
-                            本學期目前規劃邀請各大講師來線上授課，且學員可以免費且自由報名。
-                        </p>
-                        <p lang="en-US">
-                            Established in 2021, we are formed by a group of
-                            high school students passionate about
-                            information technology and community activities.
-                            Our main goal is to integrate information
-                            technology resources in the central region and
-                            promote courses related to information
-                            technology.
-                        </p>
-                    </div>
-                    <div class="introImg"></div>
-                </div>
-                <div class="titleBox goal" id="Project">
-                    <div>
-                        <h2>團隊目標</h2>
-                        <h3>Our Goals</h3>
-                        <p>我們有以下目標，對，然後，就這樣。</p>
-                    </div>
-                    <div class="space"></div>
-                    <div class="goals">
-                        <article>
-                            <img src="" alt="" />
-                            <h4>開放原始碼社群</h4>
-                            <p>
-                                我們是一個開放原始碼社群，並且與開放文化基金會（OCF）
-                                合作，透過公開課程簡報、影片及網站原始碼給大家更自由的使用我們的資源。
-                            </p>
-                        </article>
-                        <article>
-                            <img src="" alt="" />
-                            <h4>主題課程</h4>
-                            <p>
-                                在每個月都會有不同主題的主題課程，大多以免費、線上的課程來進行授課。
-                                若是時間上有衝突也無妨，我們都會在官方
-                                YouTube 頻道放上先前的課程內容喔！
-                            </p>
-                        </article>
-                        <article>
-                            <img src="" alt="" />
-                            <h4>創社</h4>
-                            <p>
-                                協助中部地區學校創立或復興電資類型社團。
-                                以零成本、零壓力為目標，只要推派社團幹部，我們就會盡全力的幫忙。
-                            </p>
-                        </article>
-                    </div>
-                </div>
-                <section id="Events">
-                    <h2>近期活動</h2>
-                    <h3>Recent Events</h3>
-                    <div class="events"></div>
-                </section>
-                <section id="Pastevents">
-                    <h2>過去活動</h2>
-                    <h3>Past Events</h3>
-                    <div class="sdReader"></div>
-                    <div class="sd"></div>
-                    <div class="sdReaderTop"></div>
-                    <div class="cpuMem">
-                        <img src="/src/img/logo.svg" />
-                    </div>
-                    <div class="imgButton" onclick="changeImg(-1)"></div>
-                    <div class="imgButton right" onclick="changeImg()"></div>
-                    <div class="imgLcd"></div>
-                    <div id="showImg-container">
-                        <div class="showImg original">選擇一個 SD 卡播放回憶<br>Select a SD card to play</div>
-                    </div>
-
-                    <div class="sdContainer">
-                        <div class="sdBox"></div>
-                    </div>
-                </section>
-                <section id="Sponsor">
-                    <div class="SponsorBoxForHeight">
-                        <h2>充電夥伴</h2>
-                        <h3>Sponsors</h3>
-                        <div class="Sponsor-ccontainer">
-                            <div class="sponsor-fixed"></div>
-                            <div class="sponsor-relative">
-                                <div class="sponsor-list">
-                                    <!-- @format -->
-
-                                    <div class="sponsor">
-                                        <div class="battery-gogoro">
-                                            Venue<br />provided
-                                        </div>
-                                        <a href="https://tcivs.tc.edu.tw/" target="_blank">
-                                            <img src="https://upload.wikimedia.org/wikipedia/zh/3/35/Logo_TCIVS.gif"
-                                                alt="台中高工 Logo" />
-                                            <div>
-                                                <h4>台中高工</h4>
-                                                <p>
-                                                    國內工業教育指標學府，人才輩出。歷屆畢業校友近 5 萬人分佈海內外。
-                                                    無論在政府機構、學術界、公民營企業或成功創業，皆卓然有成，
-                                                    尤其培育出技術菁英多數投入產業界，或為產業界之金字品牌，享譽社會。
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="sponsor">
-                                        <div class="battery-9v">
-                                            PREMIUM<br />SPONSOR
-                                        </div>
-                                        <a href="https://ais3.org/" target="_blank">
-                                            <img src="https://ais3.org/img/AIS3logo.png" alt="AIS3 Logo" />
-                                            <div>
-                                                <h4>AIS3</h4>
-                                                <p>
-                                                    邀請具資安實務與國際資安競賽實戰經驗之國內外專家學者進行授課，
-                                                    透過資訊安全實務或實戰之經驗分享與演練，提升本課程學員之資安實務的能力與深度。
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="sponsor">
-                                        <div class="battery-9v">
-                                            PREMIUM<br />SPONSOR
-                                        </div>
-                                        <a href="https://devco.re/" target="_blank">
-                                            <img src="/src/img/devcore.png" alt="Devcore Logo" style="
-                                                        transform: scale(1.34);
-                                                    " />
-                                            <div>
-                                                <h4>DEVCORE 戴夫寇爾</h4>
-                                                <p>
-                                                    DEVCORE 是一家由資安專家組成的台灣資安公司，
-                                                    專注於提供「紅隊演練」服務。以挑戰極限、研發攻擊技巧為核心，
-                                                    致力於成為企業堅強的資安後盾，為世界打造更安全的網路環境。
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="sponsor">
-                                        <div class="battery">SPONSOR</div>
-                                        <a href="https://ncse.tw/" target="_blank">
-                                            <img src="https://ncse.tw/assets/img/logo.png" alt="NCSE Logo" />
-                                            <div>
-                                                <h4>NCSE NETWORK</h4>
-                                                <p>
-                                                    我們致力於提供高品質的雲端服務，服務範圍包含各類伺服器租用、網站代管、
-                                                    攻擊流量洗清（Anti-DDoS）、技術支援，完美契合各類使用場景，並結合三大特點提供全方位的支援！
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="sponsor">
-                                        <div class="battery-gogoro">
-                                            SPECIAL<br />THANKS
-                                        </div>
-                                        <a href="https://ocf.tw/" target="_blank">
-                                            <img class="invert" src="https://ocf.tw/mediakit/icon_white.png"
-                                                alt="OCF Logo" style="
-                                                        transform: scale(0.8);
-                                                    " />
-                                            <div>
-                                                <h4>開放文化基金會 OCF</h4>
-                                                <p>
-                                                    是一個非營利性的組織。透過推廣開放科技和跨界合作，在台灣持續的銜繫科技社群與其他公／私領域，
-                                                    來促成開放共創保障數位人權、支持透明涵融的數位公民社會。
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="sponsor-club">
-                                    <h2 id="clubTitle">參與社團</h2>
-                                    <h3>Participating clubs</h3>
-                                    <div class="club-list">
-                                        <a href=""><img src="/src/img/club/SYSH_MAKER2.webp" alt="" /></a>
-                                        <a href=""><img src="/src/img/club/TCIRC.webp" alt="" /></a>
-                                        <a href=""><img src="/src/img/club/WHCS.webp" alt="" /></a>
-                                    </div>
-                                </div>
-                            </div>
+            </header>
+            <section id="About">
+                <div class="container">
+                    <div class="before-goals">
+                        <div class="titleBox cpuLogo">
+                            <h2>關於我們</h2>
+                            <h3>About Us</h3>
                         </div>
-                        <div class="sponsor-join">
-                            <div>
-                                <h2>一起充電吧！</h2>
-                                <h3>You are the missing one!</h3>
-                                <p>
-                                    電池還缺你一個！<br />
-                                    你的贊助能讓中電會提供更多優質的資源和更多豐富的課程與活動。<br />
-                                    若你有任何資源想要分享歡迎聯絡我們。
-                                </p>
-                                <p lang="en-US">
-                                    Your support can help us provide more
-                                    high-quality resources and a richer
-                                    variety of courses and activities. If
-                                    you have any resources you'd like to
-                                    share, feel free to contact us.
-                                </p>
-                            </div>
-                            <img src="/src/img/battery-case.svg" alt="" class="batteryCase" />
+                        <div class="introduction">
+                            <h3>中部高中電資社團聯合會議</h3>
+                            <p>
+                                成立於2021年，是由一群熱愛資訊科技和社團活動的高中職生所組成，而主要目的在於整合中部資訊科技資源，推廣資訊相關的課程。
+                                本學期目前規劃邀請各大講師來線上授課，且學員可以免費且自由報名。
+                            </p>
+                            <p lang="en-US">
+                                Established in 2021, we are formed by a group of
+                                high school students passionate about
+                                information technology and community activities.
+                                Our main goal is to integrate information
+                                technology resources in the central region and
+                                promote courses related to information
+                                technology.
+                            </p>
                         </div>
-                        <div class="treebox">
-                            <div>
-                                <img src="/src/img/arrow.svg" alt="" class="arrow" />
-                                <div>
+                        <div class="introImg"></div>
+                    </div>
+
+                    <div class="titleBox goal" id="Project">
+                        <div>
+                            <h2>團隊目標</h2>
+                            <h3>Our Goals</h3>
+                            <p>我們有以下目標，對，然後，就這樣。</p>
+                        </div>
+                        <div class="goal-container">
+                            <div class="goals">
+                                <article>
+                                    <img src="" alt="" />
+                                    <h4>開放原始碼社群</h4>
                                     <p>
-                                        歡迎追蹤我們<br />以在第一時間獲得最新活動資訊。
+                                        我們是一個開放原始碼社群，並且與開放文化基金會（OCF）
+                                        合作，透過公開課程簡報、影片及網站原始碼給大家更自由的使用我們的資源。
+                                    </p>
+                                </article>
+                                <article>
+                                    <img src="" alt="" />
+                                    <h4>主題課程</h4>
+                                    <p>
+                                        在每個月都會有不同主題的主題課程，大多以免費、線上的課程來進行授課。
+                                        若是時間上有衝突也無妨，我們都會在官方
+                                        YouTube 頻道放上先前的課程內容喔！
+                                    </p>
+                                </article>
+                                <article>
+                                    <img src="" alt="" />
+                                    <h4>創社</h4>
+                                    <p>
+                                        協助中部地區學校創立或復興電資類型社團。
+                                        以零成本、零壓力為目標，只要推派社團幹部，我們就會盡全力的幫忙。
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <section id="Events">
+                        <h2>近期活動</h2>
+                        <h3>Recent Events</h3>
+                        <p>我們有以下目標，對，然後，就這樣。</p>
+                        <div class="events"></div>
+                    </section>
+                    <section id="Pastevents">
+                        <h2>過去活動</h2>
+                        <h3>Past Events</h3>
+                        <div class="sdReader"></div>
+                        <div class="sd"></div>
+                        <div class="sdReaderTop"></div>
+                        <div class="cpuMem">
+                            <img src="/src/img/logo.svg" />
+                        </div>
+                        <div class="imgButton" onclick="changeImg(-1)"></div>
+                        <div
+                            class="imgButton right"
+                            onclick="changeImg()"
+                        ></div>
+                        <div class="imgLcd"></div>
+                        <div id="showImg-container">
+                            <div class="showImg original">
+                                選擇一個 SD 卡播放回憶<br />Select a SD card to
+                                play
+                            </div>
+                        </div>
+
+                        <div class="sdContainer">
+                            <div class="sdBox"></div>
+                        </div>
+                    </section>
+                    <section id="Sponsor">
+                        <div class="SponsorBoxForHeight">
+                            <h2>充電夥伴</h2>
+                            <h3>Sponsors</h3>
+                            <div class="Sponsor-ccontainer">
+                                <div class="sponsor-fixed"></div>
+                                <div class="sponsor-relative">
+                                    <div class="sponsor-list">
+                                        <!-- @format -->
+
+                                        <div class="sponsor">
+                                            <div class="battery-gogoro">
+                                                Venue<br />provided
+                                            </div>
+                                            <a
+                                                href="https://tcivs.tc.edu.tw/"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="https://upload.wikimedia.org/wikipedia/zh/3/35/Logo_TCIVS.gif"
+                                                    alt="台中高工 Logo"
+                                                />
+                                                <div>
+                                                    <h4>台中高工</h4>
+                                                    <p>
+                                                        國內工業教育指標學府，人才輩出。歷屆畢業校友近
+                                                        5 萬人分佈海內外。
+                                                        無論在政府機構、學術界、公民營企業或成功創業，皆卓然有成，
+                                                        尤其培育出技術菁英多數投入產業界，或為產業界之金字品牌，享譽社會。
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="sponsor">
+                                            <div class="battery-9v">
+                                                PREMIUM<br />SPONSOR
+                                            </div>
+                                            <a
+                                                href="https://ais3.org/"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="https://ais3.org/img/AIS3logo.png"
+                                                    alt="AIS3 Logo"
+                                                />
+                                                <div>
+                                                    <h4>AIS3</h4>
+                                                    <p>
+                                                        邀請具資安實務與國際資安競賽實戰經驗之國內外專家學者進行授課，
+                                                        透過資訊安全實務或實戰之經驗分享與演練，提升本課程學員之資安實務的能力與深度。
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="sponsor">
+                                            <div class="battery-9v">
+                                                PREMIUM<br />SPONSOR
+                                            </div>
+                                            <a
+                                                href="https://devco.re/"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="/src/img/devcore.png"
+                                                    alt="Devcore Logo"
+                                                    style="
+                                                        transform: scale(1.34);
+                                                    "
+                                                />
+                                                <div>
+                                                    <h4>DEVCORE 戴夫寇爾</h4>
+                                                    <p>
+                                                        DEVCORE
+                                                        是一家由資安專家組成的台灣資安公司，
+                                                        專注於提供「紅隊演練」服務。以挑戰極限、研發攻擊技巧為核心，
+                                                        致力於成為企業堅強的資安後盾，為世界打造更安全的網路環境。
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="sponsor">
+                                            <div class="battery">SPONSOR</div>
+                                            <a
+                                                href="https://ncse.tw/"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="https://ncse.tw/assets/img/logo.png"
+                                                    alt="NCSE Logo"
+                                                />
+                                                <div>
+                                                    <h4>NCSE NETWORK</h4>
+                                                    <p>
+                                                        我們致力於提供高品質的雲端服務，服務範圍包含各類伺服器租用、網站代管、
+                                                        攻擊流量洗清（Anti-DDoS）、技術支援，完美契合各類使用場景，並結合三大特點提供全方位的支援！
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="sponsor">
+                                            <div class="battery-gogoro">
+                                                SPECIAL<br />THANKS
+                                            </div>
+                                            <a
+                                                href="https://ocf.tw/"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    class="invert"
+                                                    src="https://ocf.tw/mediakit/icon_white.png"
+                                                    alt="OCF Logo"
+                                                    style="
+                                                        transform: scale(0.8);
+                                                    "
+                                                />
+                                                <div>
+                                                    <h4>開放文化基金會 OCF</h4>
+                                                    <p>
+                                                        是一個非營利性的組織。透過推廣開放科技和跨界合作，在台灣持續的銜繫科技社群與其他公／私領域，
+                                                        來促成開放共創保障數位人權、支持透明涵融的數位公民社會。
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="sponsor-club">
+                                        <h2 id="clubTitle">參與社團</h2>
+                                        <h3>Participating clubs</h3>
+                                        <div class="club-list">
+                                            <a href=""
+                                                ><img
+                                                    src="/src/img/club/SYSH_MAKER2.webp"
+                                                    alt=""
+                                            /></a>
+                                            <a href=""
+                                                ><img
+                                                    src="/src/img/club/TCIRC.webp"
+                                                    alt=""
+                                            /></a>
+                                            <a href=""
+                                                ><img
+                                                    src="/src/img/club/WHCS.webp"
+                                                    alt=""
+                                            /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sponsor-join">
+                                <div>
+                                    <h2>一起充電吧！</h2>
+                                    <h3>You are the missing one!</h3>
+                                    <p>
+                                        電池還缺你一個！<br />
+                                        你的贊助能讓中電會提供更多優質的資源和更多豐富的課程與活動。<br />
+                                        若你有任何資源想要分享歡迎聯絡我們。
                                     </p>
                                     <p lang="en-US">
-                                        Follow us to get the latest updates.
+                                        Your support can help us provide more
+                                        high-quality resources and a richer
+                                        variety of courses and activities. If
+                                        you have any resources you'd like to
+                                        share, feel free to contact us.
                                     </p>
                                 </div>
+                                <img
+                                    src="/src/img/battery-case.svg"
+                                    alt=""
+                                    class="batteryCase"
+                                />
                             </div>
-                            <div class="tree">
-                                <img src="/src/img/logo.svg" alt="Logo" class="logo" />
-                                <i class="fa-brands fa-facebook" link="https://www.facebook.com/scaict.tw/"></i>
-                                <i class="fa-brands fa-discord" link="https://discord.gg/neQ7QEUcqe"></i>
-                                <i class="fa-brands fa-instagram" link="https://www.instagram.com/scaict.tw/"></i>
-                                <i class="fa-regular fa-envelope" link="mailto:scaict.official@gmail.com"></i>
-                                <i class="fa-brands fa-github" link="https://github.com/SCAICT"></i>
-                                <img src="/src/img/tree.svg" alt="" />
+                            <div class="treebox">
+                                <div>
+                                    <img
+                                        src="/src/img/arrow.svg"
+                                        alt=""
+                                        class="arrow"
+                                    />
+                                    <div>
+                                        <p>
+                                            歡迎追蹤我們<br />以在第一時間獲得最新活動資訊。
+                                        </p>
+                                        <p lang="en-US">
+                                            Follow us to get the latest updates.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="tree">
+                                    <img
+                                        src="/src/img/logo.svg"
+                                        alt="Logo"
+                                        class="logo"
+                                    />
+                                    <i
+                                        class="fa-brands fa-facebook"
+                                        link="https://www.facebook.com/scaict.tw/"
+                                    ></i>
+                                    <i
+                                        class="fa-brands fa-discord"
+                                        link="https://discord.gg/neQ7QEUcqe"
+                                    ></i>
+                                    <i
+                                        class="fa-brands fa-instagram"
+                                        link="https://www.instagram.com/scaict.tw/"
+                                    ></i>
+                                    <i
+                                        class="fa-regular fa-envelope"
+                                        link="mailto:scaict.official@gmail.com"
+                                    ></i>
+                                    <i
+                                        class="fa-brands fa-github"
+                                        link="https://github.com/SCAICT"
+                                    ></i>
+                                    <img src="/src/img/tree.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="braille">
+                                <div class="creditsLabel">
+                                    <i
+                                        class="fa-regular fa-circle-up"
+                                        onclick=" window.scrollTo({top: 0,
+                                            behavior: 'smooth'
+                                        });"
+                                    ></i>
+                                    <label for="credits">
+                                        <i class="fa-regular fa-copyright"></i
+                                    ></label>
+                                </div>
+
+                                ⠁⠯⠄⠕⠌⠐⠅⠩⠄⠁⠯⠄⠙⠞⠐⠓⠱⠄⠊⠮⠐⠋⠻⠂⠉⠞⠂⠗⠮⠂⠗⠫⠐⠡⠐⠀⠠⠎⠞⠥⠙⠑⠝⠞⠀⠠⠉⠇⠥⠃⠄⠎⠀⠠⠁⠎⠎⠕⠉⠊⠁⠞⠊⠕⠝⠀⠕⠋⠀⠠⠊⠝⠋⠕⠗⠍⠁⠞⠊⠕⠝⠀⠊⠝⠀⠠⠉⠑⠝⠞⠗⠁⠇⠀⠠⠞⠁⠊⠺⠁⠝⠀⠖⠐⠍⠭⠂⠛⠥⠂⠙⠞⠈⠓⠱⠐⠙⠮⠁⠑⠬⠈⠟⠜⠈⠃⠭⠂⠁⠮⠐⠨⠐⠤⠀⠛⠌⠂⠅⠒⠈⠝⠡⠈⠟⠜⠄⠑⠞⠐⠁⠮⠐⠅⠮⠐⠚⠺⠈⠙⠧⠐⠙⠮⠁⠗⠔⠐⠮⠂⠐⠐⠐⠅⠯⠄⠑⠡⠈⠝⠡⠈⠊⠱⠐⠉⠡⠐⠕⠌⠐⠚⠒⠐⠁⠯⠄⠕⠌⠐⠅⠩⠄⠁⠯⠄⠙⠞⠐⠓⠱⠄⠊⠮⠐⠋⠻⠂⠉⠞⠂⠗⠮⠂⠗⠫⠐⠡⠐⠀⠠⠎⠞⠥⠙⠑⠝⠞⠀⠠⠉⠇⠥⠃⠄⠎⠀⠠⠁⠎⠎⠕⠉⠊⠁⠞⠊⠕⠝⠀⠕⠋⠀⠠⠊⠝⠋⠕⠗⠍⠁⠞⠊⠕⠝⠀⠊⠝⠀⠠⠉⠑⠝⠞⠗⠁⠇⠀⠠⠞⠁⠊⠺⠁⠝⠀⠖⠐⠍⠭⠂⠛⠥⠂⠙⠞⠈⠓⠱⠐⠙⠮⠁⠑⠬⠈⠟⠜⠈⠃⠭⠂⠁⠮⠐⠨⠐⠤⠀⠛⠌⠂⠅⠒⠈⠝⠡⠈⠟⠜⠄⠑⠞⠐⠁⠮⠐⠅⠮⠐⠚⠺⠈⠙⠧⠐⠙⠮⠁⠗⠔⠐⠮⠂⠐⠐⠐⠅⠯⠄⠑⠡⠈⠝⠡⠈⠊⠱⠐⠉⠡⠐⠕⠌⠐⠚⠒⠐
                             </div>
                         </div>
-                        <div class="braille">
-                            <label for="credits" class="creditsLabel">
-                                <i class="fa-regular fa-copyright"></i></label>
-                            ⠁⠯⠄⠕⠌⠐⠅⠩⠄⠁⠯⠄⠙⠞⠐⠓⠱⠄⠊⠮⠐⠋⠻⠂⠉⠞⠂⠗⠮⠂⠗⠫⠐⠡⠐⠀⠠⠎⠞⠥⠙⠑⠝⠞⠀⠠⠉⠇⠥⠃⠄⠎⠀⠠⠁⠎⠎⠕⠉⠊⠁⠞⠊⠕⠝⠀⠕⠋⠀⠠⠊⠝⠋⠕⠗⠍⠁⠞⠊⠕⠝⠀⠊⠝⠀⠠⠉⠑⠝⠞⠗⠁⠇⠀⠠⠞⠁⠊⠺⠁⠝⠀⠖⠐⠍⠭⠂⠛⠥⠂⠙⠞⠈⠓⠱⠐⠙⠮⠁⠑⠬⠈⠟⠜⠈⠃⠭⠂⠁⠮⠐⠨⠐⠤⠀⠛⠌⠂⠅⠒⠈⠝⠡⠈⠟⠜⠄⠑⠞⠐⠁⠮⠐⠅⠮⠐⠚⠺⠈⠙⠧⠐⠙⠮⠁⠗⠔⠐⠮⠂⠐⠐⠐⠅⠯⠄⠑⠡⠈⠝⠡⠈⠊⠱⠐⠉⠡⠐⠕⠌⠐⠚⠒⠐
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
+            </section>
+            <div class="sponsor-charger fixed"></div>
+        </main>
+        <div class="reminder">請旋轉螢幕。</div>
+        <section class="credits">
+            <div>
+                <label for="credits" class="credits-x">
+                    <i class="fa-regular fa-circle-xmark"></i
+                ></label>
+                <h2>Credits</h2>
+                <div>
+                    Front-End：毛哥EM<br />
+                    Back-End：Edit Mr.<br />
+                    Design：Elvis Mao<br />
+
+                    Fonts:
+                    <a href="http://nicofont.pupu.jp/nicomoji.html">NicoMoji</a
+                    >,
+                    <a
+                        href="https://github.com/andrew-paglinawan/QuicksandFamily"
+                        >Quicksand</a
+                    >, <a href="https://justfont.com/huninn/">jf open 粉圓</a>
+                    <footer>
+                        Copyright © 2023 SCAICT All Rights Reserved<br />
+                        If you have any questions, please contact us at
+                        <a href="mailto:scaict.official@gmail.com"
+                            >scaict.official@gmail.com</a
+                        >
+                    </footer>
+                </div>
             </div>
         </section>
-        <div class="sponsor-charger fixed"></div>
-    </main>
-    <div class="reminder">請旋轉螢幕。</div>
-    <section class="credits">
-        <div>
-            <label for="credits" class="credits-x">
-                <i class="fa-regular fa-circle-xmark"></i></label>
-            <h2>Credits</h2>
-            <div>
-                Front-End：毛哥EM<br />
-                Back-End：Edit Mr.<br />
-                Design：Elvis Mao<br />
+        <section class="link">
+            <div class="top-header"></div>
+            <div id="About_"></div>
+            <div id="Project_"></div>
+            <div id="Events_"></div>
 
-                Fonts:
-                <a href="http://nicofont.pupu.jp/nicomoji.html">NicoMoji</a>,
-                <a href="https://github.com/andrew-paglinawan/QuicksandFamily">Quicksand</a>, <a
-                    href="https://justfont.com/huninn/">jf open 粉圓</a>
-                <footer>
-                    Copyright © 2023 SCAICT All Rights Reserved<br />
-                    If you have any questions, please contact us at
-                    <a href="mailto:scaict.official@gmail.com">scaict.official@gmail.com</a>
-                </footer>
-            </div>
-        </div>
-    </section>
-    <section class="link">
-        <div class="top-header"></div>
-        <div id="About_"></div>
-        <div id="Project_"></div>
-        <div id="Events_"></div>
-
-        <div id="Social_"></div>
-    </section>
-    <script src="src/main.js"></script>
-</body>
-
+            <div id="Social_"></div>
+        </section>
+        <script src="src/main.js"></script>
+    </body>
 </html>
