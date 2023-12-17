@@ -1,0 +1,67 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=   , initial-scale=1.0" />
+        <title></title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            h1 {
+                font-size: 5rem;
+                color: red;
+                animation: move 2s infinite linear;
+            }
+            main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #000;
+                height: 100vh;
+            }
+            @keyframes move {
+                0% {
+                    transform: rotate(0deg) scale(.5);
+                    filter: hue-rotate(0deg);
+                }
+                50% {
+                    transform: rotate(180deg) scale(3);
+                    filter: hue-rotate(180deg);
+                }
+                100% {
+                    transform: rotate(360deg) scale(1);
+                    filter: hue-rotate(360deg);
+                }
+            }
+            main {
+                background: linear-gradient(45deg, red, yellow);
+                animation: gradientChange 3s infinite linear alternate;
+                min-height: 100vh;
+                filter: hue-rotate(50deg);
+            }
+
+            @keyframes gradientChange {
+                0% {
+                    filter: hue-rotate(0) contrast(1000%) invert(0%);
+                }
+                100% {
+                    filter: hue-rotate(360deg) contrast(300%) invert(100%);
+                }
+            }
+
+            @keyframes bg {
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>元元電神</h1>
+        </main>
+    </body>
+</html>
