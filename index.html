@@ -104,13 +104,12 @@
             const text = "Welcome to SCAICT";
             let index = 0;
             document.querySelector(".loading").textContent = "";
-        let intervalId = setInterval(() => {
+        let welcomeText = setInterval(() => {
             if (index < text.length)
                 document.querySelector(".loading").innerHTML =
                     text.slice(0, ++index) + "<span>_</span>";
             else {
-                clearInterval(intervalId);
-
+                clearInterval(welcomeText);
                 setTimeout(() => {
                     document
                         .querySelector(".loading")
