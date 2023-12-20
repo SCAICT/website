@@ -553,6 +553,7 @@ article {
     position: relative;
     transition: background-position 350ms ease;
     border: 5px solid #19a0da;
+    max-height: 100%;
 }
 .events article::after {
     background-image: radial-gradient(
