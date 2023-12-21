@@ -150,7 +150,7 @@ function checkRotation() {
     document.body.style.height =
         containerScrollWidth +
         SponsorBoxForHeight -
-        parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.5 +
+        parseFloat(getComputedStyle(document.documentElement).fontSize) * 5.5 +
         "px";
     document.getElementById("About_").style.height =
         document.querySelector(".before-goals").offsetWidth + "px";
@@ -192,6 +192,7 @@ const introImg = document.querySelector(".introImg");
 let containerScrollWidth, SponsorBoxForHeight;
 window.onload = () => {
     checkRotation();
+    document.querySelector(".loading").classList.add("loaded");
 };
 // For scroll don't need original window.innerHeight;
 const scrollFunction = () => {
