@@ -1098,12 +1098,6 @@ footer {
 .introduction p {
     max-width: 40em;
 }
-@media (max-aspect-ratio: 1/1) {
-    .reminder {
-        display: flex;
-    }
-
-    main {
-        display: none;
-    }
+@media (max-aspect-ratio: 4/3) {
+   
 }
