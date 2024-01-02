@@ -1122,12 +1122,6 @@ footer {
     opacity: 0;
     pointer-events: none;
 }
-@media (max-aspect-ratio: 1/1) {
-    .reminder {
-        display: flex;
-    }
-
-    main {
-        display: none;
-    }
+@media (max-aspect-ratio: 4/3) {
+   
 }
