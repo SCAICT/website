@@ -228,6 +228,7 @@ header > div div {
     text-align: center;
     transform: translate(-50%, -50%);
     font-size: 3dvh;
+    font-weight: 500;
 }
 
 .friend {
@@ -248,6 +249,11 @@ header > div div {
     display: block;
     color: #fff;
     font-size: 1.5dvh;
+    transition: color 0.2s ease;
+}
+
+.friend a:hover {
+    color: #19a0da;
 }
 
 .motor {
@@ -406,9 +412,13 @@ header h3 {
     font-size: 2.4dvh;
     position: absolute;
 }
+.chargerText,header h3,.spinnerText,.scaict,.switchText,.lcdText,.ukraineText{
+    font-family: "NicoMoji", "OpenHuninn", sans-serif;
+    font-weight: 400;
+}
 
 h3.About {
-    left: calc(305dvh / var(--h));
+    left: calc(279dvh / var(--h));
 }
 
 h3.Events {
@@ -422,7 +432,7 @@ h3.Project {
 }
 
 h3.Social {
-    left: calc(263dvh / var(--h));
+    left: calc(243dvh / var(--h));
 }
 
 /* about */
@@ -522,8 +532,7 @@ article {
 .goals article img {
     width: 100%;
     aspect-ratio: 16/9;
-    object-fit: cover;
-    background: gray;
+    object-fit: contain;
     margin-bottom: 0.5em;
 }
 #Events {
