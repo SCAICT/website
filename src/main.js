@@ -285,3 +285,23 @@ elements.forEach(element => {
         }, 300);
     });
 });
+
+const motorControl = () => {
+    const motorSwitch = document.getElementById("motorSwitch");
+    const spinner = document.querySelector(".spinner");
+    if (motorSwitch.checked)
+        document.querySelector(".spinner").setAttribute("style", "");
+    else {
+        const computedStyle = window.getComputedStyle(spinner);
+        const transform = computedStyle.getPropertyValue("transform");
+        const matrix = transform.match(/^matrix\((.+)\)$/);
+        if (matrix) {
+            const values = matrix[1].split(",");
+            const a = values[0];
+            const b = values[1];
+            const rotation = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+            console.log(rotation);
+            spinner.style.transform = `rotate(${rotation}deg)`;
+        }
+    }
+};

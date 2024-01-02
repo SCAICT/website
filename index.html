@@ -83,6 +83,7 @@
                 align-items: center;
                 font-size: 2rem;
                 transition: opacity 0.5s ease-in-out;
+                font-family: "NicoMoji", "system-ui", sans-serif;
             }
             .loading span {
                 animation: blink 1s infinite;
@@ -104,22 +105,22 @@
             const text = "Welcome to SCAICT";
             let index = 0;
             document.querySelector(".loading").textContent = "";
-        let welcomeText = setInterval(() => {
-            if (index < text.length)
-                document.querySelector(".loading").innerHTML =
-                    text.slice(0, ++index) + "<span>_</span>";
-            else {
-                clearInterval(welcomeText);
-                setTimeout(() => {
-                    document
-                        .querySelector(".loading")
-                        .classList.add("shown");
+            let welcomeText = setInterval(() => {
+                if (index < text.length)
+                    document.querySelector(".loading").innerHTML =
+                        text.slice(0, ++index) + "<span>_</span>";
+                else {
+                    clearInterval(welcomeText);
                     setTimeout(() => {
-                        document.querySelector(".loading").remove();
-                    }, 2000);
-                }, 500);
-            }
-        }, 150);
+                        document
+                            .querySelector(".loading")
+                            .classList.add("shown");
+                        setTimeout(() => {
+                            document.querySelector(".loading").remove();
+                        }, 2000);
+                    }, 500);
+                }
+            }, 150);
         </script>
         <input type="checkbox" name="" id="credits" />
         <main>
@@ -155,14 +156,18 @@
                     </div>
                     <div class="scaict">SCAICT</div>
                     <div class="friend">
-                        <a href="https://www.instagram.com/scint.tw/">SCINT</a
+                        <a href="https://www.instagram.com/scint.tw/" target="_blank">SCINT</a
                         ><br />
                         <a href="/">SCAICT</a><br />
-                        <a href="https://scist.org/">SCIST</a>
+                        <a href="https://scist.org/" target="_blank">SCIST</a>
                     </div>
                     <div class="motor"></div>
                     <input type="checkbox" id="motorSwitch" />
-                    <label class="switch" for="motorSwitch"></label>
+                    <label
+                        class="switch"
+                        for="motorSwitch"
+                        onclick="motorControl()"
+                    ></label>
                     <div class="switchToggle"></div>
                     <div class="switchText">Motor</div>
                     <div class="spinner"></div>
@@ -217,7 +222,7 @@
                         <div class="goal-container">
                             <div class="goals">
                                 <article>
-                                    <img src="" alt="" />
+                                    <img src="/src/img/bread-board.svg" alt="" />
                                     <h4>開放原始碼社群</h4>
                                     <p>
                                         我們是一個開放原始碼社群，並且與開放文化基金會（OCF）
