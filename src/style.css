@@ -87,7 +87,9 @@ header {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(rgb(0, 14, 85), hsla(0, 0%, 0%, 0.4));
+    --hueRotate: 230;
+    --brightness: 1;
+    background: radial-gradient(hsl(var(--hueRotate), 100%,17%, var(--brightness)), hsla(0, 0%, 0%, 0.4));
 }
 
 header > div {
@@ -149,6 +151,12 @@ header > div div {
     height: calc(14dvh / var(--h));
     background: url(/src/img/ukraineX.svg) no-repeat center;
     cursor: pointer;
+}
+#ukraineBrightness::after{
+    transform: rotate(var(--brightnessR));
+}
+#ukraineHue::after{
+    transform: rotate(var(--hueRotateR));
 }
 
 #ukraineBrightness,
@@ -382,6 +390,10 @@ a.button {
     height: calc(43dvh / var(--h));
     background: url(/src/img/button.svg) no-repeat center;
     background-size: contain;
+    transition: filter 0.2s ease;
+}
+a.button:hover{
+    filter: brightness(1.2) saturate(1.2);
 }
 
 .About {
@@ -713,7 +725,7 @@ article li {
     align-items: center;
     padding: 2dvh;
     gap: 2dvh;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 .sdCard {
@@ -956,6 +968,10 @@ article li {
     font-size: 30px;
     z-index: 3;
 }
+.tree>i:hover{
+    scale: 1.3;
+    transition: scale 0.2s ease-out;
+}
 .fa-envelope {
     left: 2.11%;
     top: 28.5%;
@@ -1121,6 +1137,17 @@ footer {
 .loading.loaded.shown {
     opacity: 0;
     pointer-events: none;
+}
+.link{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#Events_{
+    flex-grow: 1;
+}
+#Social_{
+    height: 100svh;
 }
 @media (max-aspect-ratio: 4/3) {
    
