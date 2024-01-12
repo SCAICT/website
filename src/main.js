@@ -285,3 +285,80 @@ elements.forEach(element => {
         }, 300);
     });
 });
+
+const motorControl = () => {
+    const motorSwitch = document.getElementById("motorSwitch");
+    const spinner = document.querySelector(".spinner");
+    if (motorSwitch.checked)
+        document.querySelector(".spinner").setAttribute("style", "");
+    else {
+        const computedStyle = window.getComputedStyle(spinner);
+        const transform = computedStyle.getPropertyValue("transform");
+        const matrix = transform.match(/^matrix\((.+)\)$/);
+        if (matrix) {
+            const values = matrix[1].split(",");
+            const a = values[0];
+            const b = values[1];
+            const rotation = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+            spinner.style.transform = `rotate(${rotation}deg)`;
+        }
+    }
+};
+
+// track when #ukraineBrightness been drug up or down
+
+const ukraineBrightness = document.getElementById("ukraineBrightness");
+var mouseY,
+    currentBrightness = 1,
+    status;
+ukraineBrightness.addEventListener("mousedown", e => {
+    status = 1;
+    mouseY = e.clientY;
+    document.addEventListener("mousemove", ukraineBrightnessChange);
+});
+
+const backgroundCenter = document.querySelector(".background-center");
+const ukraineBrightnessChange = e => {
+    const ukraineBrightnessValue = e.clientY - mouseY;
+    backgroundCenter.style.setProperty(
+        "--brightness",
+        currentBrightness - ukraineBrightnessValue / 1000
+    );
+    ukraineBrightness.style.setProperty(
+        "--brightnessR",
+        (currentBrightness - ukraineBrightnessValue / 1000) * 720 + "deg"
+    );
+};
+
+const ukraineHue = document.getElementById("ukraineHue");
+var mouseHueY,
+    currentHue = 230;
+ukraineHue.addEventListener("mousedown", e => {
+    mouseHueY = e.clientY;
+    document.addEventListener("mousemove", ukraineHueChange);
+    status = 2;
+});
+document.addEventListener("mouseup", e => {
+    if (status == 2) {
+        const ukraineHueValue = e.clientY - mouseHueY;
+        currentHue += ukraineHueValue / 10;
+        console.log(currentHue);
+        document.removeEventListener("mousemove", ukraineHueChange);
+    } else {
+        const ukraineBrightnessValue = e.clientY - mouseY;
+        currentBrightness -= ukraineBrightnessValue / 1000;
+        console.log(currentBrightness);
+        document.removeEventListener("mousemove", ukraineBrightnessChange);
+    }
+});
+const ukraineHueChange = e => {
+    const ukraineHueValue = e.clientY - mouseHueY;
+    backgroundCenter.style.setProperty(
+        "--hueRotate",
+        currentHue + ukraineHueValue / 10
+    );
+    ukraineHue.style.setProperty(
+        "--hueRotateR",
+        ( currentHue + ukraineHueValue / 10) * -36 + "deg"
+    );
+};
