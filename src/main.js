@@ -19,11 +19,12 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
         let eventsHTML = "";
         for (const event of events) {
             eventsHTML += `
-            <article>${
+            <article onclick=(window.location.href="${event.link}")>
+            >${
                 event.image != "" ? `<img src="${event.image}"/>` : ""
-            }<div><h4>${
-                event.title
-            }</h4><ul><li><i class="fa-solid fa-calendar"></i> ${
+            }<div><h4>${event.title}</h4>
+            <div>${event.subtitle}</div>
+            <ul><li><i class="fa-solid fa-calendar"></i> ${
                 event.date
             }</li><li><i class="fa-solid fa-location-dot"></i> ${
                 event.location
@@ -53,6 +54,27 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
             sdBox.appendChild(div);
             div.addEventListener("click", showImg);
         }
+    })
+    .catch(error => {
+        console.error("Error: ", error);
+    });
+
+// Club
+
+fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt")
+    .then(response => response.text())
+    .then(data => {
+        var club = data.split("\n");
+        console.log(club);
+        club = club
+            .map(club => {
+                if (club === "") return "";
+                return `<div><img
+            src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/${club}"
+            alt="${club}" /><div class="back"><h4>${club.replace(".webp","")}</h4></div></div>`;
+            })
+            .join("");
+        document.querySelector(".club-list").innerHTML = club;
     })
     .catch(error => {
         console.error("Error: ", error);
@@ -358,6 +380,6 @@ const ukraineHueChange = e => {
     );
     ukraineHue.style.setProperty(
         "--hueRotateR",
-        ( currentHue + ukraineHueValue / 10) * -36 + "deg"
+        (currentHue + ukraineHueValue / 10) * -36 + "deg"
     );
 };
