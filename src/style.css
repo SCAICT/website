@@ -89,7 +89,10 @@ header {
     height: 100%;
     --hueRotate: 230;
     --brightness: 1;
-    background: radial-gradient(hsl(var(--hueRotate), 100%,17%, var(--brightness)), hsla(0, 0%, 0%, 0.4));
+    background: radial-gradient(
+        hsl(var(--hueRotate), 100%, 17%, var(--brightness)),
+        hsla(0, 100%, 50%, 0) 75%
+    );
 }
 
 header > div {
@@ -152,10 +155,10 @@ header > div div {
     background: url(/src/img/ukraineX.svg) no-repeat center;
     cursor: pointer;
 }
-#ukraineBrightness::after{
+#ukraineBrightness::after {
     transform: rotate(var(--brightnessR));
 }
-#ukraineHue::after{
+#ukraineHue::after {
     transform: rotate(var(--hueRotateR));
 }
 
@@ -227,6 +230,7 @@ header > div div {
 .cpu img {
     height: calc(43dvh / var(--h));
     transform-origin: bottom;
+    cursor: pointer;
 }
 
 .scaict {
@@ -392,7 +396,7 @@ a.button {
     background-size: contain;
     transition: filter 0.2s ease;
 }
-a.button:hover{
+a.button:hover {
     filter: brightness(1.2) saturate(1.2);
 }
 
@@ -424,7 +428,13 @@ header h3 {
     font-size: 2.4dvh;
     position: absolute;
 }
-.chargerText,header h3,.spinnerText,.scaict,.switchText,.lcdText,.ukraineText{
+.chargerText,
+header h3,
+.spinnerText,
+.scaict,
+.switchText,
+.lcdText,
+.ukraineText {
     font-family: "NicoMoji", "OpenHuninn", sans-serif;
     font-weight: 400;
 }
@@ -478,12 +488,12 @@ h3.Social {
 #About > .container .titleBox {
     padding: 2em;
     width: 30vw;
-    background-position: 0 -2.5rem;
 }
 
 .cpuLogo {
-    background: url("/src/img/logo-spread.png") no-repeat bottom;
-    background-size: contain;
+    background: url("/src/img/logo-spread.webp") no-repeat;
+    background-size: 90%;
+    background-position: bottom;
 }
 #About > .container .goal {
     width: fit-content;
@@ -541,12 +551,131 @@ article {
     width: 30em;
 }
 
-.goals article img {
+.goals article div {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: contain;
     margin-bottom: 0.5em;
+    position: relative;
 }
+.goals article div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    z-index: 1;
+    transition: all 0.2s ease;
+}
+.goals article div .bread-1 {
+    width: 80%;
+}
+
+.goals article div .bread-2 {
+    width: 80%;
+    transform: scaleX(-1);
+    left: unset;
+    right: 0;
+}
+
+.goals article div.capacitance > :nth-child(2) {
+    width: 5%;
+    transform: scaleX(-1) rotate(-30deg);
+    left: unset;
+    right: 25%;
+    top: 20%;
+}
+
+.goals article .capacitance > :first-child {
+    width: 5%;
+    transform: rotate(-50deg);
+    left: 20%;
+    top: 20%;
+}
+
+.goals article .capacitance > :last-child {
+    width: 5%;
+    transform: rotate(-10deg);
+    left: 45%;
+    top: 10%;
+}
+.goals article .capacitance:hover > :first-child {
+    transform: rotate(-50deg) translateY(-12%);
+}
+
+.goals article .capacitance:hover > :last-child {
+    transform: rotate(-10deg) translateY(-10%);
+}
+
+.goals article .capacitance:hover > :nth-child(2) {
+    transform: scaleX(-1) rotate(-30deg) translateY(-10%);
+}
+
+.goals article div:hover .bread-1 {
+    transform: rotate(-10deg) translate(-5%, -10%);
+}
+
+.goals article div:hover .bread-2 {
+    transform: scaleX(-1) rotate(-10deg) translate(-5%, -10%);
+}
+.goals article .led-list img {
+    width: 7%;
+    height: 30%;
+    object-fit: contain;
+    position: static;
+}
+.goals article .led-list img:hover {
+    transform: translateY(-40%);
+}
+
+.goals article .led-list img:hover + img {
+    transform: translateY(-10%);
+}
+
+.goals article .led-list img:nth-child(2) {
+    filter: hue-rotate(36deg);
+}
+
+.goals article .led-list img:nth-child(3) {
+    filter: hue-rotate(72deg);
+}
+
+.goals article .led-list img:nth-child(4) {
+    filter: hue-rotate(108deg);
+}
+
+.goals article .led-list img:nth-child(5) {
+    filter: hue-rotate(144deg);
+}
+
+.goals article .led-list img:nth-child(6) {
+    filter: hue-rotate(180deg);
+}
+
+.goals article .led-list img:nth-child(7) {
+    filter: hue-rotate(216deg);
+}
+
+.goals article .led-list img:nth-child(8) {
+    filter: hue-rotate(252deg);
+}
+
+.goals article .led-list img:nth-child(9) {
+    filter: hue-rotate(288deg);
+}
+
+.goals article .led-list img:nth-child(10) {
+    filter: hue-rotate(324deg);
+}
+
+.goals article .led-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 #Events {
     padding: 4rem;
     display: flex;
@@ -968,7 +1097,7 @@ article li {
     font-size: 30px;
     z-index: 3;
 }
-.tree>i:hover{
+.tree > i:hover {
     scale: 1.3;
     transition: scale 0.2s ease-out;
 }
@@ -1138,17 +1267,17 @@ footer {
     opacity: 0;
     pointer-events: none;
 }
-.link{
+.link {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
-#Events_{
+#Events_ {
     flex-grow: 1;
 }
-#Social_{
+#Social_ {
     height: 100svh;
 }
+
 @media (max-aspect-ratio: 4/3) {
-   
 }
