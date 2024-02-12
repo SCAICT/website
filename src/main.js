@@ -342,12 +342,11 @@ document.addEventListener("mouseup", e => {
     if (status == 2) {
         const ukraineHueValue = e.clientY - mouseHueY;
         currentHue += ukraineHueValue / 10;
-        console.log(currentHue);
         document.removeEventListener("mousemove", ukraineHueChange);
     } else {
+        if (mouseY == "NaN") mouseY = e.clientY;
         const ukraineBrightnessValue = e.clientY - mouseY;
         currentBrightness -= ukraineBrightnessValue / 1000;
-        console.log(currentBrightness);
         document.removeEventListener("mousemove", ukraineBrightnessChange);
     }
 });
