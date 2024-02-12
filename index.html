@@ -145,7 +145,13 @@
                     <div class="bHole"></div>
                     <div
                         class="charger"
-                        onclick="document.body.style.opacity=0"
+                        onclick="document.body.style.opacity=0;
+                        setTimeout(function() {
+                            window.scrollTo(0,containerScrollWidth);
+                            setTimeout(function() {
+                                document.body.style.opacity=1
+                            }, 200);
+                            }, 200);"
                     ></div>
                     <div class="chargerText">Sponsor</div>
                     <div
