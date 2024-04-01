@@ -170,10 +170,14 @@ function checkRotation() {
     rotation = window.innerHeight < window.innerWidth && phone;
     mobileVersion = window.innerHeight / window.innerWidth > 0.75;
     console.log("mobileVersion", mobileVersion);
+    scrollFunction();
     if (mobileVersion) {
         header.style.transform = "unset";
+        document.body.style.height = "unset";
+        document.querySelector(".link").style.display = "none";
         return;
     }
+    document.querySelector(".link").style.display = "block";
     containerScrollWidth =
         container.offsetWidth -
         window.innerWidth +
@@ -260,12 +264,14 @@ window.onload = () => {
 // For scroll don't need original window.innerHeight;
 const scrollFunction = () => {
     if (mobileVersion) {
+        About.style.opacity = 0;
+        container.style.transform = "unset";
+
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
             bigHeader.style.transform = `scale(${
                 1 + (window.scrollY / window.innerHeight) * 80
             })`;
             bigHeader.style.opacity = 1;
-            About.style.opacity = 0;
         }
         // 透明度轉場
         if (window.scrollY > window.innerHeight * 0.05) {
