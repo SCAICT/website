@@ -65,13 +65,15 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt")
     .then(response => response.text())
     .then(data => {
         var club = data.split("\n");
-        console.log(club);
         club = club
             .map(club => {
                 if (club === "") return "";
                 return `<div><img
             src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/${club}"
-            alt="${club}" /><div class="back"><h4>${club.replace(".webp","")}</h4></div></div>`;
+            alt="${club}" /><div class="back"><h4>${club.replace(
+                    ".webp",
+                    ""
+                )}</h4></div></div>`;
             })
             .join("");
         document.querySelector(".club-list").innerHTML = club;
@@ -145,6 +147,10 @@ const changeImg = (direction = 1) => {
 // Mouse Move Effect
 const header = document.querySelector("header");
 header.addEventListener("mousemove", e => {
+    if (mobileVersion) {
+        header.style.transform = "unset";
+        return;
+    }
     const x = (e.clientX / window.innerWidth) * 10 - 5;
     const y = (e.clientY / window.innerHeight) * 10 - 5;
     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
@@ -158,10 +164,16 @@ const phone = /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
 );
 let rotation = false,
     x,
-    y;
+    y,
+    mobileVersion = true;
 function checkRotation() {
     rotation = window.innerHeight < window.innerWidth && phone;
-
+    mobileVersion = window.innerHeight / window.innerWidth > 0.75;
+    console.log("mobileVersion", mobileVersion);
+    if (mobileVersion) {
+        header.style.transform = "unset";
+        return;
+    }
     containerScrollWidth =
         container.offsetWidth -
         window.innerWidth +
@@ -215,9 +227,68 @@ let containerScrollWidth, SponsorBoxForHeight;
 window.onload = () => {
     checkRotation();
     document.querySelector(".loading").classList.add("loaded");
+    console.log(
+        `
+                 +++++++++++++         +++      +++++++++++++++++++++      +++   
+            +++++++++++++++++++++     ++++++++++++++++++++++++++++++++++++++++   
+          ++++++++++++++++++++++++     +++++++++++++++++++++++++++++++++++++++   
+        +++++++++              +       ++++++++ +++++++++++++++++++++ ++++++++   
+      ++++++++                         +++++++++++++++++++++++++++++++++++++++   
+    ++++++++                         +++++++++       +     ++  +      ++++++++++ 
+   +++++++                            ++++++       ++      +    ++      +++++++  
+  +++++++                           + +++++       ++      ++     ++      ++++++ +
+  ++++++                             +++++++       ++    ++     ++       ++++++  
+ ++++++                               +++++++       ++   ++    ++      ++++++++  
+ ++++++                                +++++++++        ++          ++++++++++   
+ ++++++                                 +++++++++++++++++++++++++++++++++++++    
+ ++++++                                +++++++++++++++++++++++++++++++++++++++   
+ ++++++                                +++++++++++++++++++++++++++++++++++++++   
+  ++++++                             +++++++++++++++++++++++++++++++++++++++++   
+  ++++++                           +++++++++++++++++++++++++++++++++++++++++++   
+   ++++++                         ++++++++++++++++++++++++++++++++++++++++++++   
+    +++++++                     ++++++++++++++                         +++++++   
+     ++++++++                 ++++++++ +++++++                         +++++++   
+      +++++++++            ++++++++++   ++++++                         +++++++   
+        +++++++++++++++++++++++++++     ++++++                         ++++++    
+          +++++++++++++++++++++++       ++++++                         ++++++    
+             +++++++++++++++++           +++++                         +++++     
+                   ++++                   ++++                         +++++     
+                                                                             
+        `
+    );
 };
 // For scroll don't need original window.innerHeight;
 const scrollFunction = () => {
+    if (mobileVersion) {
+        if (window.scrollY < (window.innerHeight * 1.15) / 3) {
+            bigHeader.style.transform = `scale(${
+                1 + (window.scrollY / window.innerHeight) * 80
+            })`;
+            bigHeader.style.opacity = 1;
+            About.style.opacity = 0;
+        }
+        // 透明度轉場
+        if (window.scrollY > window.innerHeight * 0.05) {
+            if (window.scrollY < (window.innerHeight * 1.15) / 3) {
+                bigHeader.style.pointerEvents = "all";
+                bigHeader.style.opacity =
+                    1 -
+                    ((window.scrollY - window.innerHeight * 0.05) /
+                        window.innerHeight) *
+                        3;
+                About.style.opacity =
+                    ((window.scrollY - window.innerHeight * 0.05) /
+                        window.innerHeight) *
+                    3;
+            } else {
+                // 轉場結束
+                bigHeader.style.pointerEvents = "none";
+                bigHeader.style.opacity = 0;
+                About.style.opacity = 1;
+            }
+        }
+        return;
+    }
     if (window.scrollY < (window.innerHeight * 1.15) / 3)
         bigHeader.style.transform = `scale(${
             1 + (window.scrollY / window.innerHeight) * 80
@@ -321,8 +392,10 @@ const motorControl = () => {
             const values = matrix[1].split(",");
             const a = values[0];
             const b = values[1];
-            const rotation = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-            spinner.style.transform = `rotate(${rotation}deg)`;
+            const matrixRotation = Math.round(
+                Math.atan2(b, a) * (180 / Math.PI)
+            );
+            spinner.style.transform = `rotate(${matrixRotation}deg)`;
         }
     }
 };
