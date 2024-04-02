@@ -56,11 +56,16 @@ header {
     width: 100%;
 }
 
+#About h3 {
+    margin-left: 0.2rem;
+}
+
 #credits {
     width: 1px;
     height: 1px;
     display: none;
 }
+
 .background-center {
     position: absolute;
     --hueRotate: 230;
@@ -341,12 +346,9 @@ footer {
 }
 
 .introImg {
-    width: 100%;
-    height: 30vh;
     background: url(/src/img/背影.webp) no-repeat;
-    background-size: cover;
     background-position: 0%;
-    transition: background-position 0.2s ease-out;
+    background-size: cover;
 }
 
 .goals article div {
@@ -474,6 +476,190 @@ footer {
     align-items: flex-end;
 }
 
+.events article {
+    position: relative;
+    transition: background-position 350ms ease;
+    border: 5px solid #19a0da;
+}
+.events article::after {
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.3) 3%,
+        transparent 8%
+    );
+    background-position: 1dvh, 1dvh;
+    background-size: 4dvh 4dvh;
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    pointer-events: none;
+    transition: background-position 350ms ease;
+}
+.events article:hover::after {
+    background-position: -3dvh, -3dvh;
+}
+.events article:hover > img + div {
+    backdrop-filter: unset;
+    filter: blur(1rem) opacity(0);
+}
+.events article h4 {
+    font-size: 2rem;
+    margin-bottom: 0.1rem;
+}
+
+.events article h4 + div {
+    margin-bottom: 1rem;
+}
+.events article h5 {
+    margin: 0.1rem 0 0.5rem 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+article ul {
+    list-style: none;
+    flex-grow: 1;
+}
+article li {
+    margin-top: 0.25rem;
+    vertical-align: middle;
+}
+.events article > div {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.events article > img + div {
+    backdrop-filter: blur(0.25rem) brightness(0.75);
+    transition: all 0.2s ease-out;
+}
+.events article img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#Pastevents > div {
+    background-size: contain;
+}
+
+.sdReader {
+    background: url(/src/img/SD\ reader\ buttom.svg) no-repeat;
+}
+.sdReaderTop {
+    width: calc(151.66057dvh / var(--h));
+    height: calc(150.00012dvh / var(--h));
+    background: url(/src/img/SD\ reader\ top.svg) no-repeat;
+    position: absolute;
+    left: calc(62dvh / var(--h));
+    top: calc(298dvh / var(--h));
+}
+.cpuMem {
+    background: url(/src/img/cpu.svg) no-repeat center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.cpuMem img {
+    width: calc(79dvh / var(--h));
+}
+
+.imgButton {
+    width: calc(54dvh / var(--h));
+    height: calc(142dvh / var(--h));
+    background: url(/src/img/image-button.svg) no-repeat;
+    position: absolute;
+    left: calc(89dvh / var(--h));
+    top: calc(636dvh / var(--h));
+    cursor: pointer;
+}
+.imgButton:hover {
+    background: url(/src/img/image-button-hover.svg) no-repeat;
+}
+.imgButton:active {
+    background: url(/src/img/image-button-active.svg) no-repeat;
+}
+.right {
+    left: calc(233dvh / var(--h));
+    transform: scaleX(-1);
+}
+.imgLcd {
+    background: url(/src/img/color-lcd.svg) no-repeat;
+    width: 100%;
+}
+.sdBox {
+    background: gray;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 9rem;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.sdCard {
+    background: url(/src/img/SD.svg) no-repeat center;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    background-size: contain;
+    width: 5rem;
+    height: 100%;
+}
+.sdBox .sdCard:hover:not(.selected-sd) {
+    transform: translateY(-1.5dvh);
+}
+.selected-sd {
+    transform: translateY(-30dvh);
+}
+#Pastevents .showImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 1;
+}
+.original {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#Pastevents .displaying {
+    animation: drawImage 0.5s ease forwards;
+    z-index: 3;
+}
+#Pastevents .last-display {
+    z-index: 2;
+}
+@keyframes drawImage {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: calc(624dvh / var(--h));
+    }
+}
+.sd {
+    position: absolute;
+    background: url(/src/img/SD.svg) no-repeat;
+    transform: rotate(90deg) translateY(-100%);
+    transition: left 0.5s ease;
+}
+
 @media (max-aspect-ratio: 4/3) {
     img {
         max-width: 100vw;
@@ -559,8 +745,8 @@ footer {
         left: calc(var(--move) + var(--button-w) + 0.5rem);
     }
     .lcdButton {
-        width: calc(var(--square) / 15);
-        height: calc(var(--square) / 15);
+        width: var(--button-w);
+        height: var(--button-w);
         bottom: 7.5rem;
         left: 1rem;
         background-size: contain;
@@ -580,19 +766,30 @@ footer {
 
     #About h2 {
         font-size: 2.5rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
     #About h3 {
         font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        margin-left: 0.3rem;
     }
-    #About h4 {
+    h4 {
         font-size: 1.25rem;
         margin-bottom: 1rem;
     }
     #About .introduction h3 {
         margin-left: 0rem;
+        margin-top: 2rem;
+    }
+    .introImg {
+        width: 100%;
+        height: 30vh;
+        background-size: 200%;
+    }
+
+    .events article h4 + div {
+        margin-bottom: 3rem;
+    }
+    .events article {
+        margin-top: 2rem;
     }
 
     .tree img:last-child {
@@ -608,6 +805,53 @@ footer {
     }
     .creditsLabel {
         right: 0rem;
+    }
+
+    #Pastevents {
+        position: relative;
+    }
+
+    .cpuMem {
+        width: min(5rem, calc(100% - 11rem));
+        aspect-ratio: 1 / 1;
+        top: 0;
+        right: 0;
+    }
+
+    .cpuMem img {
+        width: 63%;
+    }
+
+    .sdBox {
+        margin-block: 1rem;
+    }
+    .imgLcd {
+        aspect-ratio: 812 / 408;
+    }
+    #showImg-container {
+        position: relative;
+    }
+    .sdCard {
+        padding: 1.4rem 0.8rem;
+        font-size: 0.7rem;
+    }
+    #Pastevents .showImg {
+        width: 76.84729064039409%;
+        aspect-ratio: 624 / 352;
+        transform: translate(16%, -107.9%);
+        background-size: cover;
+    }
+    .sdReader {
+        width: calc(var(--square) / 2.5);
+        aspect-ratio: 239.114 / 149.447;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    .sd {
+        width: calc(var(--square) / 2.5 * 143.787 / 239.114);
+        aspect-ratio: 143.787 / 190.674;
+        bottom:  calc(var(--square) / 20);
+        transform-origin: bottom right;
     }
 }
 
@@ -1002,9 +1246,6 @@ footer {
     #About h2 {
         font-size: 3rem;
         font-weight: 900;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-            sans-serif;
     }
 
     #About h3 {
@@ -1043,6 +1284,7 @@ footer {
     .introImg {
         width: 30vw;
         height: 100%;
+        transition: background-position 0.2s ease-out;
     }
     .goal {
         display: flex;
@@ -1087,9 +1329,7 @@ footer {
         display: flex;
         gap: 2rem;
         align-items: center;
-        /* flex-wrap: wrap; */
         margin-top: 2rem;
-        /* flex-direction: column; */
         flex-grow: 1;
         min-height: 0;
     }
@@ -1097,79 +1337,7 @@ footer {
     .events article {
         width: 23rem;
         aspect-ratio: 3/4.5;
-        position: relative;
-        transition: background-position 350ms ease;
-        border: 5px solid #19a0da;
         max-height: 100%;
-    }
-    .events article::after {
-        background-image: radial-gradient(
-            rgba(255, 255, 255, 0.3) 3%,
-            transparent 8%
-        );
-        background-position: 1dvh, 1dvh;
-        background-size: 4dvh 4dvh;
-        width: 100%;
-        height: 100%;
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 4;
-        pointer-events: none;
-        transition: background-position 350ms ease;
-    }
-    .events article:hover::after {
-        background-position: -3dvh, -3dvh;
-    }
-    .events article:hover > img + div {
-        backdrop-filter: unset;
-        filter: blur(1rem) opacity(0);
-    }
-    .events article h4 {
-        font-size: 3.5dvh;
-    }
-    .events article h4 + div {
-        margin-bottom: 1rem;
-    }
-    .events article h5 {
-        margin: 0.1rem 0 0.5rem 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-            Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-            sans-serif;
-        font-weight: 500;
-        font-size: 1rem;
-    }
-
-    article ul {
-        list-style: none;
-        flex-grow: 1;
-    }
-    article li {
-        margin-top: 0.25rem;
-        vertical-align: middle;
-    }
-    .events article > div {
-        position: relative;
-        z-index: 4;
-        width: 100%;
-        padding: 2rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .events article > img + div {
-        backdrop-filter: blur(0.25rem) brightness(0.75);
-        transition: all 0.2s ease-out;
-    }
-    .events article img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 3;
     }
 
     #Pastevents {
@@ -1180,149 +1348,63 @@ footer {
         position: relative;
         overflow: hidden;
     }
-
-    #Pastevents > div {
-        background-size: contain;
-    }
-    .sdReader {
-        width: calc(239.114dvh / var(--h));
-        height: calc(149.447dvh / var(--h));
-        background: url(/src/img/SD\ reader\ buttom.svg) no-repeat;
-        position: absolute;
-        left: calc(75.28dvh / var(--h));
-        top: calc(298dvh / var(--h));
-    }
-    .sdReaderTop {
-        width: calc(151.66057dvh / var(--h));
-        height: calc(150.00012dvh / var(--h));
-        background: url(/src/img/SD\ reader\ top.svg) no-repeat;
-        position: absolute;
-        left: calc(62dvh / var(--h));
-        top: calc(298dvh / var(--h));
-    }
     .cpuMem {
         width: calc(129dvh / var(--h));
         height: calc(129dvh / var(--h));
         top: calc(491dvh / var(--h));
         left: calc(123dvh / var(--h));
-        background: url(/src/img/cpu.svg) no-repeat center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-    }
-    .cpuMem img {
-        width: calc(79dvh / var(--h));
     }
 
-    .imgButton {
-        width: calc(54dvh / var(--h));
-        height: calc(142dvh / var(--h));
-        background: url(/src/img/image-button.svg) no-repeat;
+    .sdBox {
+        width: calc(812dvh / var(--h));
+        height: calc(220dvh / var(--h));
         position: absolute;
-        left: calc(89dvh / var(--h));
-        top: calc(636dvh / var(--h));
-        cursor: pointer;
+        left: calc(388dvh / var(--h));
+        top: calc(110dvh / var(--h));
+        padding: 2dvh;
+        gap: 2dvh;
+        border-radius: 2dvh;
     }
-    .imgButton:hover {
-        background: url(/src/img/image-button-hover.svg) no-repeat;
+
+    .sdCard {
+        width: calc(143.787dvh / var(--h));
+        height: calc(190.674dvh / var(--h));
+        padding: 4.6dvh 2dvh 2dvh 2.9dvh;
     }
-    .imgButton:active {
-        background: url(/src/img/image-button-active.svg) no-repeat;
-    }
-    .right {
-        left: calc(233dvh / var(--h));
-        transform: scaleX(-1);
-    }
+
     .imgLcd {
         width: calc(812dvh / var(--h));
         height: calc(408dvh / var(--h));
-        background: url(/src/img/color-lcd.svg) no-repeat;
         position: absolute;
         left: calc(388dvh / var(--h));
         top: calc(361dvh / var(--h));
     }
-    .sdBox {
-        width: calc(812dvh / var(--h));
-        height: calc(220dvh / var(--h));
-        background: gray;
-        position: absolute;
-        left: calc(388dvh / var(--h));
-        top: calc(110dvh / var(--h));
-        display: flex;
-        align-items: center;
-        padding: 2dvh;
-        gap: 2dvh;
-        overflow-x: auto;
-        overflow-y: hidden;
-    }
-    .sdCard {
-        width: calc(143.787dvh / var(--h));
-        height: calc(190.674dvh / var(--h));
-        background: url(/src/img/SD.svg) no-repeat center;
-        flex-shrink: 0;
-        transition: transform 0.5s ease;
-        padding: 4.6dvh 2dvh 2dvh 2.9dvh;
-        cursor: pointer;
-        background-size: contain;
-    }
-    .sdBox .sdCard:hover:not(.selected-sd) {
-        transform: translateY(-1.5dvh);
-    }
-    .selected-sd {
-        transform: translateY(-30dvh);
-    }
+
     #Pastevents .showImg {
         width: calc(624dvh / var(--h));
         height: calc(352dvh / var(--h));
-        position: absolute;
         left: calc(482dvh / var(--h));
         top: calc(389dvh / var(--h));
-        background: #000;
         background-size: calc(624dvh / var(--h));
-        z-index: 1;
     }
-    .original {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+
+    .sdReader {
+        width: calc(239.114dvh / var(--h));
+        height: calc(149.447dvh / var(--h));
+        position: absolute;
+        left: calc(75.28dvh / var(--h));
+        top: calc(298dvh / var(--h));
     }
-    #Pastevents .displaying {
-        animation: drawImage 0.5s ease forwards;
-        z-index: 3;
-    }
-    #Pastevents .last-display {
-        z-index: 2;
-    }
-    @keyframes drawImage {
-        0% {
-            width: 0;
-        }
-        100% {
-            width: calc(624dvh / var(--h));
-        }
-    }
+
     .sd {
         width: calc(143.787dvh / var(--h));
         height: calc(190.674dvh / var(--h));
         padding: 4.6dvh 2dvh 2dvh 2.9dvh;
-        position: absolute;
         top: calc(301dvh / var(--h));
         left: calc(20dvh / var(--h));
-        background: url(/src/img/SD.svg) no-repeat;
-        transform: rotate(-90deg) translateX(-100%);
         transform-origin: top left;
-        transition: left 0.5s ease;
     }
 
-    /* .events h5 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
     #Sponsor {
         width: 100vw;
         position: relative;
