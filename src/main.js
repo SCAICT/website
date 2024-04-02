@@ -20,7 +20,7 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
         for (const event of events) {
             eventsHTML += `
             <article onclick=(window.location.href="${event.link}")>
-            >${
+            ${
                 event.image != "" ? `<img src="${event.image}"/>` : ""
             }<div><h4>${event.title}</h4>
             <div>${event.subtitle}</div>
@@ -60,7 +60,6 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
     });
 
 // Club
-
 fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt")
     .then(response => response.text())
     .then(data => {
@@ -291,9 +290,22 @@ const scrollFunction = () => {
                 bigHeader.style.pointerEvents = "none";
                 bigHeader.style.opacity = 0;
                 About.style.opacity = 1;
+                // background position
+                if (introImg.getBoundingClientRect().bottom < window.innerHeight && introImg.getBoundingClientRect().bottom > 0) {
+                    console.log(introImg.getBoundingClientRect().bottom /
+                    window.innerHeight);
+                    introImg.style.backgroundPositionX =
+                        (1 -
+                            introImg.getBoundingClientRect().bottom /
+                                window.innerHeight) *
+                            100 +
+                        "%";
+                }
             }
         }
         return;
+
+        // mobile end
     }
     if (window.scrollY < (window.innerHeight * 1.15) / 3)
         bigHeader.style.transform = `scale(${
