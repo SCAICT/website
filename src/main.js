@@ -20,9 +20,9 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
         for (const event of events) {
             eventsHTML += `
             <article onclick=(window.location.href="${event.link}")>
-            ${
-                event.image != "" ? `<img src="${event.image}"/>` : ""
-            }<div><h4>${event.title}</h4>
+            ${event.image != "" ? `<img src="${event.image}"/>` : ""}<div><h4>${
+                event.title
+            }</h4>
             <div>${event.subtitle}</div>
             <ul><li><i class="fa-solid fa-calendar"></i> ${
                 event.date
@@ -89,11 +89,11 @@ const showImg = event => {
     else pressed = true;
     const activityName = event.target.innerText;
     event.target.classList.add("selected-sd");
-    sd.style.left = "-25vh";
+    sd.classList = "out sd";
     imgContainer.innerHTML = '<div class="showImg"></div>';
     imageIndex = 0;
     setTimeout(() => {
-        sd.style.left = `calc(20vh / var(--h))`;
+        sd.classList = "in sd";
         setTimeout(() => {
             imgContainer.innerHTML = "";
             for (var i = 0; i < imageData[activityName].length; i++) {
@@ -291,9 +291,15 @@ const scrollFunction = () => {
                 bigHeader.style.opacity = 0;
                 About.style.opacity = 1;
                 // background position
-                if (introImg.getBoundingClientRect().bottom < window.innerHeight && introImg.getBoundingClientRect().bottom > 0) {
-                    console.log(introImg.getBoundingClientRect().bottom /
-                    window.innerHeight);
+                if (
+                    introImg.getBoundingClientRect().bottom <
+                        window.innerHeight &&
+                    introImg.getBoundingClientRect().bottom > 0
+                ) {
+                    console.log(
+                        introImg.getBoundingClientRect().bottom /
+                            window.innerHeight
+                    );
                     introImg.style.backgroundPositionX =
                         (1 -
                             introImg.getBoundingClientRect().bottom /

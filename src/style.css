@@ -160,6 +160,9 @@ a.button:hover {
     background: url(/src/img/redButton.svg) no-repeat;
     cursor: pointer;
 }
+.lcdButton:hover {
+    filter: brightness(120%);
+}
 
 .lcdText {
     position: absolute;
@@ -550,7 +553,8 @@ article li {
     z-index: 3;
 }
 
-#Pastevents > div {
+#Pastevents > div,
+.event-mobile > div {
     background-size: contain;
 }
 
@@ -558,12 +562,8 @@ article li {
     background: url(/src/img/SD\ reader\ buttom.svg) no-repeat;
 }
 .sdReaderTop {
-    width: calc(151.66057dvh / var(--h));
-    height: calc(150.00012dvh / var(--h));
     background: url(/src/img/SD\ reader\ top.svg) no-repeat;
     position: absolute;
-    left: calc(62dvh / var(--h));
-    top: calc(298dvh / var(--h));
 }
 .cpuMem {
     background: url(/src/img/cpu.svg) no-repeat center;
@@ -586,10 +586,12 @@ article li {
     cursor: pointer;
 }
 .imgButton:hover {
-    background: url(/src/img/image-button-hover.svg) no-repeat;
+    background: url(/src/img/image-button-hover.svg) no-repeat center center /
+        contain;
 }
 .imgButton:active {
-    background: url(/src/img/image-button-active.svg) no-repeat;
+    background: url(/src/img/image-button-active.svg) no-repeat center center /
+        contain;
 }
 .right {
     left: calc(233dvh / var(--h));
@@ -619,12 +621,7 @@ article li {
     width: 5rem;
     height: 100%;
 }
-.sdBox .sdCard:hover:not(.selected-sd) {
-    transform: translateY(-1.5dvh);
-}
-.selected-sd {
-    transform: translateY(-30dvh);
-}
+
 #Pastevents .showImg {
     position: absolute;
     top: 0;
@@ -656,9 +653,40 @@ article li {
 .sd {
     position: absolute;
     background: url(/src/img/SD.svg) no-repeat;
-    transform: rotate(90deg) translateY(-100%);
     transition: left 0.5s ease;
+    background-size: contain;
 }
+
+.sponsor > div {
+    font-family: NicoMoji;
+    display: flex;
+    align-items: center;
+    background-size: contain;
+    flex-direction: column;
+    justify-content: center;
+}
+.battery-gogoro {
+    text-align: center;
+    background: url(/src/img/gogoro.svg) no-repeat center;
+}
+.battery-9v {
+    background: url(/src/img/battery-9v.svg) no-repeat center;
+}
+.battery {
+    background: url(/src/img/battery.svg) no-repeat center;
+}
+
+.sponsor a {
+    border-radius: 1rem;
+    background: #d9d9d9;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+/* rwd */
 
 @media (max-aspect-ratio: 4/3) {
     img {
@@ -842,19 +870,92 @@ article li {
         background-size: cover;
     }
     .sdReader {
-        width: calc(var(--square) / 2.5);
-        aspect-ratio: 239.114 / 149.447;
-        padding: 1rem;
+        width: calc(var(--square) / 366 * 189.88);
+        aspect-ratio: 189.88 / 118.67;
+        margin-left: calc(var(--square) / 366 * 43.9);
+    }
+    .selected-sd {
+        transform: translateY(-9rem);
+    }
+
+    .sd {
+        width: calc(var(--square) / 366 * 114.18);
+        top: calc(var(--square) / 366 * 2.38);
+        aspect-ratio: 114.18 / 151.41;
+        transform: rotate(90deg) translateY(-100%);
+        transform-origin: top left;
+        padding-top: calc(var(--square) / 366 * 29);
+        padding-left: calc(var(--square) / 366 * 18);
+    }
+    .sd.out {
+        left: -100%;
+    }
+    .sd.in {
+        left: 0;
+    }
+
+    .sdReaderTop {
+        width: calc(var(--square) / 366 * 120.43);
+        aspect-ratio: 120.43 / 119.11;
+        top: 0;
+        left: calc(var(--square) / 366 * 33.35);
+    }
+    .event-mobile {
+        position: relative;
         margin-top: 1rem;
     }
-    .sd {
-        width: calc(var(--square) / 2.5 * 143.787 / 239.114);
-        aspect-ratio: 143.787 / 190.674;
-        bottom:  calc(var(--square) / 20);
-        transform-origin: bottom right;
+    .imgButton {
+        height: calc(var(--square) / 366 * 119.11);
+        top: 0;
+        left: calc(var(--square) / 366 * 258);
+        aspect-ratio: 42.88 / 112.76;
+    }
+    .right {
+        left: unset;
+        right: 0;
+    }
+
+    @keyframes drawImage {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 76.84729064039409%;
+        }
+    }
+    .sponsor {
+        margin-top: 2rem;
+    }
+    .sponsor > div {
+        background-position: left;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 2rem;
+        padding-left: 4.5rem;
+        flex-direction: row;
+        justify-content: start;
+        gap: 0.5rem;
+    }
+    .sponsor a {
+        margin-block: .5rem;
+        padding: 1rem;
+    }
+    .sponsor p{
+    margin-bottom: 0;}
+    
+    .sponsor img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        max-width: 50vw;
+    }
+    .sponsor > div.battery-gogoro{
+    padding-left: 4.8rem;
+    }
+    .sponsor > div.battery{
+    padding-left: 8rem;
     }
 }
-
 /* long */
 @media (min-aspect-ratio: 4/3) {
     :root {
@@ -1259,11 +1360,9 @@ article li {
     }
 
     .cpuLogo {
+        background: url("/src/img/logo-spread.webp") no-repeat;
         background-size: 90%;
         background-position: bottom;
-        background: url("/src/img/logo-spread.webp") no-repeat;
-        background-size: 50%;
-        background-position: top right;
     }
     #About > .container .goal {
         width: fit-content;
@@ -1402,7 +1501,28 @@ article li {
         padding: 4.6dvh 2dvh 2dvh 2.9dvh;
         top: calc(301dvh / var(--h));
         left: calc(20dvh / var(--h));
+        transform: rotate(90deg) translateY(-100%);
         transform-origin: top left;
+    }
+
+    .sd.out {
+        left: -25vh;
+    }
+    .sd.in {
+        left: calc(20vh / var(--h));
+    }
+    .sdBox .sdCard:hover:not(.selected-sd) {
+        transform: translateY(-1.5dvh);
+    }
+    .selected-sd {
+        transform: translateY(-30dvh);
+    }
+
+    .sdReaderTop {
+        width: calc(151.66057dvh / var(--h));
+        height: calc(150.00012dvh / var(--h));
+        left: calc(62dvh / var(--h));
+        top: calc(298dvh / var(--h));
     }
 
     #Sponsor {
@@ -1439,27 +1559,21 @@ article li {
         flex-grow: 1;
     }
     .sponsor > div {
-        font-family: NicoMoji;
-        display: flex;
-        align-items: center;
-        background-size: contain;
         font-size: calc(24dvh / var(--h));
         width: calc(305dvh / var(--h));
         height: calc(200dvh / var(--h));
     }
+
     .battery-gogoro {
-        text-align: center;
-        background: url(/src/img/gogoro.svg) no-repeat center;
-        padding-left: calc(89dvh / var(--h));
+        padding-left: calc(18dvh / var(--h));
     }
     .battery-9v {
-        background: url(/src/img/battery-9v.svg) no-repeat center;
-        padding-left: calc(131dvh / var(--h));
+        padding-left: calc(110dvh / var(--h));
     }
     .battery {
-        background: url(/src/img/battery.svg) no-repeat center;
         padding-left: calc(111dvh / var(--h));
     }
+
     .sponsor {
         display: flex;
         justify-content: center;
@@ -1470,14 +1584,7 @@ article li {
     }
 
     .sponsor a {
-        border-radius: 1rem;
-        background: #d9d9d9;
         padding: 2rem;
-        color: #000;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        text-decoration: none;
         flex: 1 1;
         max-width: 30rem;
     }
