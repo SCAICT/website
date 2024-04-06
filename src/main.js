@@ -174,9 +174,21 @@ function checkRotation() {
         header.style.transform = "unset";
         document.body.style.height = "unset";
         document.querySelector(".link").style.display = "none";
+        // set id About_ to .cpuLogo if mobileVersion
+        document.querySelector(".cpuLogo").id = "About_";
+        document.querySelector(".goal").id = "Project_";
+        document.querySelector("#Events h2").id = "Events_";
+        document.querySelector(".treebox").id = "Social_";
         return;
     }
-    document.querySelector(".link").style.display = "block";
+    else{
+        document.querySelector(".cpuLogo").id = "";
+        document.querySelector(".goal").id = "";
+        document.querySelector("#Events h2").id = "";
+        document.querySelector(".treebox").id = "";
+    }
+
+    document.querySelector(".link").style.display = "flex";
     containerScrollWidth =
         container.offsetWidth -
         window.innerWidth +
@@ -375,7 +387,8 @@ const scrollFunction = () => {
                 fixedCharger.style.transform =
                     "translateY(" +
                     (clubTitle.getBoundingClientRect().top -
-                        window.innerHeight-30) +
+                        window.innerHeight -
+                        30) +
                     "px)";
                 fixedCharger.style.transitionDuration = ".1s";
             } else {
