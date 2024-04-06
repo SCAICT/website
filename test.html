@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+            /* Adjust speed as needed */
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+            /* Pause animation on hover */
+        }
+
+        .marquee img {
+            margin-right: 20px;
+            /* Adjust spacing between logos */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="marquee-container">
+        <div class="marquee">
+            <img src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/%E6%96%87%E8%8F%AF%E9%AB%98%E4%B8%AD%E9%9B%BB%E8%85%A6%E7%A0%94%E7%BF%92%E7%A4%BE.webp"
+                alt="Sponsor 1">
+            <img src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/%E6%96%87%E8%8F%AF%E9%AB%98%E4%B8%AD%E9%9B%BB%E8%85%A6%E7%A0%94%E7%BF%92%E7%A4%BE.webp"
+                alt="Sponsor 1">
+            <img src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/%E6%96%87%E8%8F%AF%E9%AB%98%E4%B8%AD%E9%9B%BB%E8%85%A6%E7%A0%94%E7%BF%92%E7%A4%BE.webp"
+                alt="Sponsor 1">
+
+            <!-- Add more images for additional sponsors -->
+        </div>
+    </div>
+
+</body>
+
+</html>

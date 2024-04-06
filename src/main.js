@@ -75,7 +75,7 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt")
                 )}</h4></div></div>`;
             })
             .join("");
-        document.querySelector(".club-list").innerHTML = club;
+        document.querySelector(".club-list").innerHTML = club + club;
     })
     .catch(error => {
         console.error("Error: ", error);
