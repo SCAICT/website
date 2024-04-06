@@ -375,7 +375,7 @@ const scrollFunction = () => {
                 fixedCharger.style.transform =
                     "translateY(" +
                     (clubTitle.getBoundingClientRect().top -
-                        window.innerHeight) +
+                        window.innerHeight-30) +
                     "px)";
                 fixedCharger.style.transitionDuration = ".1s";
             } else {
