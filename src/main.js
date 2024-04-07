@@ -176,14 +176,14 @@ function checkRotation() {
         document.querySelector(".link").style.display = "none";
         // set id About_ to .cpuLogo if mobileVersion
         document.querySelector(".cpuLogo").id = "About_";
-        document.querySelector(".goal").id = "Project_";
+        document.querySelector(".goal h2").id = "Project_";
         document.querySelector("#Events h2").id = "Events_";
         document.querySelector(".treebox").id = "Social_";
         return;
     }
     else{
         document.querySelector(".cpuLogo").id = "";
-        document.querySelector(".goal").id = "";
+        document.querySelector(".goal h2").id = "";
         document.querySelector("#Events h2").id = "";
         document.querySelector(".treebox").id = "";
     }
