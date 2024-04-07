@@ -301,18 +301,18 @@ footer {
 .club-container::after {
     content: "";
     display: block;
-    width: 100%;
+    width: calc(100% + 2rem);
     height: 100%;
     background: linear-gradient(
         90deg,
-        #000,
-        rgba(0, 0, 0, 0) 3em,
-        rgba(0, 0, 0, 0) calc(100% - 3em),
-        #000
+        #000 1rem,
+        rgba(0, 0, 0, 0) 4em,
+        rgba(0, 0, 0, 0) calc(100% - 4em),
+        #000 calc(100% - 1em)
     );
     position: absolute;
     top: 0;
-    left: 0;
+    left: -1rem;
     pointer-events: none;
 }
 .club-list {
