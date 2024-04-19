@@ -93,6 +93,7 @@ header > div {
     position: absolute;
     width: 100%;
     z-index: -1;
+    pointer-events: none;
 }
 .cpu img,
 .logo {
@@ -386,6 +387,7 @@ footer {
     background: url(/src/img/背影.webp) no-repeat;
     background-position: 0%;
     background-size: cover;
+    pointer-events: none;
 }
 
 .goals article div {
@@ -1844,4 +1846,26 @@ article li {
         width: 10rem;
         height: 10rem;
     }
+}
+
+/* awards */
+
+.awards {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.awards img {
+    width: 75px;
+    display: block;
+    margin-top: 1rem;
+}
+
+.spacer {
+    flex: 1;
 }
