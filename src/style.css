@@ -1101,6 +1101,10 @@ article li {
         top: 41%;
         left: 91.6%;
     }
+
+    .awards {
+        display: none;
+    }
 }
 /* long */
 @media (min-aspect-ratio: 4/3) {
