@@ -29,6 +29,7 @@
                     Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
                 color: #fff;
                 padding: 1rem;
+                overflow: hidden;
             }
             h1 {
                 font-size: min(10vw, 8rem);
@@ -53,6 +54,7 @@
                 text-align: center;
                 border-radius: 2rem;
                 overflow: hidden;
+                position: relative;box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
             }
             a {
                 display: block;
@@ -70,6 +72,71 @@
             a:active {
                 background-color: #b8b8b8;
             }
+
+            .lightning {
+                position: absolute;
+                width: 8vmax;
+                animation: spin 1s infinite ease-in-out;
+            }
+
+            .lightning1 {
+                top: 0%;
+                left: 0%;
+            }
+
+            .lightning2 {
+                top: -8vmax;
+                left: 30%;
+            }
+
+            .lightning3 {
+                top: -2vmax;
+                left: 70%;
+            }
+
+            .lightning4 {
+                top: -5vmax;
+                right: -5vmax;
+            }
+
+            .lightning5 {
+                top: 40%;
+                right: -5vmax;
+            }
+
+            .lightning6 {
+                top: 50%;
+                left: -3vmax;
+            }
+
+            .lightning7 {
+                bottom: -2vmax;
+                left: 0;
+            }
+
+            .lightning8 {
+                bottom: -5vmax;
+                left: 51%;
+            }
+
+            .lightning9 {
+                bottom: -8vmax;
+                right: 0;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            section:has(a:hover) ~ img {
+                /* pause animation */
+                animation-play-state: paused;
+            }
         </style>
     </head>
     <body>
@@ -82,14 +149,42 @@
             </div>
             <a href="/">回首頁</a>
         </section>
-        <div class="lightning lightning1"></div>
-        <div class="lightning lightning2"></div>
-        <div class="lightning lightning3"></div>
-        <div class="lightning lightning4"></div>
-        <div class="lightning lightning5"></div>
-        <div class="lightning lightning6"></div>
-        <div class="lightning lightning7"></div>
-        <div class="lightning lightning8"></div>
-        <div class="lightning lightning9"></div>
+        <img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning1"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning2"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning3"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning4"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning5"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning6"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning7"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning8"
+        /><img
+            src="/src/img/lightning.svg"
+            alt=""
+            class="lightning lightning9"
+        />
     </body>
 </html>
