@@ -145,6 +145,7 @@ const changeImg = (direction = 1) => {
 
 // Mouse Move Effect
 const header = document.querySelector("header");
+const awards = document.querySelector(".awards");
 header.addEventListener("mousemove", e => {
     if (mobileVersion) {
         header.style.transform = "unset";
@@ -154,6 +155,7 @@ header.addEventListener("mousemove", e => {
     const y = (e.clientY / window.innerHeight) * 10 - 5;
     header.style.transform = `translate(${-x}vh, ${-y}vh)`;
     header.style.opacity = 1;
+    awards.style.opacity = 1;
     About.style.opacity = 0;
 });
 
@@ -180,8 +182,7 @@ function checkRotation() {
         document.querySelector("#Events h2").id = "Events_";
         document.querySelector(".treebox").id = "Social_";
         return;
-    }
-    else{
+    } else {
         document.querySelector(".cpuLogo").id = "";
         document.querySelector(".goal h2").id = "";
         document.querySelector("#Events h2").id = "";
@@ -283,16 +284,19 @@ const scrollFunction = () => {
                 1 + (window.scrollY / window.innerHeight) * 80
             })`;
             bigHeader.style.opacity = 1;
+            awards.style.opacity = 1;
         }
         // 透明度轉場
         if (window.scrollY > window.innerHeight * 0.05) {
             if (window.scrollY < (window.innerHeight * 1.15) / 3) {
                 bigHeader.style.pointerEvents = "all";
-                bigHeader.style.opacity =
+                const opacityValue =
                     1 -
                     ((window.scrollY - window.innerHeight * 0.05) /
                         window.innerHeight) *
                         3;
+                bigHeader.style.opacity = opacityValue;
+                awards.style.opacity = opacityValue;
                 About.style.opacity =
                     ((window.scrollY - window.innerHeight * 0.05) /
                         window.innerHeight) *
@@ -301,6 +305,7 @@ const scrollFunction = () => {
                 // 轉場結束
                 bigHeader.style.pointerEvents = "none";
                 bigHeader.style.opacity = 0;
+                awards.style.opacity = 0;
                 About.style.opacity = 1;
                 // background position
                 if (
@@ -333,11 +338,13 @@ const scrollFunction = () => {
     if (window.scrollY > window.innerHeight * 0.05) {
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
             bigHeader.style.pointerEvents = "all";
-            bigHeader.style.opacity =
+            const opacityValue =
                 1 -
                 ((window.scrollY - window.innerHeight * 0.05) /
                     window.innerHeight) *
                     3;
+            bigHeader.style.opacity = opacityValue;
+            awards.style.opacity = opacityValue;
             About.style.opacity =
                 ((window.scrollY - window.innerHeight * 0.05) /
                     window.innerHeight) *
@@ -346,6 +353,7 @@ const scrollFunction = () => {
             // 轉場結束
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
+            awards.style.opacity = 0;
             About.style.opacity = 1;
             if (window.scrollY < containerScrollWidth) {
                 container.style.transform =
@@ -398,6 +406,7 @@ const scrollFunction = () => {
         }
     } else {
         bigHeader.style.opacity = 1;
+        awards.style.opacity = 1;
         About.style.opacity = 0;
     }
 };
