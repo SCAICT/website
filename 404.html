@@ -4,64 +4,92 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=   , initial-scale=1.0" />
-        <title></title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>找不到頁面</title>
         <style>
+            @font-face {
+                font-family: "NicoMoji";
+                src: url("/src/Nico-Moji.woff") format("truetype");
+            }
+
             * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
             }
-            h1 {
-                font-size: 5rem;
-                color: red;
-                animation: move 2s infinite linear;
-            }
-            main {
+            body {
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                background-color: #000;
                 height: 100vh;
+                background-color: #3a4754;
+                font-family: "NicoMoji", system-ui, -apple-system,
+                    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+                    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                color: #fff;
+                padding: 1rem;
             }
-            @keyframes move {
-                0% {
-                    transform: rotate(0deg) scale(.5);
-                    filter: hue-rotate(0deg);
-                }
-                50% {
-                    transform: rotate(180deg) scale(3);
-                    filter: hue-rotate(180deg);
-                }
-                100% {
-                    transform: rotate(360deg) scale(1);
-                    filter: hue-rotate(360deg);
-                }
+            h1 {
+                font-size: min(10vw, 8rem);
             }
-            main {
-                background: linear-gradient(45deg, red, yellow);
-                animation: gradientChange 3s infinite linear alternate;
-                min-height: 100vh;
-                filter: hue-rotate(50deg);
+            h2 {
+                font-size: min(5vw, 4rem);
+            }
+            h3 {
+                font-weight: 900;
+                margin-bottom: 0.5rem;
+            }
+            .msg {
+                padding: 2rem 1rem 1rem 1.5rem;
+            }
+            section {
+                font-size: 1.1rem;
+                margin-top: 3rem;
+                background: #dbdcde;
+                width: 100%;
+                max-width: 20rem;
+                color: #111111;
+                text-align: center;
+                border-radius: 2rem;
+                overflow: hidden;
+            }
+            a {
+                display: block;
+                border-top: #cccccc 1px solid;
+                padding: 1.2rem;
+                color: #3b86e0;
+                font-weight: 900;
+                text-decoration: none;
             }
 
-            @keyframes gradientChange {
-                0% {
-                    filter: hue-rotate(0) contrast(1000%) invert(0%);
-                }
-                100% {
-                    filter: hue-rotate(360deg) contrast(300%) invert(100%);
-                }
+            a:hover {
+                background-color: #d4d4d4;
             }
 
-            @keyframes bg {
+            a:active {
+                background-color: #b8b8b8;
             }
         </style>
     </head>
     <body>
-        <main>
-            <h1>元元電神</h1>
-        </main>
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <section>
+            <div class="msg">
+                <h3>無法找到頁面</h3>
+                <p>去別的地方找找吧</p>
+            </div>
+            <a href="/">回首頁</a>
+        </section>
+        <div class="lightning lightning1"></div>
+        <div class="lightning lightning2"></div>
+        <div class="lightning lightning3"></div>
+        <div class="lightning lightning4"></div>
+        <div class="lightning lightning5"></div>
+        <div class="lightning lightning6"></div>
+        <div class="lightning lightning7"></div>
+        <div class="lightning lightning8"></div>
+        <div class="lightning lightning9"></div>
     </body>
 </html>
