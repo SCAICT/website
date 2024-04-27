@@ -135,7 +135,16 @@
 
             section:has(a:hover) ~ img {
                 /* pause animation */
-                animation-play-state: paused;
+                animation: hueRotate 1s infinite ease-in-out,spin 1s infinite ease-in-out;
+            }
+
+            @keyframes hueRotate {
+                0% {
+                    filter: hue-rotate(0deg);
+                }
+                100% {
+                    filter: hue-rotate(360deg);
+                }
             }
         </style>
     </head>
