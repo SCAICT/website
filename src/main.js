@@ -453,8 +453,6 @@ const motorControl = () => {
     }
 };
 
-// track when #ukraineBrightness been drug up or down
-
 const ukraineBrightness = document.getElementById("ukraineBrightness");
 var mouseY,
     currentBrightness = 1,
@@ -486,6 +484,7 @@ ukraineHue.addEventListener("mousedown", e => {
     document.addEventListener("mousemove", ukraineHueChange);
     status = 2;
 });
+
 document.addEventListener("mouseup", e => {
     if (status == 2) {
         const ukraineHueValue = e.clientY - mouseHueY;
@@ -498,6 +497,7 @@ document.addEventListener("mouseup", e => {
         document.removeEventListener("mousemove", ukraineBrightnessChange);
     }
 });
+
 const ukraineHueChange = e => {
     const ukraineHueValue = e.clientY - mouseHueY;
     backgroundCenter.style.setProperty(
