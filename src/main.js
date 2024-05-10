@@ -411,9 +411,16 @@ const scrollFunction = () => {
     }
 };
 
-const last = window.scrollY;
-window.addEventListener("scroll", scrollFunction);
-scrollFunction();
+let ticking = false;
+window.addEventListener("scroll", function (e) {
+    if (!ticking) {
+        window.requestAnimationFrame(function () {
+            scrollFunction();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
 
 elements = document.querySelectorAll(".tree i");
 elements.forEach(element => {
