@@ -306,6 +306,7 @@ const scrollFunction = () => {
                 bigHeader.style.pointerEvents = "none";
                 bigHeader.style.opacity = 0;
                 awards.style.opacity = 0;
+                awards.style.pointerEvents = "none";
                 About.style.opacity = 1;
                 // background position
                 if (
@@ -345,6 +346,7 @@ const scrollFunction = () => {
                     3;
             bigHeader.style.opacity = opacityValue;
             awards.style.opacity = opacityValue;
+            awards.style.pointerEvents = "all";
             About.style.opacity =
                 ((window.scrollY - window.innerHeight * 0.05) /
                     window.innerHeight) *
@@ -354,6 +356,7 @@ const scrollFunction = () => {
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
             awards.style.opacity = 0;
+            awards.style.pointerEvents = "none";
             About.style.opacity = 1;
             if (window.scrollY < containerScrollWidth) {
                 container.style.transform =
@@ -407,6 +410,7 @@ const scrollFunction = () => {
     } else {
         bigHeader.style.opacity = 1;
         awards.style.opacity = 1;
+        awards.style.pointerEvents = "all";
         About.style.opacity = 0;
     }
 };

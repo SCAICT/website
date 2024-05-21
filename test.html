@@ -1,59 +1,70 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .marquee-container {
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .marquee {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 20s linear infinite;
-            /* Adjust speed as needed */
-        }
-
-        .marquee:hover {
-            animation-play-state: paused;
-            /* Pause animation on hover */
-        }
-
-        .marquee img {
-            margin-right: 20px;
-            /* Adjust spacing between logos */
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Smooth Scroll Demo</title>
+        <style>
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                height: 300vh;
+                overflow: hidden;
             }
-
-            100% {
-                transform: translateX(-100%);
+            #content {
+                width: 100%;
+                height: 300vh; /* Simulate a tall page */
+                background: linear-gradient(
+                    to bottom,
+                    #3f87a6,
+                    #ebf8e1,
+                    #f69d3c
+                );
             }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="marquee-container">
-        <div class="marquee">
-            <img src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/%E6%96%87%E8%8F%AF%E9%AB%98%E4%B8%AD%E9%9B%BB%E8%85%A6%E7%A0%94%E7%BF%92%E7%A4%BE.webp"
-                alt="Sponsor 1">
-            <img src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/%E6%96%87%E8%8F%AF%E9%AB%98%E4%B8%AD%E9%9B%BB%E8%85%A6%E7%A0%94%E7%BF%92%E7%A4%BE.webp"
-                alt="Sponsor 1">
-            <img src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/%E6%96%87%E8%8F%AF%E9%AB%98%E4%B8%AD%E9%9B%BB%E8%85%A6%E7%A0%94%E7%BF%92%E7%A4%BE.webp"
-                alt="Sponsor 1">
-
-            <!-- Add more images for additional sponsors -->
+            #viewport {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                overflow: hidden;
+            }
+            .fixed-ui {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                color: white;
+                z-index: 100;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="viewport">
+            <div id="content"></div>
         </div>
-    </div>
+        <div class="fixed-ui">Smooth Scroll Enabled</div>
+        <script>
+            let scrollY = 0;
+            let lastScrollY = 0;
+            let content = document.getElementById("content");
 
-</body>
+            function updateScroll() {
+                requestAnimationFrame(() => {
+                    const diff = scrollY - lastScrollY;
+                    lastScrollY += diff * 0.1;
+                    content.style.transform = `translateY(-${lastScrollY}px)`;
+                    if (Math.abs(diff) > 0.5) updateScroll();
+                });
+            }
 
+            window.addEventListener("scroll", () => {
+                scrollY = window.scrollY;
+                console
+                updateScroll();
+            });
+        </script>
+    </body>
 </html>
