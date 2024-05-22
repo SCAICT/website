@@ -20,17 +20,13 @@ fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
         for (const event of events) {
             eventsHTML += `
             <article onclick=(window.location.href="${event.link}")>
-            ${event.image != "" ? `<img src="${event.image}"/>` : ""}<div><h4>${
-                event.title
-            }</h4>
+            ${event.image != "" ? `<img src="${event.image}"/>` : ""}<div><h4>${event.title
+                }</h4>
             <div>${event.subtitle}</div>
-            <ul><li><i class="fa-solid fa-calendar"></i> ${
-                event.date
-            }</li><li><i class="fa-solid fa-location-dot"></i> ${
-                event.location
-            }</li><li><i class="fa-solid fa-tag"></i> ${
-                event.price
-            }</li></ul><h5>${event.description}</h5></div></article>`;
+            <ul><li><i class="fa-solid fa-calendar"></i> ${event.date
+                }</li><li><i class="fa-solid fa-location-dot"></i> ${event.location
+                }</li><li><i class="fa-solid fa-tag"></i> ${event.price
+                }</li></ul><h5>${event.description}</h5></div></article>`;
         }
         document.querySelector(".events").innerHTML = eventsHTML;
     })
@@ -280,9 +276,8 @@ const scrollFunction = () => {
         container.style.transform = "unset";
 
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
-            bigHeader.style.transform = `scale(${
-                1 + (window.scrollY / window.innerHeight) * 80
-            })`;
+            bigHeader.style.transform = `scale(${1 + (window.scrollY / window.innerHeight) * 80
+                })`;
             bigHeader.style.opacity = 1;
             awards.style.opacity = 1;
         }
@@ -294,7 +289,7 @@ const scrollFunction = () => {
                     1 -
                     ((window.scrollY - window.innerHeight * 0.05) /
                         window.innerHeight) *
-                        3;
+                    3;
                 bigHeader.style.opacity = opacityValue;
                 awards.style.opacity = opacityValue;
                 About.style.opacity =
@@ -311,18 +306,18 @@ const scrollFunction = () => {
                 // background position
                 if (
                     introImg.getBoundingClientRect().bottom <
-                        window.innerHeight &&
+                    window.innerHeight &&
                     introImg.getBoundingClientRect().bottom > 0
                 ) {
                     console.log(
                         introImg.getBoundingClientRect().bottom /
-                            window.innerHeight
+                        window.innerHeight
                     );
                     introImg.style.backgroundPositionX =
                         (1 -
                             introImg.getBoundingClientRect().bottom /
-                                window.innerHeight) *
-                            100 +
+                            window.innerHeight) *
+                        100 +
                         "%";
                 }
             }
@@ -332,9 +327,8 @@ const scrollFunction = () => {
         // mobile end
     }
     if (window.scrollY < (window.innerHeight * 1.15) / 3)
-        bigHeader.style.transform = `scale(${
-            1 + (window.scrollY / window.innerHeight) * 80
-        })`;
+        bigHeader.style.transform = `scale(${1 + (window.scrollY / window.innerHeight) * 80
+            })`;
     // 透明度轉場
     if (window.scrollY > window.innerHeight * 0.05) {
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
@@ -343,7 +337,7 @@ const scrollFunction = () => {
                 1 -
                 ((window.scrollY - window.innerHeight * 0.05) /
                     window.innerHeight) *
-                    3;
+                3;
             bigHeader.style.opacity = opacityValue;
             awards.style.opacity = opacityValue;
             awards.style.pointerEvents = "all";
@@ -374,9 +368,9 @@ const scrollFunction = () => {
                     introImg.style.backgroundPositionX =
                         (1 -
                             (projectOffset + window.innerHeight * 0.684) /
-                                (window.innerWidth +
-                                    window.innerHeight * 0.684)) *
-                            100 +
+                            (window.innerWidth +
+                                window.innerHeight * 0.684)) *
+                        100 +
                         "%";
                 }
             } else {
@@ -457,6 +451,7 @@ const motorControl = () => {
     }
 };
 
+const backgroundCenter = document.querySelector(".background-center");
 const ukraineBrightness = document.getElementById("ukraineBrightness");
 var mouseY,
     currentBrightness = 1,
@@ -466,19 +461,6 @@ ukraineBrightness.addEventListener("mousedown", e => {
     mouseY = e.clientY;
     document.addEventListener("mousemove", ukraineBrightnessChange);
 });
-
-const backgroundCenter = document.querySelector(".background-center");
-const ukraineBrightnessChange = e => {
-    const ukraineBrightnessValue = e.clientY - mouseY;
-    backgroundCenter.style.setProperty(
-        "--brightness",
-        currentBrightness - ukraineBrightnessValue / 1000
-    );
-    ukraineBrightness.style.setProperty(
-        "--brightnessR",
-        (currentBrightness - ukraineBrightnessValue / 1000) * 720 + "deg"
-    );
-};
 
 const ukraineHue = document.getElementById("ukraineHue");
 var mouseHueY,
@@ -494,13 +476,25 @@ document.addEventListener("mouseup", e => {
         const ukraineHueValue = e.clientY - mouseHueY;
         currentHue += ukraineHueValue / 10;
         document.removeEventListener("mousemove", ukraineHueChange);
-    } else {
+    } else if (status == 1) {
         if (mouseY == "NaN") mouseY = e.clientY;
         const ukraineBrightnessValue = e.clientY - mouseY;
         currentBrightness -= ukraineBrightnessValue / 1000;
         document.removeEventListener("mousemove", ukraineBrightnessChange);
     }
 });
+
+const ukraineBrightnessChange = e => {
+    const ukraineBrightnessValue = e.clientY - mouseY;
+    backgroundCenter.style.setProperty(
+        "--brightness",
+        currentBrightness - ukraineBrightnessValue / 1000
+    );
+    ukraineBrightness.style.setProperty(
+        "--brightnessR",
+        (currentBrightness - ukraineBrightnessValue / 1000) * 720 + "deg"
+    );
+};
 
 const ukraineHueChange = e => {
     const ukraineHueValue = e.clientY - mouseHueY;
