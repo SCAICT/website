@@ -514,6 +514,7 @@ footer {
     position: relative;
     transition: background-position 350ms ease;
     border: 5px solid #19a0da;
+    cursor: pointer;
 }
 .events article::after {
     background-image: radial-gradient(

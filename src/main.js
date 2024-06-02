@@ -1,81 +1,144 @@
 /** @format */
-
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/home.json")
-    .then(response => response.json())
-    .then(data => {
-        document.querySelector(".lcd").innerHTML = data.lcd.text;
-        document.getElementById("lcdLink").href = data.lcd.link;
-        document.getElementById("lcdLink").target = "_blank";
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
-
-// Events
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
-    .then(response => response.json())
-    .then(data => {
-        const events = data.activities;
-        let eventsHTML = "";
-        for (const event of events) {
-            eventsHTML += `
-            <article onclick=(window.location.href="${event.link}")>
-            ${event.image != "" ? `<img src="${event.image}"/>` : ""}<div><h4>${event.title
-                }</h4>
-            <div>${event.subtitle}</div>
-            <ul><li><i class="fa-solid fa-calendar"></i> ${event.date
-                }</li><li><i class="fa-solid fa-location-dot"></i> ${event.location
-                }</li><li><i class="fa-solid fa-tag"></i> ${event.price
-                }</li></ul><h5>${event.description}</h5></div></article>`;
-        }
-        document.querySelector(".events").innerHTML = eventsHTML;
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
-
-// Images
 let imageData,
-    pressed = false,
-    imageIndex = 0;
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
-    .then(response => response.json())
-    .then(data => {
-        imageData = data;
-        let sdBox = document.querySelector(".sdBox");
-        for (const event in imageData) {
-            const div = document.createElement("div");
-            div.classList.add("sdCard");
-            div.textContent = event;
-            sdBox.appendChild(div);
-            div.addEventListener("click", showImg);
-        }
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
-
-// Club
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt")
-    .then(response => response.text())
-    .then(data => {
-        var club = data.split("\n");
-        club = club
-            .map(club => {
-                if (club === "") return "";
-                return `<div><img
-            src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/${club}"
-            alt="${club}" /><div class="back"><h4>${club.replace(
-                    ".webp",
-                    ""
-                )}</h4></div></div>`;
+    imageIndex,
+    pressed = false;
+    // Define the fetch promises
+    const fetchPromises = [
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/home.json"
+        )
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector(".lcd").innerHTML = data.lcd.text;
+                document.getElementById("lcdLink").href = data.lcd.link;
+                document.getElementById("lcdLink").target = "_blank";
             })
-            .join("");
-        document.querySelector(".club-list").innerHTML = club + club;
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
+            .catch(error => {
+                console.error("Error: ", error);
+            }),
+
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/events.json"
+        )
+            .then(response => response.json())
+            .then(data => {
+                const events = data.activities;
+                let eventsHTML = "";
+                for (const event of events) {
+                    eventsHTML += `
+                    <article onclick=(window.location.href="${event.link}")>
+                    ${
+                        event.image != "" ? `<img src="${event.image}"/>` : ""
+                    }<div><h4>${event.title}</h4>
+                    <div>${event.subtitle}</div>
+                    <ul><li><i class="fa-solid fa-calendar"></i> ${
+                        event.date
+                    }</li><li><i class="fa-solid fa-location-dot"></i> ${
+                        event.location
+                    }</li><li><i class="fa-solid fa-tag"></i> ${
+                        event.price
+                    }</li></ul><h5>${event.description}</h5></div></article>`;
+                }
+                document.querySelector(".events").innerHTML = eventsHTML;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            }),
+
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/images.json"
+        )
+            .then(response => response.json())
+            .then(data => {
+                imageData = data;
+                let sdBox = document.querySelector(".sdBox");
+                for (const event in imageData) {
+                    const div = document.createElement("div");
+                    div.classList.add("sdCard");
+                    div.textContent = event;
+                    sdBox.appendChild(div);
+                    div.addEventListener("click", showImg);
+                }
+            })
+            .catch(error => {
+                console.error("Error: ", error);
+            }),
+
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt"
+        )
+            .then(response => response.text())
+            .then(data => {
+                var club = data.split("\n");
+                club = club
+                    .map(club => {
+                        if (club === "") return "";
+                        return `<div><img
+                    src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/${club}"
+                    alt="${club}" /><div class="back"><h4>${club.replace(
+                            ".webp",
+                            ""
+                        )}</h4></div></div>`;
+                    })
+                    .join("");
+                document.querySelector(".club-list").innerHTML = club + club;
+            })
+            .catch(error => {
+                console.error("Error: ", error);
+            }),
+    ];
+
+    // Use Promise.all to wait for all fetch requests to complete
+    Promise.all(fetchPromises)
+        .then(() => {
+            console.log("All fetch requests completed");
+            // Execute additional code after all fetch requests have completed
+            afterFetchComplete();
+        })
+        .catch(error => {
+            console.error("Error with one of the fetch requests:", error);
+        });
+
+
+function afterFetchComplete() {
+    let t = document.querySelectorAll("[class^='emfont']"),
+        e = {};
+    for (let n in (t.forEach(t => {
+        let n = t.className
+                .split(" ")
+                .find(t => t.startsWith("emfont-"))
+                .replace("emfont-", ""),
+            o = t.textContent.trim();
+        n && o && (e[n] = e[n] + o);
+    }),
+    e)) {
+        var o = e[n];
+        fetch("https://font.emtech.cc/g/" + n, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                words: (o = Array.from(new Set(o.split("")))
+                    .sort()
+                    .join("")),
+            }),
+        })
+            .then(t => t.json())
+            .then(t => {
+                console.warn(
+                    "emfont: 字體 " +
+                        t.font +
+                        " 已生成完成，若網頁沒有變動文字可以直接直接載入網址\n" +
+                        t.url +
+                        " 來使用。"
+                );
+                let e = new FontFace(t.font, `url(${t.url})`, {
+                    style: t.style,
+                    weight: t.weight,
+                });
+                document.fonts.add(e);
+            });
+    }
+}
 
 const sd = document.querySelector(".sd");
 const imgContainer = document.getElementById("showImg-container");
@@ -276,8 +339,9 @@ const scrollFunction = () => {
         container.style.transform = "unset";
 
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
-            bigHeader.style.transform = `scale(${1 + (window.scrollY / window.innerHeight) * 80
-                })`;
+            bigHeader.style.transform = `scale(${
+                1 + (window.scrollY / window.innerHeight) * 80
+            })`;
             bigHeader.style.opacity = 1;
             awards.style.opacity = 1;
         }
@@ -289,7 +353,7 @@ const scrollFunction = () => {
                     1 -
                     ((window.scrollY - window.innerHeight * 0.05) /
                         window.innerHeight) *
-                    3;
+                        3;
                 bigHeader.style.opacity = opacityValue;
                 awards.style.opacity = opacityValue;
                 About.style.opacity =
@@ -306,18 +370,18 @@ const scrollFunction = () => {
                 // background position
                 if (
                     introImg.getBoundingClientRect().bottom <
-                    window.innerHeight &&
+                        window.innerHeight &&
                     introImg.getBoundingClientRect().bottom > 0
                 ) {
                     console.log(
                         introImg.getBoundingClientRect().bottom /
-                        window.innerHeight
+                            window.innerHeight
                     );
                     introImg.style.backgroundPositionX =
                         (1 -
                             introImg.getBoundingClientRect().bottom /
-                            window.innerHeight) *
-                        100 +
+                                window.innerHeight) *
+                            100 +
                         "%";
                 }
             }
@@ -327,8 +391,9 @@ const scrollFunction = () => {
         // mobile end
     }
     if (window.scrollY < (window.innerHeight * 1.15) / 3)
-        bigHeader.style.transform = `scale(${1 + (window.scrollY / window.innerHeight) * 80
-            })`;
+        bigHeader.style.transform = `scale(${
+            1 + (window.scrollY / window.innerHeight) * 80
+        })`;
     // 透明度轉場
     if (window.scrollY > window.innerHeight * 0.05) {
         if (window.scrollY < (window.innerHeight * 1.15) / 3) {
@@ -337,7 +402,7 @@ const scrollFunction = () => {
                 1 -
                 ((window.scrollY - window.innerHeight * 0.05) /
                     window.innerHeight) *
-                3;
+                    3;
             bigHeader.style.opacity = opacityValue;
             awards.style.opacity = opacityValue;
             awards.style.pointerEvents = "all";
@@ -368,9 +433,9 @@ const scrollFunction = () => {
                     introImg.style.backgroundPositionX =
                         (1 -
                             (projectOffset + window.innerHeight * 0.684) /
-                            (window.innerWidth +
-                                window.innerHeight * 0.684)) *
-                        100 +
+                                (window.innerWidth +
+                                    window.innerHeight * 0.684)) *
+                            100 +
                         "%";
                 }
             } else {
