@@ -93,52 +93,14 @@ let imageData,
         .then(() => {
             console.log("All fetch requests completed");
             // Execute additional code after all fetch requests have completed
-            afterFetchComplete();
+            emfont.init(function() {
+                console.log('所有字體載入完成!');
+              });
         })
         .catch(error => {
             console.error("Error with one of the fetch requests:", error);
         });
 
-
-function afterFetchComplete() {
-    let t = document.querySelectorAll("[class^='emfont']"),
-        e = {};
-    for (let n in (t.forEach(t => {
-        let n = t.className
-                .split(" ")
-                .find(t => t.startsWith("emfont-"))
-                .replace("emfont-", ""),
-            o = t.textContent.trim();
-        n && o && (e[n] = e[n] + o);
-    }),
-    e)) {
-        var o = e[n];
-        fetch("https://font.emtech.cc/g/" + n, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                words: (o = Array.from(new Set(o.split("")))
-                    .sort()
-                    .join("")),
-            }),
-        })
-            .then(t => t.json())
-            .then(t => {
-                console.warn(
-                    "emfont: 字體 " +
-                        t.font +
-                        " 已生成完成，若網頁沒有變動文字可以直接直接載入網址\n" +
-                        t.url +
-                        " 來使用。"
-                );
-                let e = new FontFace(t.font, `url(${t.url})`, {
-                    style: t.style,
-                    weight: t.weight,
-                });
-                document.fonts.add(e);
-            });
-    }
-}
 
 const sd = document.querySelector(".sd");
 const imgContainer = document.getElementById("showImg-container");
