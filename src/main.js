@@ -1,85 +1,106 @@
 /** @format */
-
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/home.json")
-    .then(response => response.json())
-    .then(data => {
-        document.querySelector(".lcd").innerHTML = data.lcd.text;
-        document.getElementById("lcdLink").href = data.lcd.link;
-        document.getElementById("lcdLink").target = "_blank";
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
-
-// Events
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/events.json")
-    .then(response => response.json())
-    .then(data => {
-        const events = data.activities;
-        let eventsHTML = "";
-        for (const event of events) {
-            eventsHTML += `
-            <article onclick=(window.location.href="${event.link}")>
-            ${event.image != "" ? `<img src="${event.image}"/>` : ""}<div><h4>${
-                event.title
-            }</h4>
-            <div>${event.subtitle}</div>
-            <ul><li><i class="fa-solid fa-calendar"></i> ${
-                event.date
-            }</li><li><i class="fa-solid fa-location-dot"></i> ${
-                event.location
-            }</li><li><i class="fa-solid fa-tag"></i> ${
-                event.price
-            }</li></ul><h5>${event.description}</h5></div></article>`;
-        }
-        document.querySelector(".events").innerHTML = eventsHTML;
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    });
-
-// Images
 let imageData,
-    pressed = false,
-    imageIndex = 0;
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/images.json")
-    .then(response => response.json())
-    .then(data => {
-        imageData = data;
-        let sdBox = document.querySelector(".sdBox");
-        for (const event in imageData) {
-            const div = document.createElement("div");
-            div.classList.add("sdCard");
-            div.textContent = event;
-            sdBox.appendChild(div);
-            div.addEventListener("click", showImg);
-        }
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
-
-// Club
-fetch("https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt")
-    .then(response => response.text())
-    .then(data => {
-        var club = data.split("\n");
-        club = club
-            .map(club => {
-                if (club === "") return "";
-                return `<div><img
-            src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/${club}"
-            alt="${club}" /><div class="back"><h4>${club.replace(
-                    ".webp",
-                    ""
-                )}</h4></div></div>`;
+    imageIndex,
+    pressed = false;
+    // Define the fetch promises
+    const fetchPromises = [
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/home.json"
+        )
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector(".lcd").innerHTML = data.lcd.text;
+                document.getElementById("lcdLink").href = data.lcd.link;
+                document.getElementById("lcdLink").target = "_blank";
             })
-            .join("");
-        document.querySelector(".club-list").innerHTML = club + club;
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
+            .catch(error => {
+                console.error("Error: ", error);
+            }),
+
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/events.json"
+        )
+            .then(response => response.json())
+            .then(data => {
+                const events = data.activities;
+                let eventsHTML = "";
+                for (const event of events) {
+                    eventsHTML += `
+                    <article onclick=(window.location.href="${event.link}")>
+                    ${
+                        event.image != "" ? `<img src="${event.image}"/>` : ""
+                    }<div><h4>${event.title}</h4>
+                    <div>${event.subtitle}</div>
+                    <ul><li><i class="fa-solid fa-calendar"></i> ${
+                        event.date
+                    }</li><li><i class="fa-solid fa-location-dot"></i> ${
+                        event.location
+                    }</li><li><i class="fa-solid fa-tag"></i> ${
+                        event.price
+                    }</li></ul><h5>${event.description}</h5></div></article>`;
+                }
+                document.querySelector(".events").innerHTML = eventsHTML;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            }),
+
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/images.json"
+        )
+            .then(response => response.json())
+            .then(data => {
+                imageData = data;
+                let sdBox = document.querySelector(".sdBox");
+                for (const event in imageData) {
+                    const div = document.createElement("div");
+                    div.classList.add("sdCard");
+                    div.textContent = event;
+                    sdBox.appendChild(div);
+                    div.addEventListener("click", showImg);
+                }
+            })
+            .catch(error => {
+                console.error("Error: ", error);
+            }),
+
+        fetch(
+            "https://raw.githubusercontent.com/SCAICT/website-data/main/club.txt"
+        )
+            .then(response => response.text())
+            .then(data => {
+                var club = data.split("\n");
+                club = club
+                    .map(club => {
+                        if (club === "") return "";
+                        return `<div><img
+                    src="https://raw.githubusercontent.com/SCAICT/website-data/main/converted/club/${club}"
+                    alt="${club}" /><div class="back"><h4>${club.replace(
+                            ".webp",
+                            ""
+                        )}</h4></div></div>`;
+                    })
+                    .join("");
+                document.querySelector(".club-list").innerHTML = club + club;
+            })
+            .catch(error => {
+                console.error("Error: ", error);
+            }),
+    ];
+
+    // Use Promise.all to wait for all fetch requests to complete
+    Promise.all(fetchPromises)
+        .then(() => {
+            console.log("All fetch requests completed");
+            // Execute additional code after all fetch requests have completed
+            emfont.init(function() {
+                console.log('所有字體載入完成!');
+              });
+        })
+        .catch(error => {
+            console.error("Error with one of the fetch requests:", error);
+        });
+
 
 const sd = document.querySelector(".sd");
 const imgContainer = document.getElementById("showImg-container");
@@ -306,6 +327,7 @@ const scrollFunction = () => {
                 bigHeader.style.pointerEvents = "none";
                 bigHeader.style.opacity = 0;
                 awards.style.opacity = 0;
+                awards.style.pointerEvents = "none";
                 About.style.opacity = 1;
                 // background position
                 if (
@@ -345,6 +367,7 @@ const scrollFunction = () => {
                     3;
             bigHeader.style.opacity = opacityValue;
             awards.style.opacity = opacityValue;
+            awards.style.pointerEvents = "all";
             About.style.opacity =
                 ((window.scrollY - window.innerHeight * 0.05) /
                     window.innerHeight) *
@@ -354,6 +377,7 @@ const scrollFunction = () => {
             bigHeader.style.pointerEvents = "none";
             bigHeader.style.opacity = 0;
             awards.style.opacity = 0;
+            awards.style.pointerEvents = "none";
             About.style.opacity = 1;
             if (window.scrollY < containerScrollWidth) {
                 container.style.transform =
@@ -407,13 +431,21 @@ const scrollFunction = () => {
     } else {
         bigHeader.style.opacity = 1;
         awards.style.opacity = 1;
+        awards.style.pointerEvents = "all";
         About.style.opacity = 0;
     }
 };
 
-const last = window.scrollY;
-window.addEventListener("scroll", scrollFunction);
-scrollFunction();
+let ticking = false;
+window.addEventListener("scroll", function (e) {
+    if (!ticking) {
+        window.requestAnimationFrame(function () {
+            scrollFunction();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
 
 elements = document.querySelectorAll(".tree i");
 elements.forEach(element => {
@@ -446,8 +478,7 @@ const motorControl = () => {
     }
 };
 
-// track when #ukraineBrightness been drug up or down
-
+const backgroundCenter = document.querySelector(".background-center");
 const ukraineBrightness = document.getElementById("ukraineBrightness");
 var mouseY,
     currentBrightness = 1,
@@ -458,7 +489,28 @@ ukraineBrightness.addEventListener("mousedown", e => {
     document.addEventListener("mousemove", ukraineBrightnessChange);
 });
 
-const backgroundCenter = document.querySelector(".background-center");
+const ukraineHue = document.getElementById("ukraineHue");
+var mouseHueY,
+    currentHue = 230;
+ukraineHue.addEventListener("mousedown", e => {
+    mouseHueY = e.clientY;
+    document.addEventListener("mousemove", ukraineHueChange);
+    status = 2;
+});
+
+document.addEventListener("mouseup", e => {
+    if (status == 2) {
+        const ukraineHueValue = e.clientY - mouseHueY;
+        currentHue += ukraineHueValue / 10;
+        document.removeEventListener("mousemove", ukraineHueChange);
+    } else if (status == 1) {
+        if (mouseY == "NaN") mouseY = e.clientY;
+        const ukraineBrightnessValue = e.clientY - mouseY;
+        currentBrightness -= ukraineBrightnessValue / 1000;
+        document.removeEventListener("mousemove", ukraineBrightnessChange);
+    }
+});
+
 const ukraineBrightnessChange = e => {
     const ukraineBrightnessValue = e.clientY - mouseY;
     backgroundCenter.style.setProperty(
@@ -471,26 +523,6 @@ const ukraineBrightnessChange = e => {
     );
 };
 
-const ukraineHue = document.getElementById("ukraineHue");
-var mouseHueY,
-    currentHue = 230;
-ukraineHue.addEventListener("mousedown", e => {
-    mouseHueY = e.clientY;
-    document.addEventListener("mousemove", ukraineHueChange);
-    status = 2;
-});
-document.addEventListener("mouseup", e => {
-    if (status == 2) {
-        const ukraineHueValue = e.clientY - mouseHueY;
-        currentHue += ukraineHueValue / 10;
-        document.removeEventListener("mousemove", ukraineHueChange);
-    } else {
-        if (mouseY == "NaN") mouseY = e.clientY;
-        const ukraineBrightnessValue = e.clientY - mouseY;
-        currentBrightness -= ukraineBrightnessValue / 1000;
-        document.removeEventListener("mousemove", ukraineBrightnessChange);
-    }
-});
 const ukraineHueChange = e => {
     const ukraineHueValue = e.clientY - mouseHueY;
     backgroundCenter.style.setProperty(

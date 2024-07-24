@@ -1,10 +1,5 @@
 /** @format */
 
-@font-face {
-    font-family: "OpenHuninn";
-    src: url("/src/jf-openhuninn-2.0.ttf") format("truetype");
-}
-
 /* 英文字體 */
 @font-face {
     font-family: "Quicksand";
@@ -28,7 +23,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "Quicksand", "OpenHuninn", sans-serif;
+    font-family: "Quicksand", "JF Open Huninn", sans-serif;
     color: #fff;
     background: #000;
     overflow-x: hidden;
@@ -179,7 +174,7 @@ header h3,
 .switchText,
 .lcdText,
 .ukraineText {
-    font-family: "NicoMoji", "OpenHuninn", sans-serif;
+    font-family: "NicoMoji", "JF Open Huninn", sans-serif;
     font-weight: 400;
 }
 
@@ -519,6 +514,7 @@ footer {
     position: relative;
     transition: background-position 350ms ease;
     border: 5px solid #19a0da;
+    cursor: pointer;
 }
 .events article::after {
     background-image: radial-gradient(
@@ -1770,7 +1766,7 @@ article li {
         height: 10em;
     }
     #About .Sponsor-ccontainer h2 {
-        font-family: "Quicksand", "OpenHuninn", sans-serif;
+        font-family: "Quicksand", "JF Open Huninn", sans-serif;
         font-weight: 400;
     }
     .sponsor-join {
@@ -1861,6 +1857,7 @@ article li {
     height: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 2;
 }
 
 .awards img {
