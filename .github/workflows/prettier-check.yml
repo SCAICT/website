@@ -23,11 +23,21 @@ jobs:
         run: npx prettier --check .
 
       - name: Run Prettier format (if needed)
-        if: ${{ failure() }}
+        if: ${{ steps.prettier.outcome == 'failure' }}
         run: npx prettier --write .
 
+      - name: Commit and Push changes (if needed)
+        if: ${{ steps.prettier.outcome == 'failure' }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -b prettier-fixes-${{ github.run_id }}
+          git add .
+          git commit -m 'fix: format code with Prettier'
+          git push --set-upstream origin prettier-fixes-${{ github.run_id }}
+
       - name: Create Pull Request
-        if: ${{ failure() }}
+        if: ${{ steps.prettier.outcome == 'failure' }}
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
