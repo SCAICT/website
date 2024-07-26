@@ -6,9 +6,6 @@
 
 ![](screenshots.png)
 
-
-
-
 ## 簡介 Introduction
 
 這是中電會的官方網站，由中電會第三屆成員共同建立。使用純手工打造，不使用任何框架，可直接靜態部屬。資料存放於 [website-data](https://github.com/SCAICT/website-data) 倉庫。
@@ -19,9 +16,9 @@ This is the official website of SCAICT, built by the third generation of SCAICT 
 
 ## 獲獎 Awards
 
-* [CSSLight](https://www.csslight.com/website/63649/Scaict) - Featured of the Day
-* [Top Design King](https://topdesignking.com/website/1502/scaict) - King of the Day
-* [Web Gugu Award](https://www.webguruawards.com/sites/scaict) - Guru of the Day
-* [CSSREEL](https://www.cssreel.com/website/scaict) - Featured
-* CSS WINNER - Nominee
-* [Top CSS Gallery](https://www.topcssgallery.com/gallery/scaict/) 
+- [CSSLight](https://www.csslight.com/website/63649/Scaict) - Featured of the Day
+- [Top Design King](https://topdesignking.com/website/1502/scaict) - King of the Day
+- [Web Gugu Award](https://www.webguruawards.com/sites/scaict) - Guru of the Day
+- [CSSREEL](https://www.cssreel.com/website/scaict) - Featured
+- CSS WINNER - Nominee
+- [Top CSS Gallery](https://www.topcssgallery.com/gallery/scaict/)

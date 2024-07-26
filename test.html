@@ -1,70 +1,65 @@
 <!-- @format -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Smooth Scroll Demo</title>
-        <style>
-            body,
-            html {
-                margin: 0;
-                padding: 0;
-                height: 300vh;
-                overflow: hidden;
-            }
-            #content {
-                width: 100%;
-                height: 300vh; /* Simulate a tall page */
-                background: linear-gradient(
-                    to bottom,
-                    #3f87a6,
-                    #ebf8e1,
-                    #f69d3c
-                );
-            }
-            #viewport {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                overflow: hidden;
-            }
-            .fixed-ui {
-                position: fixed;
-                top: 10px;
-                left: 10px;
-                color: white;
-                z-index: 100;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="viewport">
-            <div id="content"></div>
-        </div>
-        <div class="fixed-ui">Smooth Scroll Enabled</div>
-        <script>
-            let scrollY = 0;
-            let lastScrollY = 0;
-            let content = document.getElementById("content");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smooth Scroll Demo</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 300vh;
+        overflow: hidden;
+      }
+      #content {
+        width: 100%;
+        height: 300vh; /* Simulate a tall page */
+        background: linear-gradient(to bottom, #3f87a6, #ebf8e1, #f69d3c);
+      }
+      #viewport {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+      .fixed-ui {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        color: white;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="content"></div>
+    </div>
+    <div class="fixed-ui">Smooth Scroll Enabled</div>
+    <script>
+      let scrollY = 0;
+      let lastScrollY = 0;
+      let content = document.getElementById('content');
 
-            function updateScroll() {
-                requestAnimationFrame(() => {
-                    const diff = scrollY - lastScrollY;
-                    lastScrollY += diff * 0.1;
-                    content.style.transform = `translateY(-${lastScrollY}px)`;
-                    if (Math.abs(diff) > 0.5) updateScroll();
-                });
-            }
+      function updateScroll() {
+        requestAnimationFrame(() => {
+          const diff = scrollY - lastScrollY;
+          lastScrollY += diff * 0.1;
+          content.style.transform = `translateY(-${lastScrollY}px)`;
+          if (Math.abs(diff) > 0.5) updateScroll();
+        });
+      }
 
-            window.addEventListener("scroll", () => {
-                scrollY = window.scrollY;
-                console
-                updateScroll();
-            });
-        </script>
-    </body>
+      window.addEventListener('scroll', () => {
+        scrollY = window.scrollY;
+        console;
+        updateScroll();
+      });
+    </script>
+  </body>
 </html>
