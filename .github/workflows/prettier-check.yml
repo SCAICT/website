@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install dependencies
+        run: npm install prettier
 
       - name: Run Prettier check
         id: prettier
@@ -39,6 +41,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: prettier-fixes-${{ github.run_id }}
           title: 'fix: format code with Prettier'
           body: 'This pull request fixes the code formatting issues identified by Prettier.'
