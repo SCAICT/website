@@ -1,194 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <head>
-    <meta charset="utf-8" />
-    <!-- 下面這行是標題 -->
-    <title>SCAICT 10 月主題課程</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- 下面這行是縮圖，可以換網址 -->
-    <link href="./src/img/favicon.ico" rel="icon" type="image/icon">
-    <link rel="stylesheet" type="text/css" href="https://Edit-Mr.github.io/css/Animate.css" media="screen">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- 下面這些是樣式，可以自由更換顏色之類的 -->
-    <style>
-        @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+  <meta charset="utf-8" />
+  <!-- 下面這行是標題 -->
+  <title>SCAICT 10 月主題課程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- 下面這行是縮圖，可以換網址 -->
+  <link href="./src/img/favicon.ico" rel="icon" type="image/icon" />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://Edit-Mr.github.io/css/Animate.css"
+    media="screen"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- 下面這些是樣式，可以自由更換顏色之類的 -->
+  <style>
+    @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 
-        * {
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: "Arial", "cwTeXYen", "微軟正黑體";
-            background-color: #f1dc91;
-        }
+    body {
+      font-family: 'Arial', 'cwTeXYen', '微軟正黑體';
+      background-color: #f1dc91;
+    }
 
-        .container {
-            max-width: 50vw;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 10px;
-            padding-right: 10px;
-            font-size: 25px;
-        }
+    .container {
+      max-width: 50vw;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 25px;
+    }
 
-        h2 {
-            font-size: 1em;
-            margin: 0;
-            text-align: center;
-            font-weight: 150;
-            color: #0a02ea;
-            animation: fadeIn;
-            animation-duration: 1.5s;
-        }
+    h2 {
+      font-size: 1em;
+      margin: 0;
+      text-align: center;
+      font-weight: 150;
+      color: #0a02ea;
+      animation: fadeIn;
+      animation-duration: 1.5s;
+    }
 
-        h1 {
-            font-size: 3em;
-            margin: 20px 0 0 0;
-            text-align: center;
-            size: 30px;
-            color: #000000;
-            animation: zoomIn;
-            animation-duration: 1s;
-        }
+    h1 {
+      font-size: 3em;
+      margin: 20px 0 0 0;
+      text-align: center;
+      size: 30px;
+      color: #000000;
+      animation: zoomIn;
+      animation-duration: 1s;
+    }
 
-        li {
-            border-radius: 3px;
-            padding: 25px 30px;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 25px;
-        }
+    li {
+      border-radius: 3px;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
 
-        .responsive-table .table-header,
-        .table-note {
-            background-color: #f9a556;
-            font-size: 30px;
-            margin-top: 0px;
-            padding: 25px 30px 25px 30px;
-            animation: slideInUp;
-            animation-duration: 1.5s;
-        }
+    .responsive-table .table-header,
+    .table-note {
+      background-color: #f9a556;
+      font-size: 30px;
+      margin-top: 0px;
+      padding: 25px 30px 25px 30px;
+      animation: slideInUp;
+      animation-duration: 1.5s;
+    }
 
-        .table-note {
-            font-size: 20px;
-            display: none;
-        }
+    .table-note {
+      font-size: 20px;
+      display: none;
+    }
 
-        .responsive-table {
-            margin: 0;
-            padding: 0;
-        }
+    .responsive-table {
+      margin: 0;
+      padding: 0;
+    }
 
-        .responsive-table .table-row {
-            background-color: #fbe7cd;
-            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
-            animation: backInLeft;
-            animation-duration: 1.5s;
-        }
+    .responsive-table .table-row {
+      background-color: #fbe7cd;
+      box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+      animation: backInLeft;
+      animation-duration: 1.5s;
+    }
 
-        .responsive-table .col-1 {
-            flex-basis: 25%;
-        }
+    .responsive-table .col-1 {
+      flex-basis: 25%;
+    }
 
-        .responsive-table .col-2 {
-            flex-basis: 30%;
-        }
+    .responsive-table .col-2 {
+      flex-basis: 30%;
+    }
 
-        .responsive-table .col-3 {
-            flex-basis: 30%;
-        }
+    .responsive-table .col-3 {
+      flex-basis: 30%;
+    }
 
-        .responsive-table .col-4 {
-            flex-basis: 15%;
-        }
+    .responsive-table .col-4 {
+      flex-basis: 15%;
+    }
 
-        @media all and (max-width: 767px) {
-            .responsive-table .table-header {
-                display: none;
-            }
+    @media all and (max-width: 767px) {
+      .responsive-table .table-header {
+        display: none;
+      }
 
-            .table-note {
-                display: block;
-            }
+      .table-note {
+        display: block;
+      }
 
-            .responsive-table li {
-                display: block;
-            }
+      .responsive-table li {
+        display: block;
+      }
 
-            .responsive-table .col {
-                flex-basis: 100%;
-            }
+      .responsive-table .col {
+        flex-basis: 100%;
+      }
 
-            .responsive-table .col {
-                display: flex;
-                padding: 10px 0;
-            }
+      .responsive-table .col {
+        display: flex;
+        padding: 10px 0;
+      }
 
-            .responsive-table .col:before {
-                color: #6c7a89;
-                padding-right: 10px;
-                content: attr(data-label);
-                flex-basis: 50%;
-                text-align: right;
-            }
-        }
+      .responsive-table .col:before {
+        color: #6c7a89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
 
-        .header {
-            width: 300px;
-            display: block;
-            margin: auto;
-            animation: slideInUp;
-            animation-duration: 1.5s;
-        }
+    .header {
+      width: 300px;
+      display: block;
+      margin: auto;
+      animation: slideInUp;
+      animation-duration: 1.5s;
+    }
 
-        .finished {
-            color: green;
-        }
+    .finished {
+      color: green;
+    }
 
-        p,
-        a {
-            text-align: center;
-            font-size: 15px;
-            color: #6c7a89;
-            text-decoration: none;
-            animation: fadeIn;
-            animation-duration: 1.5s;
-        }
-    </style>
+    p,
+    a {
+      text-align: center;
+      font-size: 15px;
+      color: #6c7a89;
+      text-decoration: none;
+      animation: fadeIn;
+      animation-duration: 1.5s;
+    }
+  </style>
 </head>
 <script>
-    // GAS網址
-    let requestURL = 'https://script.google.com/macros/s/AKfycbwMD6hHZK7SR0y9-EygDp4hU1WMfAJzrzhYLcZ40DHNlAfzLKz9y_u8VdT8ukGPMBHtKw/exec';
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'text';
-    request.send();
-    request.onload = function () {
-        console.log('載入成功');
-        $('p').addClass('animate_animated', 'animate_fadeOut') // 動畫
-        $('.responsive-table').html(request.response); // 用表格取代 `.responsive-table`
-    }; 
+  // GAS網址
+  let requestURL =
+    'https://script.google.com/macros/s/AKfycbwMD6hHZK7SR0y9-EygDp4hU1WMfAJzrzhYLcZ40DHNlAfzLKz9y_u8VdT8ukGPMBHtKw/exec';
+  let request = new XMLHttpRequest();
+  request.open('GET', requestURL);
+  request.responseType = 'text';
+  request.send();
+  request.onload = function () {
+    console.log('載入成功');
+    $('p').addClass('animate_animated', 'animate_fadeOut'); // 動畫
+    $('.responsive-table').html(request.response); // 用表格取代 `.responsive-table`
+  };
 </script>
 
 <body>
-    <div class="container">
-        <h1>SCAICT 10 月主題課程</h1>
-        <h2>網頁設計</h2>
-        <img src="./src/img/logo_gradient_RedPink-removebg-preview_RGB.png" class="header" />
-        <li class="table-note">
-            如果要一次看完整表格請切換到電腦版網頁。
-        </li>
-        <ul class="responsive-table">
-            <li class="table-header">
-                <div class="col col-1">學員姓名</div>
-                <div class="col col-2">學校</div>
-                <div class="col col-3">完成時間</div>
-                <div class="col col-4">狀態</div>
-            </li>
-            資料載入中……
-        </ul>
-        <p><a href="https://www.facebook.com/scaict.tw" target="_blank">Facebook</a> <br>
-            <a href="https://www.instagram.com/scaict.tw/" target="_blank">Instagram</a><br>
-            <a href="https://discord.com/invite/neQ7QEUcqe" target="_blank">Discord</a>
-    </div>
+  <div class="container">
+    <h1>SCAICT 10 月主題課程</h1>
+    <h2>網頁設計</h2>
+    <img
+      src="./src/img/logo_gradient_RedPink-removebg-preview_RGB.png"
+      class="header"
+    />
+    <li class="table-note">如果要一次看完整表格請切換到電腦版網頁。</li>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">學員姓名</div>
+        <div class="col col-2">學校</div>
+        <div class="col col-3">完成時間</div>
+        <div class="col col-4">狀態</div>
+      </li>
+      資料載入中……
+    </ul>
+    <p>
+      <a href="https://www.facebook.com/scaict.tw" target="_blank">Facebook</a>
+      <br />
+      <a href="https://www.instagram.com/scaict.tw/" target="_blank"
+        >Instagram</a
+      ><br />
+      <a href="https://discord.com/invite/neQ7QEUcqe" target="_blank"
+        >Discord</a
+      >
+    </p>
+  </div>
 </body>

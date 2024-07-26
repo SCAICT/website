@@ -1,78 +1,74 @@
 <!-- @format -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>10-Minute Timer</title>
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10-Minute Timer</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-            body {
-                background-color: black;
-                color: white;
-                font-family: "Aldrich", sans-serif, system-ui;
-                text-align: center;
-                font-size: 10rem;
-                min-height: 100vh;
-            }
+      body {
+        background-color: black;
+        color: white;
+        font-family: 'Aldrich', sans-serif, system-ui;
+        text-align: center;
+        font-size: 10rem;
+        min-height: 100vh;
+      }
 
-            .timer,
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-            }
+      .timer,
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
 
-            .timer div {
-                margin: 0;
-                width: 0.8em;
-                overflow: hidden;
-            }
-        </style>
-    </head>
+      .timer div {
+        margin: 0;
+        width: 0.8em;
+        overflow: hidden;
+      }
+    </style>
+  </head>
 
-    <body>
-        <div class="timer">
-            <div>?</div>
-            <div>q</div>
-            <div>=</div>
-            <div>秒</div>
-            <div>數</div>
-        </div>
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            let countdown = urlParams.get("t")
-                ? parseInt(urlParams.get("t"))
-                : 600;
-            let timerDisplay = document.querySelector(".timer");
-            let timer = setInterval(function () {
-                let minutes = Math.floor(countdown / 60);
-                let seconds = countdown % 60;
-                let minutesStr =
-                    minutes < 10 ? "0" + minutes : minutes.toString();
-                let secondsStr =
-                    seconds < 10 ? "0" + seconds : seconds.toString();
-                timerDisplay.children[0].textContent = minutesStr[0];
-                timerDisplay.children[1].textContent = minutesStr[1];
-                timerDisplay.children[3].textContent = secondsStr[0];
-                timerDisplay.children[4].textContent = secondsStr[1];
-                if (countdown === 0) {
-                    clearInterval(timer);
-                } else {
-                    countdown--;
-                }
-            }, 1000);
-            setTimeout(function () {
-                timerDisplay.children[2].textContent = ":";
-            }, 1000);
-        </script>
-    </body>
+  <body>
+    <div class="timer">
+      <div>?</div>
+      <div>q</div>
+      <div>=</div>
+      <div>秒</div>
+      <div>數</div>
+    </div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      let countdown = urlParams.get('t') ? parseInt(urlParams.get('t')) : 600;
+      let timerDisplay = document.querySelector('.timer');
+      let timer = setInterval(function () {
+        let minutes = Math.floor(countdown / 60);
+        let seconds = countdown % 60;
+        let minutesStr = minutes < 10 ? '0' + minutes : minutes.toString();
+        let secondsStr = seconds < 10 ? '0' + seconds : seconds.toString();
+        timerDisplay.children[0].textContent = minutesStr[0];
+        timerDisplay.children[1].textContent = minutesStr[1];
+        timerDisplay.children[3].textContent = secondsStr[0];
+        timerDisplay.children[4].textContent = secondsStr[1];
+        if (countdown === 0) {
+          clearInterval(timer);
+        } else {
+          countdown--;
+        }
+      }, 1000);
+      setTimeout(function () {
+        timerDisplay.children[2].textContent = ':';
+      }, 1000);
+    </script>
+  </body>
 </html>

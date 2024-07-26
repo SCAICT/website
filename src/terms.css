@@ -1,93 +1,92 @@
 /** @format */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    color: #030303;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    padding: 2rem 1rem;
-    background: url(/src/img/background.svg), linear-gradient(#242424, #242424);
-    background-size: calc(200dvh / 3);
-    backdrop-filter: invert(1);
+  font-family: Arial, sans-serif;
+  color: #030303;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  padding: 2rem 1rem;
+  background: url(/src/img/background.svg), linear-gradient(#242424, #242424);
+  background-size: calc(200dvh / 3);
+  backdrop-filter: invert(1);
 }
 
 main {
-    max-width: 800px;
-    margin: auto;
-    padding: 2rem;
-    background-color: #ebebeb;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.484);
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #ebebeb;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.484);
 }
 #uwu {
-    width: 13rem;
-    max-width: 100%;
-    display: block;
-    margin: auto;
-    margin-bottom: 1rem;
+  width: 13rem;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 footer img {
-    display: block;
-    width: 5rem;
-    margin: 2rem auto 1rem;
+  display: block;
+  width: 5rem;
+  margin: 2rem auto 1rem;
 }
 main > p:first-child {
 }
 h1 {
-    font-size: 2em;
-    text-align: center;
+  font-size: 2em;
+  text-align: center;
 }
 
 h2 {
-    font-size: 1.5em;
-    margin: 20px 0 10px;
+  font-size: 1.5em;
+  margin: 20px 0 10px;
 }
-h3{
-    font-size: 1.2em;
-    margin: 10px 0 5px;
-
+h3 {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
 }
 
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 ol,
 ul {
-    margin-bottom: 1.3rem;
-    margin-left: 2rem;
+  margin-bottom: 1.3rem;
+  margin-left: 2rem;
 }
 
 li {
-    margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 footer {
-    margin-top: 1rem;
-    text-align: center;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 0.5rem;
 
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
