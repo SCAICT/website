@@ -44,4 +44,3 @@ jobs:
           branch: prettier-fixes
           title: 'fix: format code with Prettier'
           body: 'This pull request fixes the code formatting issues identified by Prettier.'
-          labels: ['automated pr', 'prettier']
