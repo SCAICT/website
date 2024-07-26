@@ -1820,8 +1820,7 @@ article li {
       margin: 3em 0 0 5em;
   }
 
-  .link {
-      display: flex;
+  .link { display: flex;
       flex-direction: column;
       height: 100%;
   }
