@@ -26,7 +26,7 @@ jobs:
         if: ${{ failure() }}
         run: npx prettier --write .
       - name: Commit and Push changes (if needed)
-      
+
         if: ${{ steps.prettier.outcome == 'failure' }}
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -34,7 +34,6 @@ jobs:
           git checkout -b prettier-fixes-${{ github.run_id }}
           git add .
           git commit -m 'fix: format code with Prettier'
-          git push --set-upstream origin prettier-fixes-${{ github.run_id }}
 
       - name: Create Pull Request
         if: ${{ failure() }}
