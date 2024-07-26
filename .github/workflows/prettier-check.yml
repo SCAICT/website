@@ -25,15 +25,6 @@ jobs:
       - name: Run Prettier format (if needed)
         if: ${{ failure() }}
         run: npx prettier --write .
-      - name: Commit and Push changes (if needed)
-
-        if: ${{ steps.prettier.outcome == 'failure' }}
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout -b prettier-fixes-${{ github.run_id }}
-          git add .
-          git commit -m 'fix: format code with Prettier'
 
       - name: Create Pull Request
         if: ${{ failure() }}
@@ -41,11 +32,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'fix: format code with Prettier'
-          branch: prettier-fixes-${{ github.run_id }}
+          branch: prettier-fixes
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           signoff: true
           delete-branch: true
           title: 'fix: format code with Prettier'
           body: 'This pull request fixes the code formatting issues identified by Prettier.'
-          labels: format
+        labels: format
