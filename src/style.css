@@ -838,6 +838,11 @@ article li {
   top: 45.4%;
   color: #ff83be;
 }
+.fa-threads {
+  left: 35%;
+  top: 27%;
+  color: #fff;
+}
 .fa-facebook {
   top: 40%;
   left: 95.6%;
@@ -1176,6 +1181,10 @@ article li {
   .fa-instagram {
     left: 75.3%;
     top: 45.2%;
+  }
+  .fa-threads {
+    left: 35%;
+    top: 27%;
   }
   .fa-facebook {
     top: 41%;
