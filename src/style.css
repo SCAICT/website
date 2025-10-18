@@ -380,6 +380,78 @@ footer {
   opacity: 1;
 }
 
+.club-apply {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.club-apply-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: left;
+}
+
+.club-apply p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.club-apply p[lang='en-US'] {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.apply-button {
+  display: inline-block;
+  margin-top: 0;
+  padding: 1rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.apply-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(0px);
+}
+
+.apply-button:hover::before {
+  left: 100%;
+}
+
+.apply-button i {
+  margin-right: 0.5rem;
+}
+
 .introImg {
   background: url(/src/img/背影.webp) no-repeat;
   background-position: 0%;
