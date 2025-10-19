@@ -84,19 +84,6 @@ const fetchPromises = [
     }),
 ];
 
-// Use Promise.all to wait for all fetch requests to complete
-Promise.all(fetchPromises)
-  .then(() => {
-    console.log('All fetch requests completed');
-    // Execute additional code after all fetch requests have completed
-    emfont.init(function () {
-      console.log('所有字體載入完成!');
-    });
-  })
-  .catch(error => {
-    console.error('Error with one of the fetch requests:', error);
-  });
-
 const sd = document.querySelector('.sd');
 const imgContainer = document.getElementById('showImg-container');
 const showImg = event => {
